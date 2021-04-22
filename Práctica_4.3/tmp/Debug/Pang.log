@@ -1,0 +1,10 @@
+﻿  Caja.cpp
+  Mundo.cpp
+C:\Users\rodri\Desktop\UPM\Actual\Informática Industrial y Comunicaciones\Laboratorio\Práctica_4.3\src\Mundo.cpp(7,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\rodri\Desktop\UPM\Actual\Informática Industrial y Comunicaciones\Laboratorio\Práctica_4.3\src\Mundo.cpp(8,11): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\rodri\Desktop\UPM\Actual\Informática Industrial y Comunicaciones\Laboratorio\Práctica_4.3\src\Mundo.cpp(10,12): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\rodri\Desktop\UPM\Actual\Informática Industrial y Comunicaciones\Laboratorio\Práctica_4.3\src\Mundo.cpp(11,12): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  Pang.cpp
+  Pared.cpp
+  Generando código...
+  Pang.vcxproj -> C:\Users\rodri\Desktop\UPM\Actual\Informática Industrial y Comunicaciones\Laboratorio\Práctica_4.3\bin\Pang.exe
