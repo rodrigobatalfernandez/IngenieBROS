@@ -1,0 +1,15 @@
+﻿TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutInitWindowSize@8 sin resolver al que se hace referencia en la función _main
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutInitDisplayMode@4 sin resolver al que se hace referencia en la función _main
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutMainLoop@0 sin resolver al que se hace referencia en la función _main
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutPostRedisplay@0 sin resolver al que se hace referencia en la función "void __cdecl OnKeyboardDown(unsigned char,int,int)" (?OnKeyboardDown@@YAXEHH@Z)
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutSwapBuffers@0 sin resolver al que se hace referencia en la función "void __cdecl OnDraw(void)" (?OnDraw@@YAXXZ)
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutTimerFunc@12 sin resolver al que se hace referencia en la función "void __cdecl OnTimer(int)" (?OnTimer@@YAXH@Z)
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutKeyboardFunc@4 sin resolver al que se hace referencia en la función _main
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutDisplayFunc@4 sin resolver al que se hace referencia en la función _main
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutWireSphere@16 sin resolver al que se hace referencia en la función "void __cdecl OnDraw(void)" (?OnDraw@@YAXXZ)
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutSolidTorus@24 sin resolver al que se hace referencia en la función "void __cdecl OnDraw(void)" (?OnDraw@@YAXXZ)
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp__glutSolidTeapot@8 sin resolver al que se hace referencia en la función "void __cdecl OnDraw(void)" (?OnDraw@@YAXXZ)
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp____glutInitWithExit@12 sin resolver al que se hace referencia en la función _glutInit_ATEXIT_HACK@8
+TacticalTakedown.obj : error LNK2019: símbolo externo __imp____glutCreateWindowWithExit@8 sin resolver al que se hace referencia en la función _glutCreateWindow_ATEXIT_HACK@4
+lib\freeglut.lib : warning LNK4272: el tipo de máquina de biblioteca 'x64' está en conflicto con el tipo de máquina de destino 'x86'
+D:\Documents\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe : fatal error LNK1120: 13 externos sin resolver
