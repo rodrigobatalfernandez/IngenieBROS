@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+<<<<<<< HEAD:IngenieBROS/tmp/Debug/TacticalTakedown.exe.recipe
+      <FullPath>C:\Users\Guillermo\Documents\GitHub\IngenieBROS\IngenieBROS\bin\TacticalTakedown.exe</FullPath>
+=======
+      <FullPath>D:\Documents\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe</FullPath>
+>>>>>>> 78ba0bf7298af7cce198ef392778604719cb2af3:TacticalTakedown/tmp/TacticalTakedown.exe.recipe
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
