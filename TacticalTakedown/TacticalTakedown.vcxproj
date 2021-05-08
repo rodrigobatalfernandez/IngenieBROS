@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Camara.cpp" />
+    <ClCompile Include="src\Camara.cpp" />
     <ClCompile Include="src\Jugador.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mapa.cpp" />

@@ -30,10 +30,10 @@
     <ClCompile Include="src\Mapa.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Camara.cpp">
+    <ClCompile Include="src\Mundo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mundo.cpp">
+    <ClCompile Include="src\Camara.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
