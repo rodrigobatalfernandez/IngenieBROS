@@ -12,4 +12,9 @@ public:
 	Jugador();
 	void dibuja();
 	void mueve(float t);
+	void setPos(float ix, float iy);
+	Vector2D getPos();
+	void setVel(float ivx, float ivy);
+	void setOri(float o);
+	float getOri();
 };

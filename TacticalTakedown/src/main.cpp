@@ -64,7 +64,7 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
 }
 
 void onSpecialKeyboardDown(int key, int x, int y) {
-	//mundo.teclaEspecial(key);
+	mundo.teclaEspecial(key);
 }
 
 void OnTimer(int value) {

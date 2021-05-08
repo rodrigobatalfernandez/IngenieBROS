@@ -8,5 +8,6 @@ private:
 	Vector2D mira;
 public:
 	Camara();
+	void setPos(float ix, float iy);
 	void dibuja();
 };

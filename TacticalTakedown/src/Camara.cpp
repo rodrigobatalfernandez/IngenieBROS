@@ -9,7 +9,14 @@ Camara::Camara() {
 }
 
 void Camara::dibuja() {
-	gluLookAt(posicion.x, posicion.y,  -1,
+	gluLookAt(posicion.x, posicion.y,  5,
 			      mira.x,     mira.y,   0,
 					   0,		   1,   0);
+}
+
+void Camara::setPos(float ix, float iy) {
+	posicion.x = ix;
+	posicion.y = iy;
+	mira.x = ix;
+	mira.y = iy;
 }

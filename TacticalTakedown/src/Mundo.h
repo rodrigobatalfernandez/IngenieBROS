@@ -1,17 +1,13 @@
 #pragma once
 #include "Camara.h"
 #include "Jugador.h"
+#include "Vector2D.h"
 
 class Mundo
 {
 private:
 	Camara camara;
 	Jugador jugador;
-
-		float x_ojo; //
-		float y_ojo;
-		float z_ojo;
-
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;
