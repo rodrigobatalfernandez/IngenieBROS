@@ -2,6 +2,7 @@
 #include "Camara.h"
 #include "Jugador.h"
 #include "Vector2D.h"
+#include "ETSIDI.H"
 
 class Mundo
 {
@@ -23,4 +24,5 @@ public:
 		void mueve();
 		void dibuja();
 		void teclaEspecial(unsigned char key);
+		void musica();
 };

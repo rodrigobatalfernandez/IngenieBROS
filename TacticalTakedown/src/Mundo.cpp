@@ -106,3 +106,6 @@ Mundo::~Mundo()
 	/*esferas.destruirContenido();
 	disparos.destruirContenido();*/
 }
+void Mundo::musica() {//funcion musica, es necesaria pararlo
+	ETSIDI::playMusica("sonidos/DiffBAJO.mp3", true);
+}

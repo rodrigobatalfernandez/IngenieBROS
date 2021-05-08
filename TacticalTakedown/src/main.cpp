@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
 	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
 
 	mundo.inicializa();
-
+	mundo.musica(); //ejemplo lugar musica no sabemos donde va
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
 
