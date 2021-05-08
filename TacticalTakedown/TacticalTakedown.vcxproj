@@ -21,7 +21,7 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
-    <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mundo.h" />

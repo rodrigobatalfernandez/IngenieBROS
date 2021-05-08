@@ -1,16 +1,17 @@
 #pragma once
+
 class Mundo
 {
 private:
 		float x_ojo;
 		float y_ojo;
 		float z_ojo;
-		ListaDisparos disparos;
+		/*ListaDisparos disparos;
 		ListaEsferas esferas;
 		Hombre hombre;
 		Caja caja;
 		Bonus bonus;
-		Pared plataforma;
+		Pared plataforma;*/
 public:
 		~Mundo();
 		void tecla(unsigned char key);
