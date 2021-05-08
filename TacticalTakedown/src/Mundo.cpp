@@ -11,9 +11,11 @@ void Mundo::rotarOjo() {
 }
 
 void Mundo::dibuja() {
-	gluLookAt(x_ojo, y_ojo, z_ojo,
-		0.0, y_ojo, 0.0, //NOTESE QUE HEMOS CAMBIADO ESTO 
-		0.0, 1.0, 0.0); //PARA MIRAR AL CENTRO DE LA ESCENA 
+	camara.dibuja();
+
+	glEnable(GL_LIGHTING);	//Desactiva la iluminación previo al dibujo de objetos
+
+	jugador.dibuja();
 
 	/*esferas.dibuja();
 	disparos.dibuja();
@@ -21,6 +23,8 @@ void Mundo::dibuja() {
 	hombre.dibuja();
 	plataforma.dibuja();
 	bonus.dibuja();*/
+
+	glDisable(GL_LIGHTING); //Reactiva la iluminación, para que todas las figuras reaccionen igual con la iluminación
 }
 
 void Mundo::mueve() {

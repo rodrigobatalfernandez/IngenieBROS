@@ -19,12 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camara.cpp" />
+    <ClCompile Include="src\Jugador.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Mapa.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
+    <ClCompile Include="src\Pared.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Camara.h" />
+    <ClInclude Include="src\ColorRGB.h" />
+    <ClInclude Include="src\Jugador.h" />
+    <ClInclude Include="src\Mapa.h" />
     <ClInclude Include="src\Mundo.h" />
+    <ClInclude Include="src\Pared.h" />
     <ClInclude Include="src\Vector2D.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
