@@ -64,7 +64,7 @@ void Mapa::dibuja() {
 				borde_dcha.dibuja();
 			}
 			if (mapa[fil][col] == 1) { //Textura correspondiente a 1
-				textura(fil, col, 0, "imagenes/StoneFloorTexture_0.png");
+				textura(fil, col, -0.1, "imagenes/StoneFloorTexture_0.png");
 			}
 			if (mapa[fil][col] == 2) { //Textura correspondiente a 2
 				textura(fil, col, 0, "imagenes/SovietChiquito.png");
