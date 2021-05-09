@@ -27,8 +27,9 @@ void Mundo::mueve() {
 
 	jugador.mueve(0.025f);
 
+	enemigo.persiguePunto(jugador.getPos());
+	//enemigo.miraPunto(jugador.getPos());
 	enemigo.mueve(0.025f);
-	enemigo.miraPunto(jugador.getPos());
 
 	disparo.mueve(0.025f);
 	

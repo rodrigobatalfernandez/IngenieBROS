@@ -1,5 +1,6 @@
 ﻿  Enemigo.cpp
-D:\Documents\IngenieBROS\TacticalTakedown\src\Enemigo.cpp(80,61): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-  main.cpp
-  Generando código...
+D:\Documents\IngenieBROS\TacticalTakedown\src\Enemigo.cpp(81,25): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Enemigo.cpp(86,20): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Enemigo.cpp(101,46): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Enemigo.cpp(101,11): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
   TacticalTakedown.vcxproj -> D:\Documents\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

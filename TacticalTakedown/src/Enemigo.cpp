@@ -1,4 +1,5 @@
 #include "Enemigo.h"
+#include <math.h>
 #define PI 3.141592
 
 Enemigo::Enemigo(float xi, float yi, float ori)
@@ -77,5 +78,25 @@ float Enemigo::getVelAng()
 
 void Enemigo::miraPunto(Vector2D Objetivo)
 {
-	orientacion = 180 / PI * (posicion - Objetivo).argumento() + 180;
+	orientacion = 180 / PI * (Objetivo - posicion).argumento();
+}
+
+void Enemigo::persiguePunto(Vector2D Objetivo)
+{
+	float ori_deseada = 180 / PI * (Objetivo - posicion).argumento();
+	float dif_ori = ori_deseada - orientacion;
+
+	dif_ori = dif_ori > 180 ? (dif_ori - 360) : dif_ori; //por si se pasa el asunto de el márgen de +-180º
+	dif_ori = dif_ori < -180 ? (dif_ori + 360) : dif_ori;
+
+	/*if (dif_ori > 180) {//Ojito, que no se pase de vueltas el asunto
+		dif_ori -= 360;
+	}
+	else if (dif_ori < -180) {
+		dif_ori += 360;
+	}*/
+
+	velangular = 2 * dif_ori;
+
+	setVel(5 * cos(orientacion * (PI / 180)), 5 * sin(orientacion * (PI / 180)));
 }

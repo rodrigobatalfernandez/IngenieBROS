@@ -24,4 +24,5 @@ public:
 	float getVelAng();
 
 	void miraPunto(Vector2D Objetivo);
+	void persiguePunto(Vector2D Objetivo);
 };
