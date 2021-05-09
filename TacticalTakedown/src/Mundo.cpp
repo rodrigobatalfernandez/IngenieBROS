@@ -12,6 +12,7 @@ void Mundo::dibuja() {
 	jugador.dibuja();
 	enemigo.dibuja();
 	disparo.dibuja();
+	mapa.dibuja();
 
 	/*esferas.dibuja();
 	disparos.dibuja();
