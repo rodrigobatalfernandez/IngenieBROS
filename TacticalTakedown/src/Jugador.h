@@ -1,8 +1,6 @@
 #pragma once
 #include "Vector2D.h"
 #include "ColorRGB.h"
-#include "ETSIDI.h"
-#define ESCALA 1
 
 class Jugador{
 	friend class Interaccion;
@@ -11,11 +9,11 @@ private:
 	Vector2D posicion;
 	Vector2D velocidad;
 	Vector2D aceleracion;
+
 	float orientacion; //Define un angulo (sexagesimal) sobre el que gira, (positivo antihorario)
 	float vel_avance; //Parametro que define el modulo de la velocidad a la que avanza
 	float vel_rotacion; //Parametro que define a la velocidad a la que va a variar la velociada angular
 	float velangular; //Velocidad de rotacion
-	int indice; //Indice de sprites
 
 	ColorRGB color; //Definicion del color
 	float radio; //Definición del radio de la hitbox

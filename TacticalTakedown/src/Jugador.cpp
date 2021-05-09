@@ -1,5 +1,8 @@
 #include "Jugador.h"
 #include "freeglut.h"
+#include "ETSIDI.h"
+
+#define ESCALA 1
 
 Jugador::Jugador() {
 	posicion.x = 0;
@@ -12,7 +15,6 @@ Jugador::Jugador() {
 	color.r = 255;
 	color.g = 0;
 	color.b = 0;
-	indice = 0;
 }
 
 void Jugador::mueve(float t) {
@@ -22,21 +24,26 @@ void Jugador::mueve(float t) {
 }
 
 void Jugador::dibuja() {
-
 	glTranslatef(posicion.x, posicion.y, 0);
-	//glRotatef(90, 0, 1, 0);
 	glRotatef(orientacion, 0, 0, 1);
-	
-	if ((indice >= 0) && (indice <= 7))//indice sprites
+	if ((indice >= 0) && (indice <= 7))
 		indice--;
 	else
 		indice = 7;
-	ETSIDI::SpriteSequence animacion("imagenes/TANKHUNG.png", 8, 8, 50, true, 0, 0, 4 * ESCALA, 4 * ESCALA, indice); //carpeta sprites
+	ETSIDI::SpriteSequence animacion("imagenes/TANKHUNG.png", 8, 8, 50, true, 0, 0, 4 * ESCALA, 4 * ESCALA, indice);
 	animacion.draw();
-
 	glRotatef(-orientacion, 0, 0, 1);
-	//glRotatef(-90, 0, 1, 0);
 	glTranslatef(-posicion.x, -posicion.y, 0);
+
+	/*glColor3ub(color.r, color.g, color.b);
+	glTranslatef(posicion.x, posicion.y, 0);
+
+	glRotatef(90, 1, 0, 0);
+	glRotatef(orientacion, 0, 1, 0);
+	glutSolidTeapot(radio);
+	glRotatef(-orientacion, 0, 1, 0);
+	glRotatef(-90, 1, 0, 0);
+	glTranslatef(-posicion.x, -posicion.y, 0);*/
 }
 
 void Jugador::setPos(float ix, float iy) {
