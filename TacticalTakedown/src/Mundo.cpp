@@ -1,6 +1,7 @@
 #include "Mundo.h"
 #include "freeglut.h"
 #include <math.h>
+#define PI 3.141592
 
 void Mundo::dibuja() {
 	camara.dibuja();
@@ -8,6 +9,7 @@ void Mundo::dibuja() {
 	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
 	jugador.dibuja();
+	disparo.dibuja();
 	/*esferas.dibuja();
 	disparos.dibuja();
 	caja.dibuja();
@@ -21,7 +23,7 @@ void Mundo::dibuja() {
 void Mundo::mueve() {
 
 	jugador.mueve(0.025f);
-	
+	disparo.mueve(0.025f);
 	/*hombre.mueve(0.025f);
 	esferas.mueve(0.025f);
 	bonus.mueve(0.025f);
@@ -40,7 +42,10 @@ void Mundo::mueve() {
 	disparos.colision(caja);*/
 }
 
-void Mundo::inicializa() {
+void Mundo::inicializa()
+{
+	jugador.setPos(0, 0);
+	disparo.setPos(0, 0);
 	/*bonus.setPos(5.0f, 5.0f);
 
 	plataforma.setPos(-5.0f, 9.0f, 5.0f, 9.0f);
@@ -62,6 +67,12 @@ void Mundo::teclaAbajo(unsigned char key)
 {
 	jugador.teclaAbajo(key);
 
+	switch (key) {
+	case (' '):
+		disparo.setPos(jugador.getPos().x, jugador.getPos().y);
+		disparo.setVel(3 * cos(jugador.getOri()*(PI/180)), 3 * sin(jugador.getOri()*(PI / 180)));
+		break;
+	}
 }
 
 void Mundo::teclaArriba(unsigned char key)

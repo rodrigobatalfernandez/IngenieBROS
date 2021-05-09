@@ -1,8 +1,6 @@
 #include "Jugador.h"
 #include "freeglut.h"
 
-#define PI 3.141592
-
 Jugador::Jugador() {
 	posicion.x = 0;
 	posicion.y = 0;

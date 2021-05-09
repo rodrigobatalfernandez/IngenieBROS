@@ -1,14 +1,18 @@
 #pragma once
+#include "ETSIDI.H"
+#include "Vector2D.h"
+
 #include "Camara.h"
 #include "Jugador.h"
-#include "Vector2D.h"
-#include "ETSIDI.H"
+#include "Disparo.h"
+
 
 class Mundo
 {
 private:
 	Camara camara;
 	Jugador jugador;
+	Disparo disparo;
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;

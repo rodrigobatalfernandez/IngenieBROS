@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Camara.cpp" />
+    <ClCompile Include="src\Disparo.cpp" />
     <ClCompile Include="src\Jugador.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mapa.cpp" />
@@ -30,6 +31,7 @@
   <ItemGroup>
     <ClInclude Include="src\Camara.h" />
     <ClInclude Include="src\ColorRGB.h" />
+    <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\Jugador.h" />
     <ClInclude Include="src\Mapa.h" />
     <ClInclude Include="src\Mundo.h" />
