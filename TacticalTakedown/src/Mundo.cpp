@@ -5,14 +5,13 @@
 
 void Mundo::dibuja() {
 	camara.dibuja();
+	mapa.dibuja();
 
 	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
 	jugador.dibuja();
 	enemigo.dibuja();
 	disparo.dibuja();
-	//mapa.dibuja();
-
 	for (int i = 0; i < 4; i++) {
 		pared[i].dibuja();
 	}
