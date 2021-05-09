@@ -1,4 +1,5 @@
 #include "Enemigo.h"
+#define PI 3.141592
 
 Enemigo::Enemigo(float xi, float yi, float ori)
 {
@@ -72,4 +73,9 @@ void Enemigo::setVelAng(float vo)
 float Enemigo::getVelAng()
 {
 	return velangular;
+}
+
+void Enemigo::miraPunto(Vector2D Objetivo)
+{
+	orientacion = 180 / PI * (posicion - Objetivo).argumento() + 180;
 }

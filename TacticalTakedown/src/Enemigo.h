@@ -18,10 +18,10 @@ public:
 	Vector2D getPos();
 	void setVel(float ivx, float ivy);
 	Vector2D getVel();
-
 	void setOri(float o);
 	float getOri();
 	void setVelAng(float vo);
 	float getVelAng();
-};
 
+	void miraPunto(Vector2D Objetivo);
+};

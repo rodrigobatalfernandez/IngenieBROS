@@ -16,16 +16,13 @@ void Pared::setColor(Byte r, Byte v, Byte a) {
 	color.set(r, v, a);
 }
 
-void Pared::dibuja() {
-	glDisable(GL_LIGHTING);
+void Pared::dibuja()
+{
 	glColor3ub(color.r, color.g, color.b);
-	glBegin(GL_POLYGON);
-	glVertex3d(limite1.x, limite1.y, 10);
-	glVertex3d(limite2.x, limite2.y, 10);
-	glVertex3d(limite2.x, limite2.y, -10);
-	glVertex3d(limite1.x, limite1.y, -10);
+	glBegin(GL_LINES);
+	glVertex2d(limite1.x, limite1.y);
+	glVertex2d(limite2.x, limite2.y);
 	glEnd();
-	glEnable(GL_LIGHTING);
 }
 
 //Calculo de distancia de una pared a un punto, adicionalmente 

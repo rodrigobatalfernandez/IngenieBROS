@@ -5,6 +5,7 @@
 
 void Mundo::dibuja() {
 	camara.dibuja();
+	mapa.dibuja();
 
 	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
@@ -25,8 +26,13 @@ void Mundo::dibuja() {
 void Mundo::mueve() {
 
 	jugador.mueve(0.025f);
+
 	enemigo.mueve(0.025f);
+	enemigo.miraPunto(jugador.getPos());
+
 	disparo.mueve(0.025f);
+	
+	camara.setPos(jugador.getPos().x, jugador.getPos().y);
 
 	/*hombre.mueve(0.025f);
 	esferas.mueve(0.025f);

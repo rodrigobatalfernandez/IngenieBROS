@@ -6,6 +6,7 @@
 #include "Jugador.h"
 #include "Enemigo.h"
 #include "Disparo.h"
+#include "Mapa.h"
 
 
 class Mundo
@@ -15,6 +16,7 @@ private:
 	Jugador jugador;
 	Disparo disparo;
 	Enemigo enemigo;
+	Mapa mapa;
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;
