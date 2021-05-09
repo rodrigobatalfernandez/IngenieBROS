@@ -9,6 +9,8 @@
 #include "Mapa.h"
 #include "Pared.h"
 
+#include "Interaccion.h"
+
 
 class Mundo
 {
@@ -18,7 +20,7 @@ private:
 	Disparo disparo;
 	Enemigo enemigo;
 	Mapa mapa;
-	Pared pared;
+	Pared pared[4];
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;

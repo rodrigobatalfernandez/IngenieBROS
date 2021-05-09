@@ -13,7 +13,9 @@ void Mundo::dibuja() {
 	enemigo.dibuja();
 	disparo.dibuja();
 	mapa.dibuja();
-	pared.dibuja();
+	for (int i = 0; i < 4; i++) {
+		pared[i].dibuja();
+	}
 
 	/*esferas.dibuja();
 	disparos.dibuja();
@@ -27,6 +29,12 @@ void Mundo::dibuja() {
 
 void Mundo::mueve() {
 
+	for (int i = 0; i < 4; i++) {
+		Interaccion::colision(jugador, pared[i]);
+		Interaccion::colision(enemigo, pared[i]);
+		Interaccion::colision(disparo, pared[i]);
+	}
+
 	jugador.mueve(0.025f);
 
 	enemigo.persiguePunto(jugador.getPos());
@@ -36,23 +44,6 @@ void Mundo::mueve() {
 	disparo.mueve(0.025f);
 	
 	camara.setPos(jugador.getPos().x, jugador.getPos().y);
-
-	/*hombre.mueve(0.025f);
-	esferas.mueve(0.025f);
-	bonus.mueve(0.025f);
-	disparos.mueve(0.025f);
-
-	Interaccion::rebote(hombre, caja);
-
-	esferas.rebote();
-	esferas.rebote(plataforma);
-	esferas.rebote(caja);
-	Esfera* aux = esferas.colision(hombre); //Devuelve la dirección de aquella esfera que haya chocado con el hombre
-	if (aux != 0)//si alguna esfera ha chocado
-		esferas.eliminar(aux);
-
-	disparos.colision(plataforma);
-	disparos.colision(caja);*/
 }
 
 void Mundo::inicializa()
@@ -60,7 +51,10 @@ void Mundo::inicializa()
 	jugador.setPos(0, 0);
 	enemigo.setPos(1, 1);
 	disparo.setPos(0, 0);
-	pared.setPos(-10, -10, 20, 10);
+	pared[0].setPos(-10, -10, 10, -10);
+	pared[1].setPos(10, -10, 10, 10);
+	pared[2].setPos(10, 10, -10, 10);
+	pared[3].setPos(-10, 10, -10, -10);
 
 	/*bonus.setPos(5.0f, 5.0f);
 
@@ -86,7 +80,7 @@ void Mundo::teclaAbajo(unsigned char key)
 	switch (key) {
 	case (' '):
 		disparo.setPos(jugador.getPos().x, jugador.getPos().y);
-		disparo.setVel(30 * cos(jugador.getOri()*(PI/180)), 30 * sin(jugador.getOri()*(PI / 180)));
+		disparo.setVel(20 * cos(jugador.getOri()*(PI/180)), 20 * sin(jugador.getOri()*(PI / 180)));
 		break;
 	}
 }
