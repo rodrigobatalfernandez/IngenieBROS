@@ -9,7 +9,9 @@ void Mundo::dibuja() {
 	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
 	jugador.dibuja();
+	enemigo.dibuja();
 	disparo.dibuja();
+
 	/*esferas.dibuja();
 	disparos.dibuja();
 	caja.dibuja();
@@ -23,7 +25,9 @@ void Mundo::dibuja() {
 void Mundo::mueve() {
 
 	jugador.mueve(0.025f);
+	enemigo.mueve(0.025f);
 	disparo.mueve(0.025f);
+
 	/*hombre.mueve(0.025f);
 	esferas.mueve(0.025f);
 	bonus.mueve(0.025f);
@@ -45,6 +49,7 @@ void Mundo::mueve() {
 void Mundo::inicializa()
 {
 	jugador.setPos(0, 0);
+	enemigo.setPos(1, 1);
 	disparo.setPos(0, 0);
 	/*bonus.setPos(5.0f, 5.0f);
 
@@ -70,7 +75,7 @@ void Mundo::teclaAbajo(unsigned char key)
 	switch (key) {
 	case (' '):
 		disparo.setPos(jugador.getPos().x, jugador.getPos().y);
-		disparo.setVel(3 * cos(jugador.getOri()*(PI/180)), 3 * sin(jugador.getOri()*(PI / 180)));
+		disparo.setVel(30 * cos(jugador.getOri()*(PI/180)), 30 * sin(jugador.getOri()*(PI / 180)));
 		break;
 	}
 }

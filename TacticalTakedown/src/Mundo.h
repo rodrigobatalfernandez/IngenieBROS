@@ -4,6 +4,7 @@
 
 #include "Camara.h"
 #include "Jugador.h"
+#include "Enemigo.h"
 #include "Disparo.h"
 
 
@@ -13,6 +14,7 @@ private:
 	Camara camara;
 	Jugador jugador;
 	Disparo disparo;
+	Enemigo enemigo;
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;

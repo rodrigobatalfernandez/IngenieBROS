@@ -2,8 +2,8 @@
 #include "freeglut.h"
 
 Disparo::Disparo() {
-	radio = 0.05f;
-	velocidad.y = 3;
+	radio = 0.5f;
+	velocidad.y = 30;
 }
 
 void Disparo::setPos(float ix, float iy) {

@@ -6,7 +6,7 @@ Jugador::Jugador() {
 	posicion.y = 0;
 	orientacion = 90;
 	velangular = 0;
-	radio = 0.1f;
+	radio = 1.0f;
 	color.r = 255;
 	color.g = 0;
 	color.b = 0;
@@ -68,16 +68,16 @@ void Jugador::teclaAbajo(unsigned char key) {
 	switch (key)
 	{
 	case 'w':
-		setVel(getVel().x, getVel().y + 2);
+		setVel(getVel().x, getVel().y + 20);
 		break;
 	case 'a':
-		setVel(getVel().x - 2, getVel().y);
+		setVel(getVel().x - 20, getVel().y);
 		break;
 	case 's':
-		setVel(getVel().x, getVel().y - 2);
+		setVel(getVel().x, getVel().y - 20);
 		break;
 	case 'd':
-		setVel(getVel().x + 2, getVel().y);
+		setVel(getVel().x + 20, getVel().y);
 		break;
 	}
 }
@@ -86,16 +86,16 @@ void Jugador::teclaArriba(unsigned char key) {
 	switch (key)
 	{
 	case 'w':
-		setVel(getVel().x, getVel().y - 2);
+		setVel(getVel().x, getVel().y - 20);
 		break;
 	case 'a':
-		setVel(getVel().x + 2, getVel().y);
+		setVel(getVel().x + 20, getVel().y);
 		break;
 	case 's':
-		setVel(getVel().x, getVel().y + 2);
+		setVel(getVel().x, getVel().y + 20);
 		break;
 	case 'd':
-		setVel(getVel().x - 2, getVel().y);
+		setVel(getVel().x - 20, getVel().y);
 		break;
 	}
 }

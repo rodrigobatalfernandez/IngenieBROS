@@ -1,2 +1,4 @@
-﻿  Disparo.cpp
+﻿  Mundo.cpp
+D:\Documents\IngenieBROS\TacticalTakedown\src\Mundo.cpp(78,58): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Mundo.cpp(78,21): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
   TacticalTakedown.vcxproj -> D:\Documents\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
