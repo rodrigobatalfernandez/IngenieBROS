@@ -13,6 +13,7 @@ void Mundo::dibuja() {
 	enemigo.dibuja();
 	disparo.dibuja();
 	mapa.dibuja();
+	pared.dibuja();
 
 	/*esferas.dibuja();
 	disparos.dibuja();
@@ -59,6 +60,8 @@ void Mundo::inicializa()
 	jugador.setPos(0, 0);
 	enemigo.setPos(1, 1);
 	disparo.setPos(0, 0);
+	pared.setPos(-10, -10, 20, 10);
+
 	/*bonus.setPos(5.0f, 5.0f);
 
 	plataforma.setPos(-5.0f, 9.0f, 5.0f, 9.0f);

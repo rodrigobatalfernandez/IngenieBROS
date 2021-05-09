@@ -7,6 +7,7 @@
 #include "Enemigo.h"
 #include "Disparo.h"
 #include "Mapa.h"
+#include "Pared.h"
 
 
 class Mundo
@@ -17,6 +18,7 @@ private:
 	Disparo disparo;
 	Enemigo enemigo;
 	Mapa mapa;
+	Pared pared;
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;

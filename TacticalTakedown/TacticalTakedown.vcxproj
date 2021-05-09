@@ -22,6 +22,7 @@
     <ClCompile Include="src\Camara.cpp" />
     <ClCompile Include="src\Disparo.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
+    <ClCompile Include="src\Interaccion.cpp" />
     <ClCompile Include="src\Jugador.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mapa.cpp" />
@@ -34,6 +35,7 @@
     <ClInclude Include="src\ColorRGB.h" />
     <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\Enemigo.h" />
+    <ClInclude Include="src\Interaccion.h" />
     <ClInclude Include="src\Jugador.h" />
     <ClInclude Include="src\Mapa.h" />
     <ClInclude Include="src\Mundo.h" />

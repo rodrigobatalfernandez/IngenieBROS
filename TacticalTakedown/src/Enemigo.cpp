@@ -8,7 +8,7 @@ Enemigo::Enemigo(float xi, float yi, float ori)
 	posicion.y = yi;
 	orientacion = ori;
 	velangular = 0;
-	vel_respuesta = 2;
+	vel_rotacion = 2;
 	vel_avance = 8;
 	radio = 1.0f;
 	color.r = 0;
@@ -20,10 +20,10 @@ void Enemigo::dibuja()
 {
 	glColor3ub(color.r, color.g, color.b);
 	glTranslatef(posicion.x, posicion.y, 0);
-
 	glRotatef(90, 1, 0, 0);
 	glRotatef(orientacion, 0, 1, 0);
 	glutSolidTeapot(radio);
+
 	glRotatef(-orientacion, 0, 1, 0);
 	glRotatef(-90, 1, 0, 0);
 	glTranslatef(-posicion.x, -posicion.y, 0);
@@ -99,7 +99,7 @@ void Enemigo::persiguePunto(Vector2D Objetivo)
 		dif_ori += 360;
 	}*/
 
-	velangular = vel_respuesta * dif_ori;
+	velangular = vel_rotacion * dif_ori;
 
 	setVel(vel_avance * cos(orientacion * (PI / 180)), vel_avance * sin(orientacion * (PI / 180)));
 }
