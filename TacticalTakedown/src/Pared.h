@@ -3,6 +3,7 @@
 #include "Vector2D.h"
 
 class Pared {
+
 private:
 	ColorRGB color;
 	Vector2D limite1, limite2;

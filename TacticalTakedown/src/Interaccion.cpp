@@ -1,5 +1,6 @@
 #include "Interaccion.h"
 
+
 bool Interaccion::colision(Jugador& j, Pared p) {
 	return true;
 }
@@ -21,5 +22,6 @@ bool Interaccion::colision(Disparo& d, Enemigo& e) {
 }
 
 bool Interaccion::colision(Disparo& d, Jugador& j) {
+	float dis = (d.posicion - j.posicion).modulo() - d.radio;
 	return true;
 }

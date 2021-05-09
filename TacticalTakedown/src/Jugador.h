@@ -3,6 +3,7 @@
 #include "ColorRGB.h"
 
 class Jugador{
+	friend class Interaccion;
 private:
 	//Cinemática
 	Vector2D posicion;

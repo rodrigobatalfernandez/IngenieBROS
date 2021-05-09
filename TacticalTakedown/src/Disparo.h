@@ -2,6 +2,7 @@
 #include "Vector2D.h"
 
 class Disparo {
+	friend class Interaccion;
 private:
 	float radio;
 	float temporizador;

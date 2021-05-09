@@ -4,6 +4,7 @@
 
 class Enemigo
 {
+	friend class Interaccion;
 private:
 	//Cinematica
 	Vector2D posicion;
