@@ -18,11 +18,14 @@ private:
 		Pared plataforma;*/
 public:
 		~Mundo();
-		void tecla(unsigned char key);
 		void inicializa();
-		void rotarOjo();
 		void mueve();
 		void dibuja();
-		void teclaEspecial(unsigned char key);
+
+		void teclaAbajo(unsigned char key);
+		void teclaArriba(unsigned char key);
+		void teclaEspecialAbajo(unsigned char key);
+		void teclaEspecialArriba(unsigned char key);
+
 		void musica();
 };

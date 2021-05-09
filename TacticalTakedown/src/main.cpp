@@ -8,8 +8,12 @@ Mundo mundo;
 //NO HACE FALTA LLAMARLAS EXPLICITAMENTE
 void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
-void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
-void onSpecialKeyboardDown(int key, int x, int y); //cuando se pulse una tecla especial
+
+void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla
+void OnKeyboardUp(unsigned char key, int x, int y);
+
+void onSpecialKeyboardDown(int key, int x, int y);
+void onSpecialKeyboardUp(int key, int x, int y); //cuando se levante una tecla especial
 
 int main(int argc, char* argv[])
 {
@@ -18,7 +22,7 @@ int main(int argc, char* argv[])
 	glutInit(&argc, argv);
 	glutInitWindowSize(800, 600);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-	glutCreateWindow("MiJuego");
+	glutCreateWindow("Tactical Takedown");
 
 	//habilitar luces y definir perspectiva
 	glEnable(GL_LIGHT0);
@@ -30,12 +34,20 @@ int main(int argc, char* argv[])
 
 	//Registrar los callbacks
 	glutDisplayFunc(OnDraw);
+
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
-	glutKeyboardFunc(OnKeyboardDown);
-	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
+	
+	glutKeyboardFunc(OnKeyboardDown);	//Para teclas alfanuméricas
+	glutKeyboardUpFunc(OnKeyboardUp);
+
+	glutSpecialFunc(onSpecialKeyboardDown); //Para las teclas de flechas en concreto
+	glutSpecialUpFunc(onSpecialKeyboardUp);
+	
+	glutIgnoreKeyRepeat(1);
 
 	mundo.inicializa();
 	mundo.musica(); //ejemplo lugar musica no sabemos donde va
+
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
 
@@ -58,13 +70,25 @@ void OnDraw(void) {
 
 void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
 	//poner aqui el código de teclado
-	mundo.tecla(key);
+	mundo.teclaAbajo(key);
+
+	glutPostRedisplay();
+}
+
+void OnKeyboardUp(unsigned char key, int x_t, int y_t) {
+	//poner aqui el código de teclado
+	mundo.teclaArriba(key);
 
 	glutPostRedisplay();
 }
 
 void onSpecialKeyboardDown(int key, int x, int y) {
-	mundo.teclaEspecial(key);
+	mundo.teclaEspecialAbajo(key);
+}
+
+void onSpecialKeyboardUp(int key, int x, int y)
+{
+	mundo.teclaEspecialArriba(key);
 }
 
 void OnTimer(int value) {

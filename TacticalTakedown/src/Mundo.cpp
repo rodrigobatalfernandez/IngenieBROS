@@ -5,7 +5,7 @@
 void Mundo::dibuja() {
 	camara.dibuja();
 
-	glEnable(GL_LIGHTING);	//Desactiva la iluminación previo al dibujo de objetos
+	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
 	jugador.dibuja();
 	/*esferas.dibuja();
@@ -15,7 +15,7 @@ void Mundo::dibuja() {
 	plataforma.dibuja();
 	bonus.dibuja();*/
 
-	glDisable(GL_LIGHTING); //Reactiva la iluminación, para que todas las figuras reaccionen igual con la iluminación
+	glDisable(GL_LIGHTING); //Desactiva la iluminación, para que todas las figuras reaccionen igual con la iluminación
 }
 
 void Mundo::mueve() {
@@ -58,47 +58,27 @@ void Mundo::inicializa() {
 	}*/
 }
 
-void Mundo::tecla(unsigned char key) 
+void Mundo::teclaAbajo(unsigned char key) 
 {
-	switch (key)
-	{
-	case 'w':
-		jugador.setPos(jugador.getPos().x, jugador.getPos().y + 0.1);
-		break;
-	case 'a':
-		jugador.setPos(jugador.getPos().x - 0.1, jugador.getPos().y);
-		break;
-	case 's':
-		jugador.setPos(jugador.getPos().x, jugador.getPos().y - 0.1);
-		break;
-	case 'd':
-		jugador.setPos(jugador.getPos().x + 0.1, jugador.getPos().y);
-		break;
-	case ' ':
-		/*Disparo * d = new Disparo();
-		Vector2D pos = hombre.getPos();
-		d->setPos(pos.x, pos.y);
-		disparos.agregar(d);*/
-		break;
-	}
+	jugador.teclaAbajo(key);
+
 }
 
-void Mundo::teclaEspecial(unsigned char key) {
-	switch (key)
-	{
-	case GLUT_KEY_UP:
-		jugador.setOri(90);
-		break;
-	case GLUT_KEY_DOWN:
-		jugador.setOri(270);
-		break;
-	case GLUT_KEY_LEFT:
-		jugador.setOri(180);
-		break;
-	case GLUT_KEY_RIGHT:
-		jugador.setOri(0);
-		break;
-	}
+void Mundo::teclaArriba(unsigned char key)
+{
+	jugador.teclaArriba(key);
+
+}
+
+void Mundo::teclaEspecialAbajo(unsigned char key) 
+{
+	jugador.teclaEspecialAbajo(key);
+
+}
+
+void Mundo::teclaEspecialArriba(unsigned char key) {
+	jugador.teclaEspecialArriba(key);
+
 }
 
 Mundo::~Mundo()
@@ -106,6 +86,7 @@ Mundo::~Mundo()
 	/*esferas.destruirContenido();
 	disparos.destruirContenido();*/
 }
+
 void Mundo::musica() {//funcion musica, es necesaria pararlo
-	ETSIDI::playMusica("sonidos/DiffBAJO.mp3", true);
+	//ETSIDI::playMusica("sonidos/DiffBAJO.mp3", true);
 }
