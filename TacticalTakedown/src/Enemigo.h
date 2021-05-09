@@ -7,6 +7,8 @@ class Enemigo
 private:
 	Vector2D posicion, velocidad, aceleracion;
 	float orientacion, velangular;
+	float vel_avance, vel_respuesta;
+
 	ColorRGB color;
 	float radio; //Definición del radio de la hitbox
 public:

@@ -8,6 +8,8 @@ Enemigo::Enemigo(float xi, float yi, float ori)
 	posicion.y = yi;
 	orientacion = ori;
 	velangular = 0;
+	vel_respuesta = 2;
+	vel_avance = 8;
 	radio = 1.0f;
 	color.r = 0;
 	color.g = 255;
@@ -31,6 +33,7 @@ void Enemigo::mueve(float t)
 {
 	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
 	velocidad = velocidad + aceleracion * t;
+
 	orientacion += velangular * t;
 }
 
@@ -96,7 +99,7 @@ void Enemigo::persiguePunto(Vector2D Objetivo)
 		dif_ori += 360;
 	}*/
 
-	velangular = 2 * dif_ori;
+	velangular = vel_respuesta * dif_ori;
 
-	setVel(5 * cos(orientacion * (PI / 180)), 5 * sin(orientacion * (PI / 180)));
+	setVel(vel_avance * cos(orientacion * (PI / 180)), vel_avance * sin(orientacion * (PI / 180)));
 }
