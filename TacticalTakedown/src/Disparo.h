@@ -8,6 +8,7 @@ private:
 	float temporizador;
 	Vector2D posicion, velocidad, aceleracion;
 	Vector2D origen;
+	bool rebote; //Solo se permite un rebote
 public:
 	Disparo();
 	//virtual ~Disparo();

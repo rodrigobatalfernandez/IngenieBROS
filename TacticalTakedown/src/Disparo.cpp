@@ -9,6 +9,7 @@ void Disparo::setPos(float ix, float iy) {
 	posicion.x = origen.x = ix;
 	posicion.y = origen.y = iy;
 	temporizador = 30;
+	rebote = true;
 }
 
 Vector2D Disparo::getPos() {

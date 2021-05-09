@@ -15,8 +15,6 @@ bool Interaccion::colision(Jugador& j, Pared p) {
 bool Interaccion::colision(Enemigo& e, Pared p) {
 	Vector2D dir;
 	float dif = p.distancia(e.posicion, &dir) - e.radio;
-	std::cout << dif << std::endl;
-
 	if (dif <= 0.0f) {
 		e.posicion = e.posicion - dir * dif;
 		return true;
@@ -26,9 +24,11 @@ bool Interaccion::colision(Enemigo& e, Pared p) {
 
 bool Interaccion::colision(Disparo& d, Pared p) {
 	Vector2D dir;
-	float dif = p.distancia(d.posicion, &dir) - d.radio;
-	if (dif <= 0.0f)
+	float dif = p.distancia(d.posicion, &dir) - 2 * d.radio; //Se ha dejado como márgen de error el propio radio para un correcto reconocimiento de colisión
+	if (dif <= 0.0f && d.rebote == true)
 	{
+		std::cout << dif << std::endl;
+		d.rebote = false;
 		Vector2D v_inicial = d.velocidad;
 		d.velocidad = v_inicial - dir.unitario() * 2.0 * (v_inicial * dir);
 		d.posicion = d.posicion - dir.unitario() * dif;

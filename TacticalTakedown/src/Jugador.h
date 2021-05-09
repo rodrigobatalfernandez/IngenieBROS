@@ -17,6 +17,7 @@ private:
 
 	ColorRGB color; //Definicion del color
 	float radio; //Definición del radio de la hitbox
+	int indice;	//Nº de sprite en la secuencia de animación
 public:
 	Jugador(); //Constructor
 	void dibuja(); //Dibuja el personaje

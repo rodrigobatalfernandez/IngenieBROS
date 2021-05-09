@@ -35,13 +35,13 @@ void Mundo::mueve() {
 		Interaccion::colision(disparo, pared[i]);
 	}
 
-	jugador.mueve(0.025f);
+	jugador.mueve(0.020f);
 
 	enemigo.persiguePunto(jugador.getPos());
 	//enemigo.miraPunto(jugador.getPos());
-	enemigo.mueve(0.025f);
+	enemigo.mueve(0.020f);
 
-	disparo.mueve(0.025f);
+	disparo.mueve(0.020f);
 	
 	camara.setPos(jugador.getPos().x, jugador.getPos().y);
 }
