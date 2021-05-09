@@ -8,6 +8,7 @@ void Mundo::dibuja() {
 	glEnable(GL_LIGHTING);	//Desactiva la iluminación previo al dibujo de objetos
 
 	jugador.dibuja();
+	
 	/*esferas.dibuja();
 	disparos.dibuja();
 	caja.dibuja();
@@ -16,6 +17,21 @@ void Mundo::dibuja() {
 	bonus.dibuja();*/
 
 	glDisable(GL_LIGHTING); //Reactiva la iluminación, para que todas las figuras reaccionen igual con la iluminación
+
+	//Dibujado de texturas
+	//glEnable(GL_TEXTURE_2D);
+	//glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/SovietChiquito.png").id);
+	//glDisable(GL_LIGHTING);
+	//glBegin(GL_POLYGON);
+	//glColor3f(1, 1, 1);
+	//glTexCoord2d(0, 1);    glVertex3f(-0.1, 0, -0.1);
+	//glTexCoord2d(1, 1);    glVertex3f(0.1, 0, -0.1);
+	//glTexCoord2d(1, 0);    glVertex3f(0.1, 0.2, -0.1);
+	//glTexCoord2d(0, 0);    glVertex3f(-0.1, 0.2, -0.1);
+	//glEnd();
+	//glEnable(GL_LIGHTING);
+	//glDisable(GL_TEXTURE_2D);
+	mapa.dibuja();
 }
 
 void Mundo::mueve() {
@@ -107,5 +123,5 @@ Mundo::~Mundo()
 	disparos.destruirContenido();*/
 }
 void Mundo::musica() {//funcion musica, es necesaria pararlo
-	ETSIDI::playMusica("sonidos/DiffBAJO.mp3", true);
+	//ETSIDI::playMusica("sonidos/DiffBAJO.mp3", true);
 }

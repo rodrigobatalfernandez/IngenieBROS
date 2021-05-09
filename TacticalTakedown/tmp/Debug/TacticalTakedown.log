@@ -1,1 +1,26 @@
-﻿  TacticalTakedown.vcxproj -> C:\Users\pablo\OneDrive\Documentos\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+﻿  Mapa.cpp
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(67,66): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(67,58): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(67,47): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(68,71): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(68,62): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(68,49): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(69,73): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(69,64): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(69,49): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(70,72): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(70,63): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(70,50): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(82,72): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(82,63): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(82,50): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(83,71): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(83,62): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(83,49): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(84,73): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(84,64): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(84,49): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(85,74): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(85,65): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(85,50): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+  TacticalTakedown.vcxproj -> C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

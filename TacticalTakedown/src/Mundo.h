@@ -1,6 +1,7 @@
 #pragma once
 #include "Camara.h"
 #include "Jugador.h"
+#include "Mapa.h"
 #include "Vector2D.h"
 #include "ETSIDI.H"
 
@@ -9,6 +10,7 @@ class Mundo
 private:
 	Camara camara;
 	Jugador jugador;
+	Mapa mapa;
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;
