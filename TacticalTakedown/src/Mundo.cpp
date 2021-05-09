@@ -12,7 +12,6 @@ void Mundo::dibuja() {
 	jugador.dibuja();
 	enemigo.dibuja();
 	disparo.dibuja();
-	mapa.dibuja();
 	for (int i = 0; i < 4; i++) {
 		pared[i].dibuja();
 	}
