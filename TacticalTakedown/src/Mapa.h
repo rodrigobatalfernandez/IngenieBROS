@@ -1,10 +1,12 @@
 #pragma once
 #include "Pared.h"
+//#include "ListaParedes.h"
 
 
 class Mapa {
-private:
-	Pared borde_arriba, borde_abajo, borde_izq, borde_dcha;
+private: //Para incluir los bordes en lista paredes necesitan ser punteros (Pared*)
+	Pared pared[4];//borde_arriba, borde_abajo, borde_izq, borde_dcha;
+	//ListaParedes paredes;
 public:
 	Mapa();
 	//virtual ~Mapa();

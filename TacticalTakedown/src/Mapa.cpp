@@ -1,11 +1,10 @@
 #include "Mapa.h"
 #include "freeglut.h"
 #include "ETSIDI.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include"Interaccion.h"
 
-#define FIL 4 //filas del mapa
-#define COL 4 //columnas del mapa
+#define FIL 6 //filas del mapa
+#define COL 6 //columnas del mapa
 #define ESCALA 5 //escala de texturas
 
 //variables globales
@@ -15,19 +14,16 @@ Mapa::Mapa() {
 
 }
 
-//void clonarMatriz(int origen[FIL][COL], int destino[FIL][COL]) {
-//	memcpy(destino, origen, sizeof(int) * FIL * COL);
-//}
-
 void Mapa::copia_nivel1() {
 	int matriz1[FIL][COL] = {
-		{0,0,0,0},
-		{0,1,1,0},
-		{0,1,2,0},
-		{0,0,0,0},
+		{0,0,0,0,0,0},
+		{0,1,1,1,1,0},
+		{0,1,1,0,1,0},
+		{0,1,1,2,1,0},
+		{0,1,1,1,1,0},
+		{0,0,0,0,0,0},
 	};
-	//Copia la matriz1 a la matriz principal mapa
-	//clonarMatriz(matriz1, mapa);
+
 	//Copia la matriz1 a la matriz principal mapa
 	for (int f = 0; f < FIL; f++)
 	{
@@ -53,15 +49,16 @@ void Mapa::dibuja() {
 				textura(fil, col, 0.3, "imagenes/HUDA.png");
 
 				//Se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
-				borde_abajo.setPos((-1.5f + col) * ESCALA, (1.5f + fil - FIL + 1) * ESCALA, (-0.5f + col) * ESCALA, (1.5f + fil - FIL + 1) * ESCALA);
-				borde_arriba.setPos((-1.5f + col) * ESCALA, (2.5f + fil - FIL + 1) * ESCALA, (-0.5f + col) * ESCALA, (2.5f + fil - FIL + 1) * ESCALA);
-				borde_izq.setPos((-1.5f + col) * ESCALA, (1.5f + fil - FIL + 1) * ESCALA, (-1.5f + col) * ESCALA, (2.5f + fil - FIL + 1) * ESCALA);
-				borde_dcha.setPos((-0.5f + col) * ESCALA, (1.5f + fil - FIL + 1) * ESCALA, (-0.5f + col) * ESCALA, (2.5f + fil - FIL + 1) * ESCALA);
+				pared[0].setPos((-3.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL-4)*ESCALA, (-2.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
+				pared[1].setPos((-3.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
+				pared[2].setPos((-3.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA, (-3.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
+				pared[3].setPos((-2.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
 
-				borde_arriba.dibuja();
-				borde_abajo.dibuja();
-				borde_izq.dibuja();
-				borde_dcha.dibuja();
+				for (int i = 0; i < 4; i++) {
+					//paredes.agregar(pared[i]);
+					pared[i].dibuja();
+				}
+
 			}
 			if (mapa[fil][col] == 1) { //Textura correspondiente a 1
 				textura(fil, col, -0.1, "imagenes/StoneFloorTexture_0.png");
@@ -80,10 +77,10 @@ void Mapa::textura(int fil, int col, float altura, char const* cadena1)
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 1);    glVertex3f((-1.5 + col) * ESCALA, (-1.5 + fil) * ESCALA, altura);
-	glTexCoord2d(1, 1);    glVertex3f((-0.5 + col) * ESCALA, (-1.5 + fil) * ESCALA, altura);
-	glTexCoord2d(1, 0);    glVertex3f((-0.5 + col) * ESCALA, (-0.5 + fil) * ESCALA, altura);
-	glTexCoord2d(0, 0);    glVertex3f((-1.5 + col) * ESCALA, (-0.5 + fil) * ESCALA, altura);
+	glTexCoord2d(0, 1);    glVertex3f((-3 + col) * ESCALA, (-3 + fil) * ESCALA, altura);
+	glTexCoord2d(1, 1);    glVertex3f((-2 + col) * ESCALA, (-3 + fil) * ESCALA, altura);
+	glTexCoord2d(1, 0);    glVertex3f((-2 + col) * ESCALA, (-2 + fil) * ESCALA, altura);
+	glTexCoord2d(0, 0);    glVertex3f((-3 + col) * ESCALA, (-2 + fil) * ESCALA, altura);
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
