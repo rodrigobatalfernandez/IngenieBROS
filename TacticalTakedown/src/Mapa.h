@@ -13,6 +13,7 @@ public:
 	void dibuja();
 	void copia_nivel1();
 	void textura(int fil, int col, float altura, char const* cadena1);
+	//void cargarBordes(ListaParedes& bordes);
 
 	friend class Interaccion;
 };

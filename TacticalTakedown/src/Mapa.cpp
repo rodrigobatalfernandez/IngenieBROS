@@ -85,3 +85,27 @@ void Mapa::textura(int fil, int col, float altura, char const* cadena1)
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 }
+
+//void Mapa::cargarBordes(ListaParedes& bordes){
+//	for (int fil = 0; fil < FIL; fil++)
+//	{
+//		for (int col = 0; col < COL; col++)
+//		{
+//			Pared pared[4];
+//			if (mapa[fil][col] == 0) { //Textura correspondiente a 0
+//
+//			//Se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
+//			pared[0].setPos((-3.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA, (-2.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
+//			pared[1].setPos((-3.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
+//			pared[2].setPos((-3.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA, (-3.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
+//			pared[3].setPos((-2.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
+//
+//				for (int i = 0; i < 4; i++) {
+//				bordes.agregar(&(pared[i]));
+//				pared[i].dibuja();
+//				}
+//
+//			}
+//		}
+//	}
+//}
