@@ -44,6 +44,7 @@ void Disparo::dibuja() {
 		animacion.draw();
 		glRotatef(orientacion, 0, 0, 1);
 		glRotatef(-90, 0, 0, 1);
+		glTranslatef(-posicion.x, -posicion.y, 0);
 		glPopMatrix();
 		glEnd();
 }
