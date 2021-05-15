@@ -15,6 +15,7 @@ public:
 	void dibuja();
 
 	float distancia(Vector2D punto, Vector2D* direccion = 0);
+	bool obstaculiza(Vector2D p1, Vector2D p2);		//Para saber si dos puntos están en linea de visión u obstaculizados con pared
 
 	friend class Interaccion;
 };

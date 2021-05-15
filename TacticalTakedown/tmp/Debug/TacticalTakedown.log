@@ -1,3 +1,2 @@
-﻿  Disparo.cpp
-C:\Users\pablo\OneDrive\Documentos\GitHub\IngenieBROS\TacticalTakedown\src\Disparo.cpp(58,31): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-  TacticalTakedown.vcxproj -> C:\Users\pablo\OneDrive\Documentos\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+﻿  Pared.cpp
+  TacticalTakedown.vcxproj -> D:\Documents\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

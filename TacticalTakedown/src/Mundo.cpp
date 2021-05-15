@@ -39,7 +39,14 @@ void Mundo::mueve()
 
 
 	enemigo.persiguePunto(jugador.getPos());
-	enemigo.mueve(0.020f);
+
+	float aux = 0; //Pendiente de un apaño
+	for (int i = 0; i < 4; i++) {
+		if (pared[i].obstaculiza(enemigo.getPos(), jugador.getPos()))
+			aux = 1;
+	}
+	if (aux == 0)
+		enemigo.mueve(0.020f);
 
 	disparos.mueve(0.020f);
 
@@ -58,10 +65,10 @@ void Mundo::inicializa()
 	jugador.setPos(0, 0);
 	enemigo.setPos(1, 1);
 
-	pared[0].setPos(-10, -10, 10, -10);
+	pared[0].setPos(0, -10, 10, -10);
 	pared[1].setPos(10, -10, 10, 10);
 	pared[2].setPos(10, 10, -10, 10);
-	pared[3].setPos(-10, 10, -10, -10);
+	pared[3].setPos(-10, 10, -10, 0);
 
 
 	/*bonus.setPos(5.0f, 5.0f);
