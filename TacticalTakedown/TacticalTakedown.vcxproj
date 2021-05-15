@@ -25,6 +25,7 @@
     <ClCompile Include="src\Interaccion.cpp" />
     <ClCompile Include="src\Jugador.cpp" />
     <ClCompile Include="src\ListaDisparos.cpp" />
+    <ClCompile Include="src\ListaEnemigos.cpp" />
     <ClCompile Include="src\ListaParedes.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mapa.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="src\Interaccion.h" />
     <ClInclude Include="src\Jugador.h" />
     <ClInclude Include="src\ListaDisparos.h" />
+    <ClInclude Include="src\ListaEnemigos.h" />
     <ClInclude Include="src\ListaParedes.h" />
     <ClInclude Include="src\Mapa.h" />
     <ClInclude Include="src\Mundo.h" />

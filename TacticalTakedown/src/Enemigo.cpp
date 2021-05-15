@@ -81,7 +81,13 @@ float Enemigo::getVelAng()
 
 void Enemigo::miraPunto(Vector2D Objetivo)
 {
-	orientacion = 180 / PI * (Objetivo - posicion).argumento();
+	float ori_deseada = 180 / PI * (Objetivo - posicion).argumento();
+	float dif_ori = ori_deseada - orientacion;
+
+	dif_ori = dif_ori > 180 ? (dif_ori - 360) : dif_ori; //por si se pasa el asunto de el márgen de +-180º
+	dif_ori = dif_ori < -180 ? (dif_ori + 360) : dif_ori;
+
+	velangular = vel_rotacion * dif_ori;
 }
 
 void Enemigo::persiguePunto(Vector2D Objetivo)
