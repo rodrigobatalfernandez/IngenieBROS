@@ -11,7 +11,9 @@ void Mundo::dibuja() {
 
 	jugador.dibuja();
 	enemigo.dibuja();
-	disparo.dibuja();
+
+	disparos.dibuja();
+
 	for (int i = 0; i < 4; i++) {
 		pared[i].dibuja();
 	}
@@ -26,21 +28,27 @@ void Mundo::dibuja() {
 	glDisable(GL_LIGHTING); //Desactiva la iluminación, para que todas las figuras reaccionen igual con la iluminación
 }
 
-void Mundo::mueve() {
+void Mundo::mueve() 
+{
+	jugador.mueve(0.020f);
 
 	for (int i = 0; i < 4; i++) {
 		Interaccion::colision(jugador, pared[i]);
 		Interaccion::colision(enemigo, pared[i]);
-		Interaccion::colision(disparo, pared[i]);
 	}
 
-	jugador.mueve(0.020f);
 
 	enemigo.persiguePunto(jugador.getPos());
-	//enemigo.miraPunto(jugador.getPos());
 	enemigo.mueve(0.020f);
 
-	disparo.mueve(0.020f);
+	disparos.mueve(0.020f);
+
+	for (int i = 0; i < 4; i++) {
+		Disparo* aux = disparos.colision(pared[i]); //Devuelve la dirección de aquell disparo que ha colisionado con la pared
+		if (aux != 0 && (aux->getRebote() <= 0))	//si algún disparo ha colisionado y a este no le quedan rebotes
+			disparos.eliminar(aux);
+			aux;
+	}
 	
 	camara.setPos(jugador.getPos().x, jugador.getPos().y);
 }
@@ -49,11 +57,12 @@ void Mundo::inicializa()
 {
 	jugador.setPos(0, 0);
 	enemigo.setPos(1, 1);
-	disparo.setPos(0, 0);
+
 	pared[0].setPos(-10, -10, 10, -10);
 	pared[1].setPos(10, -10, 10, 10);
 	pared[2].setPos(10, 10, -10, 10);
 	pared[3].setPos(-10, 10, -10, -10);
+
 
 	/*bonus.setPos(5.0f, 5.0f);
 
@@ -78,8 +87,10 @@ void Mundo::teclaAbajo(unsigned char key)
 
 	switch (key) {
 	case (' '):
-		disparo.setPos(jugador.getPos().x, jugador.getPos().y);
-		disparo.setVel(20 * cos(jugador.getOri()*(PI/180)), 20 * sin(jugador.getOri()*(PI / 180)));
+		Disparo* d = new Disparo();
+		d->setPos(jugador.getPos().x, jugador.getPos().y);
+		d->setVel(20 * cos(jugador.getOri() * (PI / 180)), 20 * sin(jugador.getOri() * (PI / 180)));
+		disparos.agregar(d);
 		break;
 	}
 }
@@ -103,8 +114,8 @@ void Mundo::teclaEspecialArriba(unsigned char key) {
 
 Mundo::~Mundo()
 {
-	/*esferas.destruirContenido();
-	disparos.destruirContenido();*/
+	//esferas.destruirContenido();
+	disparos.destruirContenido();
 }
 
 void Mundo::musica() {//funcion musica, es necesaria pararlo

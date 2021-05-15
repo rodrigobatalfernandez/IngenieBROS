@@ -6,9 +6,10 @@
 #include "Jugador.h"
 #include "Enemigo.h"
 #include "Disparo.h"
+#include "ListaDisparos.h"
 #include "Mapa.h"
 #include "Pared.h"
-
+#include "ListaParedes.h"
 #include "Interaccion.h"
 
 
@@ -17,7 +18,7 @@ class Mundo
 private:
 	Camara camara;
 	Jugador jugador;
-	Disparo disparo;
+	ListaDisparos disparos;
 	Enemigo enemigo;
 	Mapa mapa;
 	Pared pared[4];

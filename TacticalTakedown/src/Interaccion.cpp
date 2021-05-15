@@ -1,6 +1,4 @@
 #include "Interaccion.h"
-#include <iostream>
-
 
 bool Interaccion::colision(Jugador& j, Pared p) {
 	Vector2D dist;
@@ -25,16 +23,15 @@ bool Interaccion::colision(Enemigo& e, Pared p) {
 bool Interaccion::colision(Disparo& d, Pared p) {
 	Vector2D dir;
 	float dif = p.distancia(d.posicion, &dir) - 2 * d.radio; //Se ha dejado como márgen de error el propio radio para un correcto reconocimiento de colisión
-	if (dif <= 0.0f && d.rebote == true)
-	{
-		std::cout << dif << std::endl;
-		d.rebote = false;
-		Vector2D v_inicial = d.velocidad;
-		d.velocidad = v_inicial - dir.unitario() * 2.0 * (v_inicial * dir);
-		d.posicion = d.posicion - dir.unitario() * dif;
-		return true;
-	}
-	return false;
+		if (dif <= 0.0f)
+		{
+			d.rebote--;
+			Vector2D v_inicial = d.velocidad;
+			d.velocidad = v_inicial - dir.unitario() * 2.0 * (v_inicial * dir);
+			d.posicion = d.posicion - dir.unitario() * dif;
+			return true;
+		}
+		return false;
 }
 
 bool Interaccion::colision(Jugador& j, Enemigo& e) {

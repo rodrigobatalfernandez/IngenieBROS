@@ -8,7 +8,7 @@ private:
 	float temporizador;
 	Vector2D posicion, velocidad, aceleracion;
 	Vector2D origen;
-	bool rebote; //Solo se permite un rebote
+	int rebote; //Solo se permite un rebote
 public:
 	Disparo();
 	//virtual ~Disparo();
@@ -16,6 +16,7 @@ public:
 	Vector2D getPos();
 	void setVel(float vx, float vy);
 	float getRadio();
+	int getRebote();
 	void dibuja();
 	void mueve(float t);
 };

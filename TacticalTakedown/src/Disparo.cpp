@@ -9,7 +9,7 @@ void Disparo::setPos(float ix, float iy) {
 	posicion.x = origen.x = ix;
 	posicion.y = origen.y = iy;
 	temporizador = 30;
-	rebote = true;
+	rebote = 2;
 }
 
 Vector2D Disparo::getPos() {
@@ -23,6 +23,10 @@ void Disparo::setVel(float vx, float vy) {
 
 float Disparo::getRadio() {
 	return radio;
+}
+
+int Disparo::getRebote() {
+	return rebote;
 }
 
 void Disparo::dibuja() {

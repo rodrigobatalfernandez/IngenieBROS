@@ -2,6 +2,7 @@
 #include "Jugador.h"
 #include "Enemigo.h"
 #include "Disparo.h"
+#include "Listadisparos.h"
 #include "Pared.h"
 #include "Mapa.h"
 
