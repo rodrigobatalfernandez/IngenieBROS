@@ -5,7 +5,6 @@ class Disparo {
 	friend class Interaccion;
 private:
 	float radio;
-	float temporizador;
 	Vector2D posicion, velocidad, aceleracion;
 	Vector2D origen;
 	int rebote; //Solo se permite un rebote
