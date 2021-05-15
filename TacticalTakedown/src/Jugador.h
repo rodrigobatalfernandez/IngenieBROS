@@ -14,6 +14,7 @@ private:
 	float vel_avance; //Parametro que define el modulo de la velocidad a la que avanza
 	float vel_rotacion; //Parametro que define a la velocidad a la que va a variar la velociada angular
 	float velangular; //Velocidad de rotacion
+	int movimiento;// int si esta en movimiento; <0  ----> en movimiento
 
 	ColorRGB color; //Definicion del color
 	float radio; //Definición del radio de la hitbox

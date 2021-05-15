@@ -2,7 +2,7 @@
 #include "freeglut.h"
 #include "ETSIDI.h"
 
-#define ESCALA 1
+#define ESCALA 3
 
 Jugador::Jugador() {
 	posicion.x = 0;
@@ -11,7 +11,7 @@ Jugador::Jugador() {
 	velangular = 0;
 	vel_avance = 10;
 	vel_rotacion = 100;
-	radio = 1.0f;
+	radio = 1.5f;
 	color.r = 255;
 	color.g = 0;
 	color.b = 0;
@@ -26,11 +26,13 @@ void Jugador::mueve(float t) {
 void Jugador::dibuja() {
 	glTranslatef(posicion.x, posicion.y, 0);
 	glRotatef(orientacion, 0, 0, 1);
-	if ((indice >= 0) && (indice <= 7))
-		indice--;
-	else
-		indice = 7;
-	ETSIDI::SpriteSequence animacion("imagenes/TANKHUNG.png", 8, 8, 50, true, 0, 0, 4 * ESCALA, 4 * ESCALA, indice);
+	if (movimiento > 0) {
+		if ((indice >= 0) && (indice <= 7))
+			indice--;
+		else
+			indice = 7;
+	}
+	ETSIDI::SpriteSequence animacion("imagenes/TANKHUNG.png", 8, 8, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, indice);
 	animacion.draw();
 	glRotatef(-orientacion, 0, 0, 1);
 	glTranslatef(-posicion.x, -posicion.y, 0);
@@ -83,36 +85,50 @@ float Jugador::getVelAng() {
 void Jugador::teclaAbajo(unsigned char key) {
 	switch (key)
 	{
-	case 'w':
+	case 'w': {
 		setVel(getVel().x, getVel().y + vel_avance);
-		break;
-	case 'a':
+		movimiento++;
+		break; }
+
+	case 'a': {
 		setVel(getVel().x - vel_avance, getVel().y);
-		break;
-	case 's':
+		movimiento++;
+		break; }
+
+	case 's': {
 		setVel(getVel().x, getVel().y - vel_avance);
-		break;
-	case 'd':
+		movimiento++;
+		break; }
+	case 'd': {
 		setVel(getVel().x + vel_avance, getVel().y);
-		break;
+		movimiento++;
+		break; }
 	}
 }
 
 void Jugador::teclaArriba(unsigned char key) {
 	switch (key)
 	{
-	case 'w':
+
+	case 'w': {
 		setVel(getVel().x, getVel().y - vel_avance);
-		break;
-	case 'a':
+		movimiento--;
+		break; }
+
+	case 'a': {
 		setVel(getVel().x + vel_avance, getVel().y);
-		break;
-	case 's':
+		movimiento--;
+		break; }
+
+	case 's': {
 		setVel(getVel().x, getVel().y + vel_avance);
-		break;
-	case 'd':
+		movimiento--;
+		break; }
+
+	case 'd': {
 		setVel(getVel().x - vel_avance, getVel().y);
-		break;
+		movimiento--;
+		break; }
 	}
 }
 
