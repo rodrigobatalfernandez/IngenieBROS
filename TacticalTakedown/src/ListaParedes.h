@@ -1,9 +1,8 @@
 #pragma once
-#define MAX_PAREDES 100000
-#include"Disparo.h"
-#include "Mapa.h"
+#include "Disparo.h"
 #include "Jugador.h"
 #include "Pared.h"
+#define MAX_PAREDES 100000
 
 class ListaParedes
 {

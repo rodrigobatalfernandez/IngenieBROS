@@ -22,6 +22,7 @@ private:
 	Enemigo enemigo;
 	Mapa mapa;
 	Pared pared[4];
+	ListaParedes bordes;
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;

@@ -21,6 +21,7 @@ public:
 	void destruirContenido();
 	void mueve(float t);
 	void dibuja();
+	int getNum() { return numero; };
 
 	Disparo* colision(Pared p);
 };

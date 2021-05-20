@@ -1,6 +1,6 @@
 #pragma once
 #include "Pared.h"
-//#include "ListaParedes.h"
+#include "ListaParedes.h"
 
 
 class Mapa {
@@ -13,7 +13,7 @@ public:
 	void dibuja();
 	void copia_nivel1();
 	void textura(int fil, int col, float altura, char const* cadena1);
-	//void cargarBordes(ListaParedes& bordes);
+	void cargarBordes(ListaParedes& bordes);
 
 	friend class Interaccion;
 };

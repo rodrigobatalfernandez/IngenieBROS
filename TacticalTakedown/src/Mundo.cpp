@@ -6,6 +6,7 @@
 void Mundo::dibuja() {
 	camara.dibuja();
 	mapa.dibuja();
+	mapa.cargarBordes(bordes);
 
 	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
@@ -14,9 +15,9 @@ void Mundo::dibuja() {
 
 	disparos.dibuja();
 
-	for (int i = 0; i < 4; i++) {
-		pared[i].dibuja();
-	}
+	//for (int i = 0; i < 4; i++) {
+	//	pared[i].dibuja();
+	//}
 
 	/*esferas.dibuja();
 	disparos.dibuja();
@@ -32,11 +33,12 @@ void Mundo::mueve()
 {
 	jugador.mueve(0.020f);
 
-	for (int i = 0; i < 4; i++) {
-		Interaccion::colision(jugador, pared[i]);
-		Interaccion::colision(enemigo, pared[i]);
-	}
+	//for (int i = 0; i < 4; i++) {
+	//	Interaccion::colision(jugador, pared[i]);
+	//	Interaccion::colision(enemigo, pared[i]);
+	//}
 
+	//bordes.colision(jugador);
 
 	enemigo.persiguePunto(jugador.getPos());
 
@@ -65,10 +67,10 @@ void Mundo::inicializa()
 	jugador.setPos(0, 0);
 	enemigo.setPos(1, 1);
 
-	pared[0].setPos(0, -10, 10, -10);
-	pared[1].setPos(10, -10, 10, 10);
-	pared[2].setPos(10, 10, -10, 10);
-	pared[3].setPos(-10, 10, -10, 0);
+	//pared[0].setPos(0, -10, 10, -10);
+	//pared[1].setPos(10, -10, 10, 10);
+	//pared[2].setPos(10, 10, -10, 10);
+	//pared[3].setPos(-10, 10, -10, 0);
 
 
 	/*bonus.setPos(5.0f, 5.0f);
@@ -86,6 +88,7 @@ void Mundo::inicializa()
 		Esfera* aux = new Esfera(0.75 + i * 0.25, i, 1 + i, i, i);
 		esferas.agregar(aux);
 	}*/
+
 }
 
 void Mundo::teclaAbajo(unsigned char key) 

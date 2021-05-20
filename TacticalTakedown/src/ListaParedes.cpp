@@ -1,4 +1,4 @@
-#include"ListaParedes.h"
+#include "ListaParedes.h"
 #include "Interaccion.h"
 
 ListaParedes::ListaParedes()
