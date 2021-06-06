@@ -22,6 +22,7 @@ public:
 	void mueve(float t);
 	void dibuja();
 	int getNum() { return numero; };
+	Disparo* operator [](int i);
 
 	Disparo* colision(Pared p);
 };

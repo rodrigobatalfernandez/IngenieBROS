@@ -6,13 +6,13 @@
 
 class ListaParedes
 {
-public:
-	ListaParedes();
-	//virtual ~ListaParedes();
 private:
 	Pared* lista[MAX_PAREDES];
 	int numero;
+
 public:
+	ListaParedes();
+	//virtual ~ListaParedes();
 	bool agregar(Pared* e);
 	void dibuja();
 	void colision(Disparo d);
@@ -20,4 +20,5 @@ public:
 	void destruirContenido();
 	//void eliminar(int index);
 	//void eliminar(Pared* e);
+	Pared* operator [](int i);
 };

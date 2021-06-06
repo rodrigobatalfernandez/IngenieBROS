@@ -2,6 +2,11 @@
 #include "Enemigo.h"
 #define MAX_ENEMIGOS 100
 
+
+
+/// <summary>
+/// Ta todo mal guille a esto xd
+/// </summary>
 class ListaEnemigos
 {
 public:
@@ -18,8 +23,6 @@ public:
 	int getNumero() { return numero; }
 
 	void persiguePunto(Vector2D Objetivo); //Recive un punto y lo sigue
-
-
 
 private:
 	Enemigo* lista[MAX_ENEMIGOS];
