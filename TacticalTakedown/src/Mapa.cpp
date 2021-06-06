@@ -31,19 +31,24 @@ bool Mapa::agregar(Pared* p)
 	return true;	// operación exitosa
 }
 
-void Mapa::dibuja()
+void Mapa::dibujaBordes()
 {
 	for (int i = 0; i < numero; i++)
 		lista[i]->dibuja();
 }
 
-void Mapa::colision(Disparo d)
+void Mapa::colision(ListaDisparos& disparos)
 {
-	for (int i = 0; i < numero; i++)
-		Interaccion::colision(d, *(lista[i]));
+	/*for (int i = 0; i < numero; i++)
+		Interaccion::colision(d, *(lista[i]));*/
+	for (int i = 0; i < numero; i++) {
+		Disparo* aux = disparos.colision(*lista[i]); //Devuelve la dirección de aquell disparo que ha colisionado con la pared
+		if (aux != 0 && (aux->getRebote() <= 0))	//si algún disparo ha colisionado y a este no le quedan rebotes
+			disparos.eliminar(aux);
+	}
 }
 
-void Mapa::colision(Jugador j)
+void Mapa::colision(Jugador& j)
 {
 	for (int i = 0; i < numero; i++)
 		Interaccion::colision(j, *(lista[i]));
@@ -69,8 +74,8 @@ void Mapa::copia_nivel1() {
 	int matriz1[FIL][COL] = {
 		{0,0,0,0,0,0},
 		{0,1,1,1,1,0},
-		{0,1,1,2,1,0},
-		{0,1,1,2,1,0},
+		{0,1,1,0,1,0},
+		{0,1,0,2,1,0},
 		{0,1,1,1,1,0},
 		{0,0,0,0,0,0},
 	};
@@ -86,9 +91,9 @@ void Mapa::copia_nivel1() {
 	}
 }
 
-void Mapa::dibuja(Jugador& jugador, Enemigo& enemigo) { //falta , ListaDisparos& disparos
+void Mapa::dibuja() { //falta , ListaDisparos& disparos
 
-	copia_nivel1();
+//	copia_nivel1();
 
 
 	for (int fil = 0; fil < FIL; fil++)
@@ -97,7 +102,7 @@ void Mapa::dibuja(Jugador& jugador, Enemigo& enemigo) { //falta , ListaDisparos&
 		{
 
 			if (mapa[fil][col] == 0) { //Textura correspondiente a 0
-				textura(fil, col, 0.3, "imagenes/HUDA.png");
+				//textura(fil, col, 0.3, "imagenes/HUDA.png");
 
 				////Se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
 				//pared[0].setPos((-3.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL-4)*ESCALA, (-2.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
@@ -110,30 +115,22 @@ void Mapa::dibuja(Jugador& jugador, Enemigo& enemigo) { //falta , ListaDisparos&
 				//	pared[i].dibuja();
 				//}
 
-				//se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
-					pared[(fil * 4) + (col * 4) ].setPos((-3.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
-					pared[(fil * 4) + (col * 4)].dibuja();
-					pared[(fil * 4) + (col * 4) + 1].setPos((-3.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
-					pared[(fil * 4) + (col * 4)+1].dibuja();
-					pared[(fil * 4) + (col * 4) + 2].setPos((-3.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-3.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
-					pared[(fil * 4) + (col * 4)+2].dibuja();
-					pared[(fil * 4) + (col * 4) + 3].setPos((-2.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
-					pared[(fil * 4) + (col * 4)+3].dibuja();
+
 
 					//for (int i = 0; i < 4; i++) {
 					//	//bordes.agregar(&(pared[i]));
 					//	pared[i].dibuja();
 					//}
 
-				Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)]);
-				Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+1]);
-				Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+2]);
-				Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+3]);
+				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)]);
+				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+1]);
+				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+2]);
+				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+3]);
 
-				Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4)]);
-				Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4) + 1]);
-				Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4) + 2]);
-				Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4) + 3]);
+				//Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4)]);
+				//Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4) + 1]);
+				//Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4) + 2]);
+				//Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4) + 3]);
 
 
 				//for (int i = 0; i < 4; i++) {
@@ -170,7 +167,8 @@ void Mapa::textura(int fil, int col, float altura, char const* cadena1)
 	glDisable(GL_TEXTURE_2D);
 }
 
-void Mapa::cargarBordes(Jugador& jugador){
+void Mapa::cargarBordes() {
+	copia_nivel1();
 	for (int fil = 0; fil < FIL; fil++)
 	{
 		for (int col = 0; col < COL; col++)
@@ -178,11 +176,19 @@ void Mapa::cargarBordes(Jugador& jugador){
 			//Pared pared[4];
 			if (mapa[fil][col] == 0) { //textura correspondiente a 0
 
-			////se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
-				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)]);
-				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+1]);
-				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+2]);
-				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+3]);
+				//se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
+				pared[(fil * COL * 4) + (col * 4)].setPos((-3.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
+
+				pared[(fil * COL * 4) + (col * 4) + 1].setPos((-3.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
+
+				pared[(fil * COL * 4) + (col * 4) + 2].setPos((-3.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-3.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
+
+				pared[(fil * COL * 4) + (col * 4) + 3].setPos((-2.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
+
+				for (int i = 0; i < 4; i++) {
+					agregar(&(pared[(fil * COL * 4) + (col * 4) + i]));
+					//pared[i].dibuja();
+				}
 			}
 		}
 	}

@@ -6,8 +6,8 @@
 
 void Mundo::dibuja() {
 	camara.dibuja();
-	//mapa.dibuja(jugador,enemigo); //falta disparos //falta pasarlo a lista de enemigos
-	//mapa.cargarBordes(bordes);
+	mapa.dibuja();
+	mapa.dibujaBordes();
 
 	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
@@ -29,13 +29,13 @@ void Mundo::mueve()
 {
 	jugador.mueve(0.020f);
 
-	for (int i = 0; i < 4; i++) {
+	/*for (int i = 0; i < 4; i++) {
 		Interaccion::colision(jugador, pared[i]);
-		//Interaccion::colision(enemigo, pared[i]);
-	}
+		Interaccion::colision(enemigo, pared[i]);
+	}*/
 
-	//bordes.colision(jugador);
-	//mapa.cargarBordes(jugador);
+
+	mapa.colision(jugador);
 
 	enemigos.persiguePunto(jugador.getPos());
 
@@ -45,18 +45,20 @@ void Mundo::mueve()
 	//		aux = 1;
 	//}
 	//if (aux == 0)
-		enemigos.mueve(0.020f);
+	enemigos.mueve(0.020f);
 
 	enemigos.dispara(jugador.getPos(), disparos_enemigos);
 
 	disparos.mueve(0.020f);
 	disparos_enemigos.mueve(0.020f);
 
-	for (int i = 0; i < 4; i++) {
-		Disparo* aux = disparos.colision(pared[i]); //Devuelve la dirección de aquell disparo que ha colisionado con la pared
-		if (aux != 0 && (aux->getRebote() <= 0))	//si algún disparo ha colisionado y a este no le quedan rebotes
-			disparos.eliminar(aux);
-	}
+	//for (int i = 0; i < 4; i++) {
+	//	Disparo* aux = disparos.colision(pared[i]); //Devuelve la dirección de aquell disparo que ha colisionado con la pared
+	//	if (aux != 0 && (aux->getRebote() <= 0))	//si algún disparo ha colisionado y a este no le quedan rebotes
+	//		disparos.eliminar(aux);
+	//}
+
+	mapa.colision(disparos);
 
 	Interaccion::colision(enemigos, disparos);
 	
@@ -129,10 +131,14 @@ bool Mundo::cargarNivel()
 			enemigos.agregar(e);
 		}
 
-		pared[0].setPos(0, -10, 10, -10);
-		pared[1].setPos(10, -10, 10, 10);
-		pared[2].setPos(10, 10, -10, 10);
-		pared[3].setPos(-10, 10, -10, 0);
+		jugador.setPos(-1, 1);
+
+		//pared[0].setPos(0, -10, 10, -10);
+		//pared[1].setPos(10, -10, 10, 10);
+		//pared[2].setPos(10, 10, -10, 10);
+		//pared[3].setPos(-10, 10, -10, 0);
+
+		mapa.cargarBordes();
 	}
 	if (nivel == 2)
 	{

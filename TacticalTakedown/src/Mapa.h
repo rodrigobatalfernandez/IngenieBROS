@@ -19,16 +19,16 @@ public:
 	//virtual ~Mapa();
 
 	bool agregar(Pared* e);
-	void dibuja();
-	void colision(Disparo d);
-	void colision(Jugador j);
+	void dibujaBordes();
+	void colision(ListaDisparos& disparos);
+	void colision(Jugador& j);
 	void destruirContenido();
 	Pared* operator [](int i);
 
-	void dibuja(Jugador& jugador, Enemigo& enemigo); //falta , ListaDisparos& disparos
+	void dibuja(); //falta , ListaDisparos& disparos
 	void copia_nivel1();
 	void textura(int fil, int col, float altura, char const* cadena1);
-	void cargarBordes(Jugador& jugador);
+	void cargarBordes();
 
 	friend class Interaccion;
 };
