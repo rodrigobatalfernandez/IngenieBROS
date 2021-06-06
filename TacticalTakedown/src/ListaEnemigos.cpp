@@ -12,13 +12,15 @@ ListaEnemigos::~ListaEnemigos(){}
 bool ListaEnemigos::agregar(Enemigo* e)
 {
 	if (numero < MAX_ENEMIGOS) {
-		for (int i = 0; i < numero; i++)
-			if (lista[i] == e)
-				return false;
+		for (int i = 0; i < numero; i++) {
+			if (e == lista[i])
+				return false; // el disparo ya se encuentra en la lista
+		}
 		lista[numero++] = e; // último puesto sin rellenar
-		return true;
 	}
-	return false; // capacidad máxima alcanzada o repetido
+	else
+		return false; // capacidad máxima alcanzada
+	return true;	// operación exitosa
 }
 
 void ListaEnemigos::dibuja()
@@ -73,4 +75,10 @@ void ListaEnemigos::persiguePunto(Vector2D Objetivo)
 {
 	for (int i = 0; i < numero; i++)
 		lista[i]->persiguePunto(Objetivo);
+}
+
+void ListaEnemigos::dispara(Vector2D Objetivo, ListaDisparos& listadisparos)
+{
+	for (int i = 0; i < numero; i++)
+		lista[i]->dispara(Objetivo, listadisparos);
 }

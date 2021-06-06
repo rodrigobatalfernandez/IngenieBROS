@@ -18,6 +18,7 @@ Enemigo::Enemigo(float xi, float yi, float ori)
 	color.r = 0;
 	color.g = 255;
 	color.b = 0;
+	cooldown = COOLDOWN;
 }
 
 void Enemigo::dibuja()

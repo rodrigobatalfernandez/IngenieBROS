@@ -1,9 +1,14 @@
 #pragma once
+#include "Enemigo.h"
 #include "Torreta.h"
+#include "ListaDisparos.h"
 #define MAX_ENEMIGOS 100
 
 class ListaEnemigos
 {
+private:
+	Enemigo* lista[MAX_ENEMIGOS];
+	int numero;
 public:
 	ListaEnemigos();
 	virtual ~ListaEnemigos();
@@ -17,9 +22,6 @@ public:
 	Enemigo* operator [](int i);
 	int getNumero() { return numero; }
 
-	void persiguePunto(Vector2D Objetivo); //Recive un punto y lo sigue
-
-private:
-	Enemigo* lista[MAX_ENEMIGOS];
-	int numero;
+	void persiguePunto(Vector2D Objetivo);
+	void dispara(Vector2D Objetivo, ListaDisparos& listadisparos);
 };

@@ -16,7 +16,7 @@ private:
 	Jugador jugador;
 	ListaDisparos disparos, disparos_enemigos;
 	ListaEnemigos enemigos;
-	Enemigo enemigo;
+	//Enemigo enemigo;
 	Mapa mapa;
 	Pared pared[4];
 

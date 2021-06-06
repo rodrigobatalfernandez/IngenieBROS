@@ -6,13 +6,13 @@
 
 void Mundo::dibuja() {
 	camara.dibuja();
-	mapa.dibuja(jugador,enemigo); //falta disparos //falta pasarlo a lista de enemigos
+	//mapa.dibuja(jugador,enemigo); //falta disparos //falta pasarlo a lista de enemigos
 	//mapa.cargarBordes(bordes);
 
 	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
 	jugador.dibuja();
-	enemigo.dibuja();
+	enemigos.dibuja();
 
 	disparos.dibuja();
 	disparos_enemigos.dibuja();
@@ -31,23 +31,23 @@ void Mundo::mueve()
 
 	for (int i = 0; i < 4; i++) {
 		Interaccion::colision(jugador, pared[i]);
-		Interaccion::colision(enemigo, pared[i]);
+		//Interaccion::colision(enemigo, pared[i]);
 	}
 
 	//bordes.colision(jugador);
 	//mapa.cargarBordes(jugador);
 
-	enemigo.persiguePunto(jugador.getPos());
+	enemigos.persiguePunto(jugador.getPos());
 
-	float aux = 0; //Pendiente de un apaño
-	for (int i = 0; i < 4; i++) {
-		if (pared[i].obstaculiza(enemigo.getPos(), jugador.getPos()))
-			aux = 1;
-	}
-	if (aux == 0)
-		enemigo.mueve(0.020f);
+	//float aux = 0; //Pendiente de un apaño
+	//for (int i = 0; i < 4; i++) {
+	//	if (pared[i].obstaculiza(enemigo.getPos(), jugador.getPos()))
+	//		aux = 1;
+	//}
+	//if (aux == 0)
+		enemigos.mueve(0.020f);
 
-	enemigo.dispara(jugador.getPos(), disparos_enemigos);
+	enemigos.dispara(jugador.getPos(), disparos_enemigos);
 
 	disparos.mueve(0.020f);
 	disparos_enemigos.mueve(0.020f);
@@ -102,7 +102,6 @@ void Mundo::teclaEspecialArriba(unsigned char key) {
 
 Mundo::~Mundo()
 {
-	//esferas.destruirContenido();
 	disparos.destruirContenido();
 	enemigos.destruirContenido();
 	mapa.destruirContenido();
@@ -121,7 +120,12 @@ bool Mundo::cargarNivel()
 	if (nivel == 1)
 	{
 		//Nivel 1
-		enemigo.setPos(1, 1);
+		
+		for (int i = 0; i < 4; i++) {
+			Enemigo* e = new Enemigo();
+			e->setPos(i, i);
+			enemigos.agregar(e);
+		}
 
 		pared[0].setPos(0, -10, 10, -10);
 		pared[1].setPos(10, -10, 10, 10);
