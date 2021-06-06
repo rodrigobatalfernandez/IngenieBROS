@@ -46,7 +46,7 @@ bool Interaccion::colision(Enemigo& e, Disparo& d) {
 	return false;
 }
 
-bool Interaccion::colision(Disparo& d, Jugador& j) {
+bool Interaccion::colision(Jugador& j, Disparo& d) {
 	float dis = (d.posicion - j.posicion).modulo() - d.radio - j.radio;
 	if (dis <= 0.0f) return true;
 	return false;
@@ -56,6 +56,36 @@ bool Interaccion::colision(Disparo& d, Jugador& j) {
 
 //INTERACCIONES DE LISTAS
 
+void Interaccion::colision(Jugador& j, Mapa& mapa) {
+	for (int i = mapa.getNumero() - 1; i >= 0; i--) {
+		Interaccion::colision(j, *mapa[i]);
+	}
+}
+
+void Interaccion::colision(ListaEnemigos& enemigos, Mapa& mapa) {
+	for (int i = enemigos.getNumero() - 1; i >= 0; i--) {
+		for (int j = mapa.getNumero() - 1; j >= 0; j--) {
+			Interaccion::colision(*enemigos[i], *mapa[j]);
+		}
+	}
+}
+
+void Interaccion::colision(Jugador& j, ListaDisparos& disparos) {
+	for (int i = disparos.getNumero() - 1; i >= 0; i--) {
+		Interaccion::colision(j, *disparos[i]);
+	}
+}
+
+void Interaccion::colision(ListaDisparos& disparos, Mapa& mapa) {
+	for (int i = disparos.getNumero() - 1; i >= 0; i--) {
+		for (int j = mapa.getNumero() - 1; j >= 0; j--) {
+			if (Interaccion::colision(*disparos[i], *mapa[j]))
+				if (disparos[i]->getRebote() <= 0)
+					disparos.eliminar(i);
+		}
+	}
+}
+
 void Interaccion::colision(ListaEnemigos& enemigos, ListaDisparos& disparos) {
 	for (int i = enemigos.getNumero()-1; i >= 0; i--) {
 		for (int j = disparos.getNumero()-1; j >= 0; j--) {
@@ -64,5 +94,11 @@ void Interaccion::colision(ListaEnemigos& enemigos, ListaDisparos& disparos) {
 				disparos.eliminar(disparos[j]);
 			}
 		}
+	}
+}
+
+void Interaccion::colision(Jugador& j, ListaEnemigos& enemigos) {
+	for (int i = enemigos.getNumero() - 1; i >= 0; i--) {
+		Interaccion::colision(j, *enemigos[i]);
 	}
 }

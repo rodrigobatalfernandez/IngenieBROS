@@ -13,11 +13,16 @@ public:
 	static bool colision(Enemigo& e, Pared p);	//Colisión entre enemigo y pared
 	static bool colision(Disparo& d, Pared p);	//Colisión entre disparo y pared
 
-	//Colisiones con los disparos
+	//Colisiones ente objetos móviles
 	static bool colision(Enemigo& e, Disparo& d); //Colision entre jugador y enemigo
-	static bool colision(Disparo& d, Jugador& j);
-
-	static void colision(ListaEnemigos& enemigos, ListaDisparos& disparos);
-
+	static bool colision(Jugador& j, Disparo& d);
 	static bool colision(Jugador& j, Enemigo& e); //Colision entre jugador y enemigo
+
+	//Colisiones con listas
+	static void colision(Jugador& j, Mapa& mapa);
+	static void colision(ListaEnemigos& enemigos, Mapa& mapa);
+	static void colision(ListaDisparos& disparos, Mapa& mapa);
+	static void colision(ListaEnemigos& enemigos, ListaDisparos& disparos);
+	static void colision(Jugador& j, ListaDisparos& disparos);
+	static void colision(Jugador& j, ListaEnemigos& enemigos);
 };

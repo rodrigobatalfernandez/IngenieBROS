@@ -17,6 +17,7 @@ private: //Para incluir los bordes en lista paredes necesitan ser punteros (Pare
 public:
 	Mapa();
 	//virtual ~Mapa();
+	float getNumero() { return numero; }
 
 	bool agregar(Pared* e);
 	void dibujaBordes();
