@@ -11,6 +11,8 @@
 #include "Pared.h"
 #include "ListaParedes.h"
 #include "Interaccion.h"
+#include "Torreta.h"
+
 
 
 class Mundo
@@ -19,7 +21,7 @@ private:
 	Camara camara;
 	Jugador jugador;
 	ListaDisparos disparos;
-	Enemigo enemigo;
+	Torreta enemigo;
 	Mapa mapa;
 	Pared pared[4];
 	ListaParedes bordes;

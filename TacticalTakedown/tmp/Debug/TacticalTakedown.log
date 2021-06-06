@@ -1,3 +1,2 @@
-﻿  Vector2D.cpp
-C:\Users\Guillermo\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Vector2D.cpp(80,10): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  TacticalTakedown.vcxproj -> C:\Users\Guillermo\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+﻿  ListaEnemigos.cpp
+  TacticalTakedown.vcxproj -> C:\Users\Guillermo\Desktop\TacticalTakedown\bin\TacticalTakedown.exe

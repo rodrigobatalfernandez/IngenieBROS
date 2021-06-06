@@ -5,7 +5,7 @@
 class Enemigo
 {
 	friend class Interaccion;
-private:
+protected:
 	//Cinematica
 	Vector2D posicion;
 	Vector2D velocidad;
@@ -20,8 +20,8 @@ private:
 	float radio; //Definición del radio de la hitbox
 public:
 	Enemigo(float xi = 0, float yi = 0, float ori = 0); //Constructor
-	void dibuja(); //Funcion de dibujo
-	void mueve(float t); //Cinematica
+	virtual void dibuja(); //Funcion de dibujo
+	virtual void mueve(float t); //Cinematica
 
 	void setPos(float ix, float iy);  //Define una nueva posicion
 	Vector2D getPos();  //Devuelve la posicion
@@ -32,6 +32,6 @@ public:
 	void setVelAng(float vo); //Define una nueva velocidad angular
 	float getVelAng(); //Devuelve la velocidad angular actual
 
-	void miraPunto(Vector2D Objetivo); //Recive un punto y lo mira
-	void persiguePunto(Vector2D Objetivo); //Recive un punto y lo sigue
+	virtual void miraPunto(Vector2D Objetivo); //Recive un punto y lo mira
+	virtual void persiguePunto(Vector2D Objetivo); //Recive un punto y lo sigue
 };
