@@ -2,7 +2,9 @@
 #include <math.h>
 
 #define PI 3.141592
-#define COOLDOWN 30;
+#define COOLDOWN 30
+#define ESCALA 3
+
 
 Enemigo::Enemigo(float xi, float yi, float ori)
 {
@@ -22,12 +24,16 @@ void Enemigo::dibuja()
 {
 	glColor3ub(color.r, color.g, color.b);
 	glTranslatef(posicion.x, posicion.y, 0);
-	glRotatef(90, 1, 0, 0);
-	glRotatef(orientacion, 0, 1, 0);
-	glutSolidTeapot(radio);
+	glRotatef(orientacion, 0, 0, 1);
 
-	glRotatef(-orientacion, 0, 1, 0);
-	glRotatef(-90, 1, 0, 0);
+	if ((indice > 8) && (indice <= 15))
+		indice--;
+	else
+		indice = 15;
+	ETSIDI::SpriteSequence animacion("imagenes/TANKHUNG.png", 8, 8, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, indice);
+	animacion.draw();
+
+	glRotatef(-orientacion, 0, 0, 1);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 }
 

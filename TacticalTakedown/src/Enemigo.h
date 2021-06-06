@@ -2,6 +2,7 @@
 #include "Vector2D.h"
 #include "ColorRGB.h"
 #include "ListaDisparos.h"
+#include "ETSIDI.h"
 
 class Enemigo
 {
@@ -22,6 +23,7 @@ protected:
 
 	float cooldown; //Intervalo entre disparos 
 
+	int indice;//indice sprite
 public:
 	Enemigo(float xi = 0, float yi = 0, float ori = 0); //Constructor
 	virtual void dibuja(); //Funcion de dibujo

@@ -22,4 +22,6 @@ public:
 	void dibuja();
 	void mueve(float t);
 	void getOri();
+	void sonido_disparo_inicio();
+	void sonido_disparo_impacto();
 };

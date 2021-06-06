@@ -59,3 +59,9 @@ void Disparo::mueve(float t) {
 void Disparo::getOri() {
 	orientacion = 180 / 3.141592 * atan2(velocidad.x, velocidad.y);
 }
+void Disparo::sonido_disparo_inicio() {
+	ETSIDI::play("sonidos/DISPARO.wav");
+}
+void Disparo::sonido_disparo_impacto() {
+	ETSIDI::play("sonidos/IMPACTO LASER.wav");
+}
