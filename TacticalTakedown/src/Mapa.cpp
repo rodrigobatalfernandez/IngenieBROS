@@ -12,7 +12,55 @@
 int mapa[FIL][COL]; //matriz principal mapa
 
 Mapa::Mapa() {
+	numero = 0;
+}
 
+bool Mapa::agregar(Pared* p)
+{
+	if (numero < MAX_PAREDES) {
+		for (int i = 0; i < numero; i++) {
+			if (p == lista[i])
+				return false; // la pared ya se encuentra en la lista
+		}
+		lista[numero++] = p; // último puesto sin rellenar
+	}
+	else
+		return false; // capacidad máxima alcanzada
+	return true;	// operación exitosa
+}
+
+void Mapa::dibuja()
+{
+	for (int i = 0; i < numero; i++)
+		lista[i]->dibuja();
+}
+
+void Mapa::colision(Disparo d)
+{
+	for (int i = 0; i < numero; i++)
+		Interaccion::colision(d, *(lista[i]));
+}
+
+void Mapa::colision(Jugador j)
+{
+	for (int i = 0; i < numero; i++)
+		Interaccion::colision(j, *(lista[i]));
+}
+
+void Mapa::destruirContenido()
+{
+	for (int i = 0; i < numero; i++) // destrucción de esferas contenidas
+		delete lista[i];
+	numero = 0; // inicializa lista
+}
+
+Pared* Mapa::operator[](int i)
+{
+	if (i >= numero)//si me paso, devuelvo la ultima
+		i = numero - 1;
+	if (i < 0) //si el indice es negativo, devuelvo la primera
+		i = 0;
+	return lista[i];
 }
 
 void Mapa::copia_nivel1() {
@@ -120,20 +168,20 @@ void Mapa::textura(int fil, int col, float altura, char const* cadena1)
 	glDisable(GL_TEXTURE_2D);
 }
 
-//void Mapa::cargarBordes(Jugador& jugador){
-//	for (int fil = 0; fil < FIL; fil++)
-//	{
-//		for (int col = 0; col < COL; col++)
-//		{
-//			//Pared pared[4];
-//			if (mapa[fil][col] == 0) { //textura correspondiente a 0
-//
-//			////se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
-//				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)]);
-//				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+1]);
-//				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+2]);
-//				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+3]);
-//			}
-//		}
-//	}
-//}
+void Mapa::cargarBordes(Jugador& jugador){
+	for (int fil = 0; fil < FIL; fil++)
+	{
+		for (int col = 0; col < COL; col++)
+		{
+			//Pared pared[4];
+			if (mapa[fil][col] == 0) { //textura correspondiente a 0
+
+			////se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
+				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)]);
+				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+1]);
+				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+2]);
+				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+3]);
+			}
+		}
+	}
+}

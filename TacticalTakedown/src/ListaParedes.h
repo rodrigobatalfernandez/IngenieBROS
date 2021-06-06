@@ -19,7 +19,7 @@ public:
 	void colision(Disparo d);
 	void colision(Jugador j);
 	void destruirContenido();
-	//void eliminar(int index);
-	//void eliminar(Pared* e);
+	/*void eliminar(int index);
+	void eliminar(Pared* e);*/
 	Pared* operator [](int i);
 };

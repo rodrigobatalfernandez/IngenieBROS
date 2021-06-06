@@ -50,19 +50,6 @@ float Pared::distancia(Vector2D punto, Vector2D* direccion)
 	return distancia;
 }
 
-bool Pared::obstaculiza(Vector2D p1, Vector2D p2) {
-	Vector2D a, b, c;
-	a = limite2 - limite1;
-	b = p2 - p1;
-	c = p1 - limite1;
-
-	float s = (c.x - (c.y * (b.x / b.y))) / (a.x - (a.y * (b.x / b.y)));
-	float t = (c.x - (c.y * (a.x / a.y))) / (-b.x + (b.y * (a.x / a.y)));
-
-	if ((s >= 0) && (s <= 1) && (t >= 0) && (t <= 1)) {
-		std::cout << "para" << std::endl;
-		return true;
-	}
-	std::cout << "sigue" << std::endl;
-	return false;
-}//https://es.wikipedia.org/wiki/Intersecci%C3%B3n_(geometr%C3%ADa)#:~:text=En%20geometr%C3%ADa%2C%20una%20intersecci%C3%B3n%20es,planos%2C%20superficies%20o%20vol%C3%BAmenes).
+bool Pared::obstaculiza(Vector2D p1, Vector2D p2){
+	return Vector2D::Interseccion(limite1, limite2, p1, p2);
+}
