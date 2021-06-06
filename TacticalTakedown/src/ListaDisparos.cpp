@@ -1,4 +1,5 @@
 #include "ListaDisparos.h"
+#include "Interaccion.h"
 
 ListaDisparos::ListaDisparos()
 {

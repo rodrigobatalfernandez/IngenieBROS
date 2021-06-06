@@ -1,5 +1,6 @@
 #include "Disparo.h"
 #include "freeglut.h"
+#include "ETSIDI.h"
 #define ESCALA 1
 
 Disparo::Disparo() {

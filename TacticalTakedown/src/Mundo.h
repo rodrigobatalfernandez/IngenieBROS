@@ -3,9 +3,6 @@
 #include "Vector2D.h"
 
 #include "Camara.h"
-#include "Jugador.h"
-#include "Enemigo.h"
-#include "Disparo.h"
 #include "ListaDisparos.h"
 #include "Mapa.h"
 #include "Pared.h"
@@ -21,10 +18,10 @@ private:
 	Camara camara;
 	Jugador jugador;
 	ListaDisparos disparos;
-	Torreta enemigo;
+	Enemigo enemigo;
 	Mapa mapa;
-	Pared pared[4];
 	ListaParedes bordes;
+	Pared pared[4];
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;
@@ -42,6 +39,7 @@ public:
 		void teclaArriba(unsigned char key);
 		void teclaEspecialAbajo(unsigned char key);
 		void teclaEspecialArriba(unsigned char key);
+		Vector2D getCam() { return camara.getPos(); }
 
 		void musica();
 };

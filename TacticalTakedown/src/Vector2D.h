@@ -13,7 +13,7 @@ public:	//METODOS
 	Vector2D operator + (Vector2D);				// (6) suma de vectores (con sobrecarga de operador)
 	float operator * (Vector2D);				// (7) producto escalar (con sobrecarga múltiple de operador)
 	Vector2D operator * (float);				// (8) producto por un escalar (con sobrecarga múltiple de operador)
-	bool onSegment(Vector2D p, Vector2D q, Vector2D r);						// (9) Detectar si tres puntos son colineales
-	int orientation(Vector2D p, Vector2D q, Vector2D r);					// (10) Detectar el vector de giro de 3 puntos
-	bool Interseccion(Vector2D p1, Vector2D q1, Vector2D p2, Vector2D q2);	// (11) Detectar la interaccion de dos segmentos
+	static bool onSegment(Vector2D p, Vector2D q, Vector2D r);						// (9) Detectar si tres puntos son colineales
+	static float orientation(Vector2D p, Vector2D q, Vector2D r);					// (10) Detectar el vector de giro de 3 puntos
+	static bool Interseccion(Vector2D p1, Vector2D q1, Vector2D p2, Vector2D q2);	// (11) Detectar la interaccion de dos segmentos
 };
