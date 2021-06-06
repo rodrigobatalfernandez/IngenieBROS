@@ -1,12 +1,17 @@
 #include "Mundo.h"
 #include "freeglut.h"
 #include <math.h>
+
 #define PI 3.141592
+
+//#define FIL 6 //filas del mapa
+//#define COL 6 //columnas del mapa
+//#define ESCALA 5 //escala de texturas
 
 void Mundo::dibuja() {
 	camara.dibuja();
-	mapa.dibuja();
-	mapa.cargarBordes(bordes);
+	mapa.dibuja(jugador,enemigo); //falta disparos //falta pasarlo a lista de enemigos
+	//mapa.cargarBordes(bordes);
 
 	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
@@ -15,7 +20,7 @@ void Mundo::dibuja() {
 
 	disparos.dibuja();
 
-	//for (int i = 0; i < 4; i++) {
+	//for (int i = 0; i < bordes.numero; i++) {
 	//	pared[i].dibuja();
 	//}
 
@@ -38,26 +43,28 @@ void Mundo::mueve()
 	//	Interaccion::colision(enemigo, pared[i]);
 	//}
 
+
 	//bordes.colision(jugador);
+	//mapa.cargarBordes(jugador);
 
 	enemigo.persiguePunto(jugador.getPos());
 
-	float aux = 0; //Pendiente de un apaño
-	for (int i = 0; i < 4; i++) {
-		if (pared[i].obstaculiza(enemigo.getPos(), jugador.getPos()))
-			aux = 1;
-	}
-	if (aux == 0)
+	//float aux = 0; //Pendiente de un apaño
+	//for (int i = 0; i < 4; i++) {
+	//	if (pared[i].obstaculiza(enemigo.getPos(), jugador.getPos()))
+	//		aux = 1;
+	//}
+	//if (aux == 0)
 		enemigo.mueve(0.020f);
 
 	disparos.mueve(0.020f);
 
-	for (int i = 0; i < 4; i++) {
-		Disparo* aux = disparos.colision(pared[i]); //Devuelve la dirección de aquell disparo que ha colisionado con la pared
-		if (aux != 0 && (aux->getRebote() <= 0))	//si algún disparo ha colisionado y a este no le quedan rebotes
-			disparos.eliminar(aux);
-			aux;
-	}
+	//for (int i = 0; i < 4; i++) {
+	//	Disparo* aux = disparos.colision(pared[i]); //Devuelve la dirección de aquell disparo que ha colisionado con la pared
+	//	if (aux != 0 && (aux->getRebote() <= 0))	//si algún disparo ha colisionado y a este no le quedan rebotes
+	//		disparos.eliminar(aux);
+	//		aux;
+	//}
 	
 	camara.setPos(jugador.getPos().x, jugador.getPos().y);
 }
@@ -71,7 +78,6 @@ void Mundo::inicializa()
 	//pared[1].setPos(10, -10, 10, 10);
 	//pared[2].setPos(10, 10, -10, 10);
 	//pared[3].setPos(-10, 10, -10, 0);
-
 
 	/*bonus.setPos(5.0f, 5.0f);
 

@@ -21,10 +21,10 @@ private:
 	Camara camara;
 	Jugador jugador;
 	ListaDisparos disparos;
-	Torreta enemigo;
+	Enemigo enemigo;
 	Mapa mapa;
-	Pared pared[4];
 	ListaParedes bordes;
+	Pared pared[MAX_PAREDES];
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;

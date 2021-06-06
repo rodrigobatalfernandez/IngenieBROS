@@ -4,7 +4,7 @@
 #include "Interaccion.h"
 #include "Disparo.h"
 #include "Pared.h"
-#include "ListaParedes.h"
+//#include "ListaParedes.h"
 
 class ListaDisparos
 {

@@ -7,6 +7,7 @@
 class ListaParedes
 {
 private:
+public:
 	Pared* lista[MAX_PAREDES];
 	int numero;
 
