@@ -42,7 +42,7 @@ bool Interaccion::colision(Jugador& j, Enemigo& e) {
 
 bool Interaccion::colision(Enemigo& e, Disparo& d) {
 	float dis = (d.posicion - e.posicion).modulo() - d.radio - e.radio;
-	if (dis <= 0.0f) return true;
+	if (dis <= 0) return true;
 	return false;
 }
 
@@ -57,11 +57,11 @@ bool Interaccion::colision(Disparo& d, Jugador& j) {
 //INTERACCIONES DE LISTAS
 
 void Interaccion::colision(ListaEnemigos& enemigos, ListaDisparos& disparos) {
-	for (int i = enemigos.getNumero(); i < 0; i--) {
-		for (int j = disparos.getNumero(); j < 0; j--) {
-			if (Interaccion::colision(*enemigos[i], *disparos[i])) {
-				enemigos.eliminar(i);
-				disparos.eliminar(i);
+	for (int i = enemigos.getNumero()-1; i >= 0; i--) {
+		for (int j = disparos.getNumero()-1; j >= 0; j--) {
+			if (Interaccion::colision(*enemigos[i], *disparos[j])) {
+				enemigos.eliminar(enemigos[i]);
+				disparos.eliminar(disparos[j]);
 			}
 		}
 	}

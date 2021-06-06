@@ -1,7 +1,4 @@
-﻿  Mundo.cpp
+﻿  Interaccion.cpp
 D:\Documents\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mundo.cpp(82,57): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mundo.cpp(82,16): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mundo.cpp(128,17): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mundo.cpp(128,14): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(61,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
   TacticalTakedown.vcxproj -> D:\Documents\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

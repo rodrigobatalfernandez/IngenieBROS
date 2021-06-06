@@ -123,9 +123,9 @@ bool Mundo::cargarNivel()
 	{
 		//Nivel 1
 		
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 4; i++) {
 			Enemigo* e = new Enemigo();
-			e->setPos(i, i);
+			e->setPos(2*i,2*i);
 			enemigos.agregar(e);
 		}
 
