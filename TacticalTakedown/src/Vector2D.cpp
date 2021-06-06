@@ -1,8 +1,21 @@
 #include "Vector2D.h"
 #include "Vector2D.h"
 #include "math.h"
-#include <iostream>
-using namespace std;
+
+float max(float a, float b) {
+	if (a > b)
+		return a;
+	else
+		return b;
+}
+
+float min(float a, float b) {
+	if (a > b)
+		return b;
+	else
+		return a;
+}
+
 
 Vector2D::Vector2D(float xv, float yv) {
 	x = xv;
@@ -10,7 +23,7 @@ Vector2D::Vector2D(float xv, float yv) {
 }
 
 float Vector2D::modulo() {
-	return (float)sqrt(x * x + y * y);
+	return (float)sqrt((double)x * x + (double)y * y);
 }
 
 float Vector2D::argumento() {
