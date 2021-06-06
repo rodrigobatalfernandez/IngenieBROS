@@ -63,13 +63,9 @@ void Mundo::mueve()
 
 void Mundo::inicializa()
 {
-	jugador.setPos(0, 0);
-	enemigo.setPos(1, 1);
+	nivel = 0;//No se si va aqui
 
-	pared[0].setPos(0, -10, 10, -10);
-	pared[1].setPos(10, -10, 10, 10);
-	pared[2].setPos(10, 10, -10, 10);
-	pared[3].setPos(-10, 10, -10, 0);
+	cargarNivel();
 }
 
 void Mundo::teclaAbajo(unsigned char key) 
@@ -109,6 +105,39 @@ Mundo::~Mundo()
 	disparos.destruirContenido();
 	enemigos.destruirContenido();
 	mapa.destruirContenido();
+}
+
+bool Mundo::cargarNivel()
+{
+	muerte = false;// temporal
+	nivel++;
+	jugador.setPos(0, 0);//Posicion inicial, comun para todos los niveles
+
+	//Destruir cosas
+	enemigos.destruirContenido();
+	disparos.destruirContenido();
+
+	if (nivel == 1)
+	{
+		//Nivel 1
+		enemigo.setPos(1, 1);
+
+		pared[0].setPos(0, -10, 10, -10);
+		pared[1].setPos(10, -10, 10, 10);
+		pared[2].setPos(10, 10, -10, 10);
+		pared[3].setPos(-10, 10, -10, 0);
+	}
+	if (nivel == 2)
+	{
+		//Nivel 2
+	}
+	if (nivel == 3)
+	{
+		//Nivel 3
+	}
+	if (nivel <= 3)
+		return true;
+	return false;
 }
 
 void Mundo::musica() {//funcion musica, es necesaria pararlo

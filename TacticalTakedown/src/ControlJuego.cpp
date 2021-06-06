@@ -12,6 +12,14 @@ void ControlJuego::mueve()
 	if (estado == JUEGO)
 	{
 		mundo.mueve();
+
+		//NO entiendo esto----------------------------
+		if (mundo.getNum() == 0)
+		{
+			if (!mundo.cargarNivel())
+				estado = FIN;
+		}
+		//---------------------------------------------
 	}
 }
 

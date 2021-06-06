@@ -5,9 +5,7 @@
 #include "Camara.h"
 #include "ListaDisparos.h"
 #include "Mapa.h"
-#include "Pared.h"
 #include "Interaccion.h"
-#include "Torreta.h"
 #include "ListaEnemigos.h"
 
 
@@ -22,23 +20,22 @@ private:
 	Mapa mapa;
 	Pared pared[4];
 
-		/*ListaDisparos disparos;
-		ListaEsferas esferas;
-		Hombre hombre;
-		Caja caja;
-		Bonus bonus;
-		Pared plataforma;*/
+	int nivel = 0;
+	bool muerte = false;
+
 public:
-		~Mundo();
-		void inicializa();
-		void mueve();
-		void dibuja();
+	~Mundo();
+	void inicializa();
+	void mueve();
+	void dibuja();
 
-		void teclaAbajo(unsigned char key);
-		void teclaArriba(unsigned char key);
-		void teclaEspecialAbajo(unsigned char key);
-		void teclaEspecialArriba(unsigned char key);
-		Vector2D getCam() { return camara.getPos(); }
+	void teclaAbajo(unsigned char key);
+	void teclaArriba(unsigned char key);
+	void teclaEspecialAbajo(unsigned char key);
+	void teclaEspecialArriba(unsigned char key);
+	Vector2D getCam() { return camara.getPos(); }
+	int getNum() { return nivel; }
+	bool cargarNivel();
 
-		void musica();
+	void musica();
 };
