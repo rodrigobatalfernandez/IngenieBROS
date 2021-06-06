@@ -24,16 +24,8 @@ void ControlJuego::dibuja()
 		gluLookAt(0, 7.5, 30, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
-		//ETSIDI::setTextColor(1, 1, 0);
-		//ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		//ETSIDI::printxy("Pang 1.1", -5, 8);
-		//ETSIDI::setTextColor(1, 1, 1);						
-		//ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
-		//ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5, 7);
-		//ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
-		//ETSIDI::printxy("IngenieBROS", 2, 1);
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/mgsINI.png").id);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/mgsEMPTY.png").id);
 		glDisable(GL_LIGHTING);
 		glBegin(GL_POLYGON);
 		glColor3f(1, 1, 1);
@@ -44,6 +36,18 @@ void ControlJuego::dibuja()
 		glEnd();
 		glEnable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
+
+		glTranslatef(-3, -5, -10);
+		ETSIDI::setTextColor(1, 1, 0);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::printxy("TACTICAL TAKEDOWN", -5, 8);
+		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
+		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5, 7);
+		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
+		ETSIDI::printxy("IngenieBROS", 2, 1);
+		glTranslatef(3, 5, 10);
+
 		break;
 	case ControlJuego::JUEGO:
 		mundo.dibuja();
@@ -59,6 +63,7 @@ void ControlJuego::dibuja()
 		mundo.dibuja();
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::printxy("ENHORABUENA, ¡Has triunfado!", -5, 10);
+		//Mostrar Puntuación y tiempo sobrevivido
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
 		break;
 	case ControlJuego::PAUSA:

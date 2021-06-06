@@ -6,7 +6,7 @@
 
 void Mundo::dibuja() {
 	camara.dibuja();
-	//mapa.dibuja(jugador,enemigo); //falta disparos //falta pasarlo a lista de enemigos
+	mapa.dibuja(jugador,enemigo); //falta disparos //falta pasarlo a lista de enemigos
 	//mapa.cargarBordes(bordes);
 
 	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
