@@ -24,7 +24,7 @@ private:
 	Enemigo enemigo;
 	Mapa mapa;
 	ListaParedes bordes;
-	Pared pared[MAX_PAREDES];
+	Pared pared[4];
 
 		/*ListaDisparos disparos;
 		ListaEsferas esferas;
@@ -42,6 +42,7 @@ public:
 		void teclaArriba(unsigned char key);
 		void teclaEspecialAbajo(unsigned char key);
 		void teclaEspecialArriba(unsigned char key);
+		Vector2D getCam() { return camara.getPos(); }
 
 		void musica();
 };

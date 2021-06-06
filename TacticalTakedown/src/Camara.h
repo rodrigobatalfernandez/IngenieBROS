@@ -10,4 +10,5 @@ public:
 	Camara();
 	void setPos(float ix, float iy);
 	void dibuja();
+	Vector2D getPos() { return posicion; }
 };

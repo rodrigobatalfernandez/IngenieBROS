@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Camara.cpp" />
+    <ClCompile Include="src\ControlJuego.cpp" />
     <ClCompile Include="src\Disparo.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
@@ -37,6 +38,7 @@
   <ItemGroup>
     <ClInclude Include="src\Camara.h" />
     <ClInclude Include="src\ColorRGB.h" />
+    <ClInclude Include="src\ControlJuego.h" />
     <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\Enemigo.h" />
     <ClInclude Include="src\Interaccion.h" />

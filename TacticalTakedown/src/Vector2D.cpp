@@ -75,9 +75,9 @@ bool Vector2D::onSegment(Vector2D p, Vector2D q, Vector2D r)
 	return false;
 }
 
-int Vector2D::orientation(Vector2D p, Vector2D q, Vector2D r)
+float Vector2D::orientation(Vector2D p, Vector2D q, Vector2D r)
 {
-	int val = (q.y - p.y) * (r.x - q.x) -
+	float val = (q.y - p.y) * (r.x - q.x) -
 		(q.x - p.x) * (r.y - q.y);
 
 	if (val == 0) return 0;  // colinear
@@ -89,10 +89,10 @@ bool Vector2D::Interseccion(Vector2D p1, Vector2D q1, Vector2D p2, Vector2D q2)
 {
 	// Find the four orientations needed for general and
    // special cases
-	int o1 = orientation(p1, q1, p2);
-	int o2 = orientation(p1, q1, q2);
-	int o3 = orientation(p2, q2, p1);
-	int o4 = orientation(p2, q2, q1);
+	float o1 = orientation(p1, q1, p2);
+	float o2 = orientation(p1, q1, q2);
+	float o3 = orientation(p2, q2, p1);
+	float o4 = orientation(p2, q2, q1);
 
 	// General case
 	if (o1 != o2 && o3 != o4)
