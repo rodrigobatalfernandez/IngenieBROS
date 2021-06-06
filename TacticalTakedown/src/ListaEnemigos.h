@@ -12,16 +12,16 @@ private:
 public:
 	ListaEnemigos();
 	virtual ~ListaEnemigos();
+	int getNumero() { return numero; }
+	Enemigo* operator [](int i);
 
 	bool agregar(Enemigo* e);
-	void dibuja();
-	void mueve(float t);
 	void destruirContenido();
 	void eliminar(int index);
 	void eliminar(Enemigo* e);
-	Enemigo* operator [](int i);
-	int getNumero() { return numero; }
 
+	void dibuja();
+	void mueve(float t);
 	void persiguePunto(Vector2D Objetivo);
 	void dispara(Vector2D Objetivo, ListaDisparos& listadisparos);
 };

@@ -1,7 +1,8 @@
 #pragma once
 #include "Jugador.h"
 #include "Disparo.h"
-#include "Listadisparos.h"
+#include "ListaDisparos.h"
+#include "ListaEnemigos.h"
 #include "Pared.h"
 #include "Mapa.h"
 
@@ -13,8 +14,10 @@ public:
 	static bool colision(Disparo& d, Pared p);	//Colisión entre disparo y pared
 
 	//Colisiones con los disparos
-	static bool colision(Disparo& d, Enemigo& e); //Colision entre jugador y enemigo
+	static bool colision(Enemigo& e, Disparo& d); //Colision entre jugador y enemigo
 	static bool colision(Disparo& d, Jugador& j);
+
+	static void colision(ListaEnemigos& enemigos, ListaDisparos& disparos);
 
 	static bool colision(Jugador& j, Enemigo& e); //Colision entre jugador y enemigo
 };

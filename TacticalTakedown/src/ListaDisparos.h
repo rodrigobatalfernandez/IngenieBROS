@@ -15,14 +15,16 @@ private:
 public:
 	ListaDisparos();
 	//virtual ~ListaDisparos();
+	float getNumero() { return numero; }
+	Disparo* operator [](int i);
+
 	bool agregar(Disparo* d);
 	void eliminar(int index);
 	void eliminar(Disparo* d);
 	void destruirContenido();
+
 	void mueve(float t);
 	void dibuja();
-	int getNum() { return numero; };
-	Disparo* operator [](int i);
 
 	Disparo* colision(Pared p);
 };

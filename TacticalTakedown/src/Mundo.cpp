@@ -57,6 +57,8 @@ void Mundo::mueve()
 		if (aux != 0 && (aux->getRebote() <= 0))	//si algún disparo ha colisionado y a este no le quedan rebotes
 			disparos.eliminar(aux);
 	}
+
+	Interaccion::colision(enemigos, disparos);
 	
 	camara.setPos(jugador.getPos().x, jugador.getPos().y);
 }
@@ -121,7 +123,7 @@ bool Mundo::cargarNivel()
 	{
 		//Nivel 1
 		
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 1; i++) {
 			Enemigo* e = new Enemigo();
 			e->setPos(i, i);
 			enemigos.agregar(e);

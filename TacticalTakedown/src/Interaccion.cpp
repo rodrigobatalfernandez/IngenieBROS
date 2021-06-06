@@ -40,7 +40,7 @@ bool Interaccion::colision(Jugador& j, Enemigo& e) {
 	return false;
 }
 
-bool Interaccion::colision(Disparo& d, Enemigo& e) {
+bool Interaccion::colision(Enemigo& e, Disparo& d) {
 	float dis = (d.posicion - e.posicion).modulo() - d.radio - e.radio;
 	if (dis <= 0.0f) return true;
 	return false;
@@ -50,4 +50,19 @@ bool Interaccion::colision(Disparo& d, Jugador& j) {
 	float dis = (d.posicion - j.posicion).modulo() - d.radio - j.radio;
 	if (dis <= 0.0f) return true;
 	return false;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//INTERACCIONES DE LISTAS
+
+void Interaccion::colision(ListaEnemigos& enemigos, ListaDisparos& disparos) {
+	for (int i = enemigos.getNumero(); i < 0; i--) {
+		for (int j = disparos.getNumero(); j < 0; j--) {
+			if (Interaccion::colision(*enemigos[i], *disparos[i])) {
+				enemigos.eliminar(i);
+				disparos.eliminar(i);
+			}
+		}
+	}
 }
