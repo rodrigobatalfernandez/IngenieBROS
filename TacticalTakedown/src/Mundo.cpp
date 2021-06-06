@@ -15,6 +15,7 @@ void Mundo::dibuja() {
 	enemigo.dibuja();
 
 	disparos.dibuja();
+	disparos_enemigos.dibuja();
 
 	for (int i = 0; i < 4; i++) {
 		pared[i].dibuja();
@@ -46,7 +47,10 @@ void Mundo::mueve()
 	if (aux == 0)
 		enemigo.mueve(0.020f);
 
+	enemigo.dispara(jugador.getPos(), disparos_enemigos);
+
 	disparos.mueve(0.020f);
+	disparos_enemigos.mueve(0.020f);
 
 	for (int i = 0; i < 4; i++) {
 		Disparo* aux = disparos.colision(pared[i]); //Devuelve la dirección de aquell disparo que ha colisionado con la pared

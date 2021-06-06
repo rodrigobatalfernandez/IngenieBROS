@@ -1,6 +1,7 @@
 #pragma once
 #include "Vector2D.h"
 #include "ColorRGB.h"
+#include "ListaDisparos.h"
 
 class Enemigo
 {
@@ -18,6 +19,9 @@ protected:
 
 	ColorRGB color; //Definicion del color
 	float radio; //Definición del radio de la hitbox
+
+	float cooldown; //Intervalo entre disparos 
+
 public:
 	Enemigo(float xi = 0, float yi = 0, float ori = 0); //Constructor
 	virtual void dibuja(); //Funcion de dibujo
@@ -32,6 +36,8 @@ public:
 	void setVelAng(float vo); //Define una nueva velocidad angular
 	float getVelAng(); //Devuelve la velocidad angular actual
 
+	virtual float difAngular(Vector2D Objetivo); //Devuelve la diferencia angular entre la orientación angular del enemigo y la necesaria para tener al objetivo en frente
 	virtual void miraPunto(Vector2D Objetivo); //Recive un punto y lo mira
 	virtual void persiguePunto(Vector2D Objetivo); //Recive un punto y lo sigue
+	virtual void dispara(Vector2D Objetivo, ListaDisparos& lista);
 };

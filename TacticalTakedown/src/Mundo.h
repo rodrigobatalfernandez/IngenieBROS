@@ -16,7 +16,7 @@ class Mundo
 private:
 	Camara camara;
 	Jugador jugador;
-	ListaDisparos disparos;
+	ListaDisparos disparos, disparos_enemigos;
 	ListaEnemigos enemigos;
 	Enemigo enemigo;
 	Mapa mapa;

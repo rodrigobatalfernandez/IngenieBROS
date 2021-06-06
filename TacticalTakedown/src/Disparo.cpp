@@ -41,6 +41,7 @@ void Disparo::dibuja() {
 			indice++;
 		else
 			indice = 0;
+		glColor3ub(255, 255, 0);
 		ETSIDI::SpriteSequence animacion("imagenes/laser.png", 1, 11, 50, true, 0, 0, 2 * ESCALA, 1 * ESCALA, indice);
 		animacion.draw();
 		glRotatef(orientacion, 0, 0, 1);
