@@ -8,6 +8,12 @@
 #define COL 6 //columnas del mapa
 #define ESCALA 5 //escala de texturas
 
+#include <iostream>
+#include "fstream"
+#include "string"
+
+#define  MAX 128
+
 //variables globales
 int mapa[FIL][COL]; //matriz principal mapa
 
@@ -106,7 +112,7 @@ void Mapa::dibuja() {
 		{
 
 			if (mapa[fil][col] == 0) { //Textura correspondiente a 0
-				textura(fil, col, 0.3, "imagenes/HUDA.png");
+				textura(fil, col, 0, "imagenes/HUDA.png");
 			}
 			if (mapa[fil][col] == 1) { //Textura correspondiente a 1
 				textura(fil, col, -0.1, "imagenes/StoneFloorTexture_0.png");

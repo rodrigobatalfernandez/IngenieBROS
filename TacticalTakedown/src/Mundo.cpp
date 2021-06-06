@@ -7,7 +7,7 @@
 void Mundo::dibuja() {
 	camara.dibuja();
 	mapa.dibuja();
-	mapa.dibujaBordes();
+	//mapa.dibujaBordes();
 
 	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
