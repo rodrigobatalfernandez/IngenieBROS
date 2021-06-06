@@ -29,12 +29,6 @@ void ListaEnemigos::dibuja()
 		lista[i]->dibuja();
 }
 
-void ListaEnemigos::mueve(float t)
-{
-	for (int i = 0; i < numero; i++)
-		lista[i]->mueve(t);
-}
-
 void ListaEnemigos::destruirContenido()
 {
 	for (int i = 0; i < numero; i++) // destrucción de esferas contenidas
@@ -71,10 +65,20 @@ Enemigo* ListaEnemigos::operator[](int i)
 	return lista[i];
 }
 
-void ListaEnemigos::persiguePunto(Vector2D Objetivo)
+void ListaEnemigos::mueve(Vector2D Objetivo, Mapa& mapa, float t)
 {
-	for (int i = 0; i < numero; i++)
-		lista[i]->persiguePunto(Objetivo);
+	for (int i = 0; i < numero; i++) {
+		bool aux = false;
+		for (int j = 0; j < mapa.getNumero(); j++) {
+			Pared p = *mapa[j];
+			if (p.obstaculiza(lista[i]->getPos(), Objetivo))
+				aux = true;
+		}
+		if (!aux) {
+			lista[i]->persiguePunto(Objetivo);
+			lista[i]->mueve(t);
+		}
+	}
 }
 
 void ListaEnemigos::dispara(Vector2D Objetivo, ListaDisparos& listadisparos)

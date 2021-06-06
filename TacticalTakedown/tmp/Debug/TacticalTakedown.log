@@ -1,39 +1,10 @@
-﻿  ControlJuego.cpp
+﻿  Interaccion.cpp
 D:\Documents\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.h(20,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-  Interaccion.cpp
-D:\Documents\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.h(20,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(60,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(67,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(74,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(80,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(81,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(91,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  ListaDisparos.cpp
-D:\Documents\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.h(20,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-  Mapa.cpp
-D:\Documents\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.h(20,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.cpp(145,63): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.cpp(161,68): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.cpp(161,47): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.cpp(162,68): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.cpp(162,47): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.cpp(163,68): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.cpp(163,47): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.cpp(164,68): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.cpp(164,47): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-  Mundo.cpp
-D:\Documents\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.h(20,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mundo.cpp(84,57): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mundo.cpp(84,16): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mundo.cpp(130,19): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mundo.cpp(130,15): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  main.cpp
-D:\Documents\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.h(20,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-  Generando código...
+D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.h(19,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(61,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(68,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(75,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(81,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(82,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(92,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
   TacticalTakedown.vcxproj -> D:\Documents\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

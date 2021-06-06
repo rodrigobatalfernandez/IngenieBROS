@@ -2,7 +2,6 @@
 #include "Disparo.h"
 #include "Jugador.h"
 #include "Pared.h"
-#include "ListaEnemigos.h"
 #include "ListaDisparos.h"
 
 #define MAX_PAREDES 100000
@@ -21,8 +20,6 @@ public:
 
 	bool agregar(Pared* e);
 	void dibujaBordes();
-	void colision(ListaDisparos& disparos);
-	void colision(Jugador& j);
 	void destruirContenido();
 	Pared* operator [](int i);
 

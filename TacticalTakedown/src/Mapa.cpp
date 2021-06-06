@@ -37,22 +37,6 @@ void Mapa::dibujaBordes()
 		lista[i]->dibuja();
 }
 
-void Mapa::colision(ListaDisparos& disparos)
-{
-	/*for (int i = 0; i < numero; i++)
-		Interaccion::colision(d, *(lista[i]));*/
-	for (int i = 0; i < numero; i++) {
-		Disparo* aux = disparos.colision(*lista[i]); //Devuelve la dirección de aquell disparo que ha colisionado con la pared
-		if (aux != 0 && (aux->getRebote() <= 0))	//si algún disparo ha colisionado y a este no le quedan rebotes
-			disparos.eliminar(aux);
-	}
-}
-
-void Mapa::colision(Jugador& j)
-{
-	for (int i = 0; i < numero; i++)
-		Interaccion::colision(j, *(lista[i]));
-}
 
 void Mapa::destruirContenido()
 {

@@ -35,9 +35,6 @@ void Mundo::mueve()
 	}*/
 
 
-	mapa.colision(jugador);
-
-	enemigos.persiguePunto(jugador.getPos());
 
 	//float aux = 0; //Pendiente de un apaño
 	//for (int i = 0; i < 4; i++) {
@@ -45,8 +42,7 @@ void Mundo::mueve()
 	//		aux = 1;
 	//}
 	//if (aux == 0)
-	enemigos.mueve(0.020f);
-
+	enemigos.mueve(jugador.getPos(), mapa, 0.020f);
 	enemigos.dispara(jugador.getPos(), disparos_enemigos);
 
 	disparos.mueve(0.020f);
@@ -58,9 +54,13 @@ void Mundo::mueve()
 	//		disparos.eliminar(aux);
 	//}
 
-	mapa.colision(disparos);
-
+	Interaccion::colision(jugador, mapa);
+	Interaccion::colision(enemigos, mapa);
+	Interaccion::colision(disparos, mapa);
+	Interaccion::colision(disparos_enemigos, mapa);
 	Interaccion::colision(enemigos, disparos);
+	Interaccion::colision(jugador, disparos);
+	Interaccion::colision(jugador, enemigos);
 	
 	camara.setPos(jugador.getPos().x, jugador.getPos().y);
 }

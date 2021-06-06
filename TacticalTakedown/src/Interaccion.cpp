@@ -29,6 +29,7 @@ bool Interaccion::colision(Disparo& d, Pared p) {
 			Vector2D v_inicial = d.velocidad;
 			d.velocidad = v_inicial - dir.unitario() * 2.0 * (v_inicial * dir);
 			d.posicion = d.posicion - dir.unitario() * dif;
+			d.sonido_disparo_impacto();
 			return true;
 		}
 		return false;

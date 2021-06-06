@@ -2,6 +2,7 @@
 #include "Enemigo.h"
 #include "Torreta.h"
 #include "ListaDisparos.h"
+#include "Mapa.h"
 #define MAX_ENEMIGOS 100
 
 class ListaEnemigos
@@ -21,7 +22,6 @@ public:
 	void eliminar(Enemigo* e);
 
 	void dibuja();
-	void mueve(float t);
-	void persiguePunto(Vector2D Objetivo);
+	void mueve(Vector2D Objetivo, Mapa& mapa, float t);
 	void dispara(Vector2D Objetivo, ListaDisparos& listadisparos);
 };

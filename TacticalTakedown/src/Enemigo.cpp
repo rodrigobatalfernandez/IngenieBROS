@@ -123,7 +123,7 @@ void Enemigo::persiguePunto(Vector2D Objetivo)
 void Enemigo::dispara(Vector2D Objetivo, ListaDisparos& disparos) {
 	float dif_ori = difAngular(Objetivo);
 
-	if (dif_ori < 20 && cooldown <= 0) {
+	if (abs(dif_ori) < 20 && cooldown <= 0) {
 		Disparo* d = new Disparo();
 		d->setPos(posicion.x, posicion.y);
 		d->setVel(20 * cos(orientacion * (PI / 180)), 20 * sin(orientacion * (PI / 180)));
