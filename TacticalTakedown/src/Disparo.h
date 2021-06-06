@@ -1,6 +1,5 @@
 #pragma once
 #include "Vector2D.h"
-#include "ETSIDI.h"
 
 class Disparo {
 	friend class Interaccion;

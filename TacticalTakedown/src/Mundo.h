@@ -3,9 +3,6 @@
 #include "Vector2D.h"
 
 #include "Camara.h"
-#include "Jugador.h"
-#include "Enemigo.h"
-#include "Disparo.h"
 #include "ListaDisparos.h"
 #include "Mapa.h"
 #include "Pared.h"

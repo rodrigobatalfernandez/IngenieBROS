@@ -1,7 +1,8 @@
 #pragma once
 #include "Pared.h"
 //#include "ListaParedes.h"
-#include "Enemigo.h"
+#include "Jugador.h"
+#include "ListaEnemigos.h"
 #include "ListaDisparos.h"
 #define MAX_PAREDES 100000
 

@@ -1,7 +1,6 @@
 #pragma once
 #include "Mundo.h"
 
-
 class ControlJuego
 {
 public:
@@ -20,8 +19,5 @@ protected:
 	enum Estado { INICIO, JUEGO, GAMEOVER, FIN, PAUSA };
 	Estado estado;
 	Mundo mundo;
-
-
-
 };
 

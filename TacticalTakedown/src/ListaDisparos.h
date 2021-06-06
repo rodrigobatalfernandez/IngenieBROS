@@ -1,7 +1,7 @@
 #pragma once
 
 #define MAX_DISPAROS 10
-#include "Interaccion.h"
+//#include "Interaccion.h"
 #include "Disparo.h"
 #include "Pared.h"
 //#include "ListaParedes.h"
