@@ -13,6 +13,8 @@ int mapa[FIL][COL]; //matriz principal mapa
 
 Mapa::Mapa() {
 	numero = 0;
+	for (int i = 0; i < MAX_PAREDES; i++)
+		lista[i] = nullptr;
 }
 
 bool Mapa::agregar(Pared* p)

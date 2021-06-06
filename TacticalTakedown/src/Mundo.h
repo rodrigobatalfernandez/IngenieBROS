@@ -6,10 +6,9 @@
 #include "ListaDisparos.h"
 #include "Mapa.h"
 #include "Pared.h"
-#include "ListaParedes.h"
 #include "Interaccion.h"
 #include "Torreta.h"
-
+#include "ListaEnemigos.h"
 
 
 class Mundo
@@ -18,9 +17,9 @@ private:
 	Camara camara;
 	Jugador jugador;
 	ListaDisparos disparos;
+	ListaEnemigos enemigos;
 	Enemigo enemigo;
 	Mapa mapa;
-	ListaParedes bordes;
 	Pared pared[4];
 
 		/*ListaDisparos disparos;

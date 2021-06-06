@@ -4,7 +4,7 @@ ListaEnemigos::ListaEnemigos()
 {
 	numero = 0;
 	for (int i = 0; i < MAX_ENEMIGOS; i++)
-		lista[i] = 0;
+		lista[i] = nullptr;
 }
 
 ListaEnemigos::~ListaEnemigos(){}

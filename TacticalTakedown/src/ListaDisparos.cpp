@@ -5,7 +5,7 @@ ListaDisparos::ListaDisparos()
 {
 	numero = 0;
 	for (int i = 0; i < MAX_DISPAROS; i++)
-		lista[i] = 0;
+		lista[i] = nullptr;
 }
 
 bool ListaDisparos::agregar(Disparo* d) {

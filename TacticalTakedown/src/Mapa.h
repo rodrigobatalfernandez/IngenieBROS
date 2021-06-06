@@ -11,8 +11,8 @@
 class Mapa {
 private: //Para incluir los bordes en lista paredes necesitan ser punteros (Pared*)
 	Pared* lista[MAX_PAREDES];
-	Pared pared[MAX_PAREDES];//borde_arriba, borde_abajo, borde_izq, borde_dcha;
 	int numero;
+	Pared pared[MAX_PAREDES];//borde_arriba, borde_abajo, borde_izq, borde_dcha;
 	//ListaParedes paredes;
 public:
 	Mapa();
