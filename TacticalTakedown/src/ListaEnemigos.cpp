@@ -77,12 +77,29 @@ void ListaEnemigos::mueve(Vector2D Objetivo, Mapa& mapa, float t)
 		if (!aux) {
 			lista[i]->persiguePunto(Objetivo);
 			lista[i]->mueve(t);
+			lista[i]->resCoolMov();
+		}
+		else if(lista[i]->getCoolMov() >= 0)
+		{
+			lista[i]->persiguePunto(Objetivo);
+			lista[i]->mueve(t);
+			lista[i]->redCoolMov();
 		}
 	}
 }
 
-void ListaEnemigos::dispara(Vector2D Objetivo, ListaDisparos& listadisparos)
+void ListaEnemigos::dispara(Vector2D Objetivo, ListaDisparos& listadisparos, Mapa& mapa)
 {
-	for (int i = 0; i < numero; i++)
-		lista[i]->dispara(Objetivo, listadisparos);
+	for (int i = 0; i < numero; i++) {
+		bool aux = false;
+		for (int j = 0; j < mapa.getNumero(); j++) {
+			Pared p = *mapa[j];
+			if (p.obstaculiza(lista[i]->getPos(), Objetivo))
+				aux = true;
+		}
+		if (!aux || lista[i]->getCoolMov() >= 0)
+		{
+			lista[i]->dispara(Objetivo, listadisparos);
+		}
+	}
 }

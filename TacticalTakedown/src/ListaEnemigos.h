@@ -23,5 +23,5 @@ public:
 
 	void dibuja();
 	void mueve(Vector2D Objetivo, Mapa& mapa, float t);
-	void dispara(Vector2D Objetivo, ListaDisparos& listadisparos);
+	void dispara(Vector2D Objetivo, ListaDisparos& listadisparos, Mapa& mapa);
 };

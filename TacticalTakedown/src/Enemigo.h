@@ -8,7 +8,8 @@ class Enemigo
 {
 	friend class Interaccion;
 protected:
-	//Cinematica
+	friend class Interaccion;
+
 	Vector2D posicion;
 	Vector2D velocidad;
 	Vector2D aceleracion;
@@ -21,7 +22,7 @@ protected:
 	ColorRGB color; //Definicion del color
 	float radio; //Definición del radio de la hitbox
 
-	float cooldown; //Intervalo entre disparos 
+	float cooldown_disparo, cooldown_movimiento;
 
 	int indice;//indice sprite
 public:
@@ -37,6 +38,10 @@ public:
 	float getOri(); //Devuelve la orientacion actual
 	void setVelAng(float vo); //Define una nueva velocidad angular
 	float getVelAng(); //Devuelve la velocidad angular actual
+
+	void redCoolMov();
+	void resCoolMov();
+	float getCoolMov();
 
 	virtual float difAngular(Vector2D Objetivo); //Devuelve la diferencia angular entre la orientación angular del enemigo y la necesaria para tener al objetivo en frente
 	virtual void miraPunto(Vector2D Objetivo); //Recive un punto y lo mira

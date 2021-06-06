@@ -14,14 +14,13 @@ class Mundo
 private:
 	Camara camara;
 	Jugador jugador;
-	ListaDisparos disparos, disparos_enemigos;
 	ListaEnemigos enemigos;
-	//Enemigo enemigo;
+	ListaDisparos disparos, disparos_enemigos;
 	Mapa mapa;
-	Pared pared[4];
 
 	int nivel = 0;
-	bool muerte = false;
+	int vida = 4;
+	int abatidos;
 
 public:
 	~Mundo();

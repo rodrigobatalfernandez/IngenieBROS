@@ -53,6 +53,16 @@ bool Interaccion::colision(Jugador& j, Disparo& d) {
 	return false;
 }
 
+bool Interaccion::colision(Enemigo& e1, Enemigo& e2) {
+	Vector2D dis = e1.posicion - e2.posicion;
+	if (dis.modulo() - e1.radio - e2.radio <= 0.0f) {
+		e1.posicion = e1.posicion + dis * 0.1;
+		e2.posicion = e2.posicion - dis * 0.1;
+		return true;
+	}
+	return false;
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //INTERACCIONES DE LISTAS
@@ -71,9 +81,10 @@ void Interaccion::colision(ListaEnemigos& enemigos, Mapa& mapa) {
 	}
 }
 
-void Interaccion::colision(Jugador& j, ListaDisparos& disparos) {
+void Interaccion::colision(Jugador& j, ListaDisparos& disparos, int vida) {
 	for (int i = disparos.getNumero() - 1; i >= 0; i--) {
-		Interaccion::colision(j, *disparos[i]);
+		if (Interaccion::colision(j, *disparos[i]))
+			vida--;
 	}
 }
 
@@ -87,19 +98,29 @@ void Interaccion::colision(ListaDisparos& disparos, Mapa& mapa) {
 	}
 }
 
-void Interaccion::colision(ListaEnemigos& enemigos, ListaDisparos& disparos) {
+void Interaccion::colision(ListaEnemigos& enemigos, ListaDisparos& disparos, int abatidos) {
 	for (int i = enemigos.getNumero()-1; i >= 0; i--) {
 		for (int j = disparos.getNumero()-1; j >= 0; j--) {
 			if (Interaccion::colision(*enemigos[i], *disparos[j])) {
 				enemigos.eliminar(enemigos[i]);
 				disparos.eliminar(disparos[j]);
+				abatidos++;
 			}
 		}
 	}
 }
 
-void Interaccion::colision(Jugador& j, ListaEnemigos& enemigos) {
+void Interaccion::colision(Jugador& j, ListaEnemigos& enemigos, int vida) {
 	for (int i = enemigos.getNumero() - 1; i >= 0; i--) {
-		Interaccion::colision(j, *enemigos[i]);
+		if (Interaccion::colision(j, *enemigos[i]))
+			vida--;
+	}
+}
+
+void Interaccion::colision(ListaEnemigos& enemigos) {
+	for (int i = 0; i < enemigos.getNumero(); i++) {
+		for (int j = i; j < enemigos.getNumero(); j++) {
+			Interaccion::colision(*enemigos[i], *enemigos[j]);
+		}
 	}
 }

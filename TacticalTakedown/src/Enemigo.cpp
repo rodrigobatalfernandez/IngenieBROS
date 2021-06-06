@@ -2,7 +2,8 @@
 #include <math.h>
 
 #define PI 3.141592
-#define COOLDOWN 30
+#define COOLDOWN_DISP 30
+#define COOLDOWN_MOV 40
 #define ESCALA 3
 
 
@@ -18,7 +19,8 @@ Enemigo::Enemigo(float xi, float yi, float ori)
 	color.r = 0;
 	color.g = 255;
 	color.b = 0;
-	cooldown = COOLDOWN;
+	cooldown_disparo = 0;
+	cooldown_movimiento = 0;
 }
 
 void Enemigo::dibuja()
@@ -88,6 +90,18 @@ float Enemigo::getVelAng()
 	return velangular;
 }
 
+void Enemigo::redCoolMov() {
+	cooldown_movimiento--;
+}
+
+void Enemigo::resCoolMov() {
+	cooldown_movimiento = COOLDOWN_MOV;
+}
+
+float Enemigo::getCoolMov() {
+	return cooldown_movimiento;
+}
+
 float Enemigo::difAngular(Vector2D Objetivo) {
 	float ori_deseada = 180 / PI * (Objetivo - posicion).argumento();
 	float dif_ori = ori_deseada - orientacion;
@@ -123,13 +137,13 @@ void Enemigo::persiguePunto(Vector2D Objetivo)
 void Enemigo::dispara(Vector2D Objetivo, ListaDisparos& disparos) {
 	float dif_ori = difAngular(Objetivo);
 
-	if (abs(dif_ori) < 20 && cooldown <= 0) {
+	if (abs(dif_ori) < 20 && cooldown_disparo <= 0) {
 		Disparo* d = new Disparo();
 		d->setPos(posicion.x, posicion.y);
 		d->setVel(20 * cos(orientacion * (PI / 180)), 20 * sin(orientacion * (PI / 180)));
 		disparos.agregar(d);
-		cooldown = COOLDOWN;
+		cooldown_disparo = COOLDOWN_DISP;
 	}
 	else
-		cooldown--;
+		cooldown_disparo--;
 }

@@ -17,12 +17,14 @@ public:
 	static bool colision(Enemigo& e, Disparo& d);
 	static bool colision(Jugador& j, Disparo& d);
 	static bool colision(Jugador& j, Enemigo& e);
+	static bool colision(Enemigo& e1, Enemigo& e2);
 
 	//Colisiones con listas
 	static void colision(Jugador& j, Mapa& mapa);
 	static void colision(ListaEnemigos& enemigos, Mapa& mapa);
 	static void colision(ListaDisparos& disparos, Mapa& mapa);
-	static void colision(ListaEnemigos& enemigos, ListaDisparos& disparos);
-	static void colision(Jugador& j, ListaDisparos& disparos);
-	static void colision(Jugador& j, ListaEnemigos& enemigos);
+	static void colision(ListaEnemigos& enemigos, ListaDisparos& disparos, int abatidos);
+	static void colision(Jugador& j, ListaDisparos& disparos, int vida);
+	static void colision(Jugador& j, ListaEnemigos& enemigos, int vida);
+	static void colision(ListaEnemigos& enemigos);
 };

@@ -4,23 +4,19 @@
 
 #define PI 3.141592
 
-void Mundo::dibuja() {
+void Mundo::dibuja() 
+{
+	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
+
 	camara.dibuja();
 	mapa.dibuja();
 	//mapa.dibujaBordes();
-
-	glEnable(GL_LIGHTING);	//Activa la iluminación previo al dibujo de objetos
 
 	jugador.dibuja();
 	enemigos.dibuja();
 
 	disparos.dibuja();
 	disparos_enemigos.dibuja();
-
-	for (int i = 0; i < 4; i++) {
-		pared[i].dibuja();
-	}
-
 	
 	glDisable(GL_LIGHTING); //Desactiva la iluminación, para que todas las figuras reaccionen igual con la iluminación
 }
@@ -30,7 +26,7 @@ void Mundo::mueve()
 	jugador.mueve(0.020f);
 
 	enemigos.mueve(jugador.getPos(), mapa, 0.020f);
-	enemigos.dispara(jugador.getPos(), disparos_enemigos);
+	enemigos.dispara(jugador.getPos(), disparos_enemigos, mapa);
 
 	disparos.mueve(0.020f);
 	disparos_enemigos.mueve(0.020f);
@@ -39,9 +35,10 @@ void Mundo::mueve()
 	Interaccion::colision(enemigos, mapa);
 	Interaccion::colision(disparos, mapa);
 	Interaccion::colision(disparos_enemigos, mapa);
-	Interaccion::colision(enemigos, disparos);
-	Interaccion::colision(jugador, disparos);
-	Interaccion::colision(jugador, enemigos);
+	Interaccion::colision(enemigos, disparos, abatidos);
+	Interaccion::colision(jugador, disparos, vida);
+	Interaccion::colision(jugador, enemigos, vida);
+	Interaccion::colision(enemigos);
 	
 	camara.setPos(jugador.getPos().x, jugador.getPos().y);
 }
@@ -94,7 +91,7 @@ Mundo::~Mundo()
 
 bool Mundo::cargarNivel()
 {
-	muerte = false;// temporal
+	vida = 6;// temporal
 	nivel++;
 	jugador.setPos(0, 0);//Posicion inicial, comun para todos los niveles
 
@@ -125,6 +122,10 @@ bool Mundo::cargarNivel()
 			e->setPos(2 * i, 2 * i);
 			enemigos.agregar(e);
 		}
+
+		Torreta* t = new Torreta();
+		t->setPos(10, 10);
+		enemigos.agregar(t);
 
 		jugador.setPos(-2, 1);
 

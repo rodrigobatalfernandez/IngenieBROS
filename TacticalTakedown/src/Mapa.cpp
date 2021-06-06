@@ -47,7 +47,7 @@ void Mapa::dibujaBordes()
 void Mapa::destruirContenido()
 {
 	for (int i = 0; i < numero; i++) // destrucción de esferas contenidas
-		lista[i]=nullptr;
+		delete lista[i];
 	numero = 0; // inicializa lista
 }
 
@@ -153,17 +153,18 @@ void Mapa::cargarBordes(int nivel) {
 			if (mapa[fil][col] == 0) { //textura correspondiente a 0
 
 				//se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
-				pared[(fil * COL * 4) + (col * 4)].setPos((-3.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
-
-				pared[(fil * COL * 4) + (col * 4) + 1].setPos((-3.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
-
-				pared[(fil * COL * 4) + (col * 4) + 2].setPos((-3.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-3.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
-
-				pared[(fil * COL * 4) + (col * 4) + 3].setPos((-2.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
-
-				for (int i = 0; i < 4; i++) {
-					agregar(&(pared[(fil * COL * 4) + (col * 4) + i]));
-				}
+				Pared* p1 = new Pared;
+					p1->setPos((-3.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
+					agregar(p1);
+				Pared* p2 = new Pared;
+					 p2->setPos((-3.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
+					 agregar(p2);
+				 Pared* p3 = new Pared;
+					p3->setPos((-3.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-3.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
+					agregar(p3);
+				Pared* p4 = new Pared;
+					p4->setPos((-2.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
+					agregar(p4);
 			}
 		}
 	}
