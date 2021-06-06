@@ -75,6 +75,7 @@ void Mundo::teclaAbajo(unsigned char key)
 	switch (key) {
 	case (' '):
 		Disparo* d = new Disparo();
+		d->Tex();
 		d->setPos(jugador.getPos().x, jugador.getPos().y);
 		d->setVel(20 * cos(jugador.getOri() * (PI / 180)), 20 * sin(jugador.getOri() * (PI / 180)));
 		disparos.agregar(d);

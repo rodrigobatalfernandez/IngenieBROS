@@ -5,6 +5,11 @@
 
 Disparo::Disparo() {
 	radio = 0.25f;
+	textura = false;
+	indice = 0;
+	rebote = 0;
+	orientacion = 0;
+
 }
 
 void Disparo::setPos(float ix, float iy) {
@@ -13,21 +18,9 @@ void Disparo::setPos(float ix, float iy) {
 	rebote = 2;
 }
 
-Vector2D Disparo::getPos() {
-	return posicion;
-}
-
 void Disparo::setVel(float vx, float vy) {
 	velocidad.x = vx;
 	velocidad.y = vy;
-}
-
-float Disparo::getRadio() {
-	return radio;
-}
-
-int Disparo::getRebote() {
-	return rebote;
 }
 
 void Disparo::dibuja() {
@@ -41,9 +34,14 @@ void Disparo::dibuja() {
 			indice++;
 		else
 			indice = 0;
-		glColor3ub(255, 255, 0);
-		ETSIDI::SpriteSequence animacion("imagenes/laser.png", 1, 11, 50, true, 0, 0, 2 * ESCALA, 1 * ESCALA, indice);
-		animacion.draw();
+		if (textura) {
+			ETSIDI::SpriteSequence animacion("imagenes/laser.png", 1, 11, 50, true, 0, 0, 2 * ESCALA, 1 * ESCALA, indice);
+			animacion.draw();
+		}
+		else {
+			ETSIDI::SpriteSequence animacion("imagenes/laser4.png", 1, 11, 50, true, 0, 0, 2 * ESCALA, 1 * ESCALA, indice);
+			animacion.draw();
+		}
 		glRotatef(orientacion, 0, 0, 1);
 		glRotatef(-90, 0, 0, 1);
 		glTranslatef(-posicion.x, -posicion.y, 0);
