@@ -41,7 +41,7 @@ void Mapa::dibujaBordes()
 void Mapa::destruirContenido()
 {
 	for (int i = 0; i < numero; i++) // destrucción de esferas contenidas
-		delete lista[i];
+		lista[i]=nullptr;
 	numero = 0; // inicializa lista
 }
 
@@ -77,12 +77,12 @@ void Mapa::copia_nivel(int nivel) {
 	}
 	if (nivel == 2) {
 		int matriz2[FIL][COL] = {
-			{0,1,0,1,0,0},
-			{0,0,1,0,1,0},
-			{0,1,1,0,1,0},
-			{0,1,0,2,1,0},
-			{0,0,1,0,1,0},
-			{0,1,0,1,0,0},
+			{1,1,1,1,1,1},
+			{1,1,0,1,1,1},
+			{1,1,1,1,1,1},
+			{1,1,1,1,1,1},
+			{1,1,1,1,1,1},
+			{1,1,1,1,1,1},
 		};
 
 		//Copia la matriz1 a la matriz principal mapa

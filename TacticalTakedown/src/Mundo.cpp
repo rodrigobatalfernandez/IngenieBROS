@@ -101,7 +101,7 @@ bool Mundo::cargarNivel()
 	//Destruir cosas
 	enemigos.destruirContenido();
 	disparos.destruirContenido();
-	//mapa.destruirContenido();  //Hay que corregirlo para que se destruyan
+	mapa.destruirContenido();  //Hay que corregirlo para que se destruyan
 
 	if (nivel == 1)
 	{
