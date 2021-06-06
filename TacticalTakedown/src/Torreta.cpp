@@ -1,5 +1,7 @@
 #include "Torreta.h"
 
+#define ESCALA 6
+
 void Torreta::mueve(float t)
 {
 	//No se mueve
@@ -9,17 +11,19 @@ void Torreta::mueve(float t)
 void Torreta::dibuja()
 {
 	glColor3ub(color.r, color.g, color.b);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glRotatef(90, 1, 0, 0);
-	glRotatef(orientacion, 0, 1, 0);
-	glutSolidTeapot(radio);
+	glTranslatef(posicion.x, posicion.y, 1);
+	glRotatef(orientacion + 180, 0, 0, 1);
+
 	//Falta imagen chula
-	glRotatef(-orientacion, 0, 1, 0);
-	glRotatef(-90, 1, 0, 0);
-	glTranslatef(-posicion.x, -posicion.y, 0);
+	ETSIDI::SpriteSequence animacion("imagenes/TORRETASINPATAS1.png", 1, 1, 50, true, 0, 0, 1 * ESCALA, 0.566265 * ESCALA, 0);
+	animacion.draw();
+
+	//glRotatef(-90, 1, 0, 0);
+	glRotatef(-orientacion - 180, 0, 0, 1);
+	glTranslatef(-posicion.x, -posicion.y, -1);
 }
 
-void Torreta::persiguePunto(Vector2D Objetivo)
-{
-	miraPunto(Objetivo);
-}
+//void Torreta::persiguePunto(Vector2D Objetivo)
+//{
+//	miraPunto(Objetivo);
+//}
