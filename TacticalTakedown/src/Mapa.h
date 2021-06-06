@@ -24,9 +24,9 @@ public:
 	Pared* operator [](int i);
 
 	void dibuja(); //falta , ListaDisparos& disparos
-	void copia_nivel1();
+	void copia_nivel(int nivel);
 	void textura(int fil, int col, float altura, char const* cadena1);
-	void cargarBordes();
+	void cargarBordes(int nivel);
 
 	friend class Interaccion;
 };

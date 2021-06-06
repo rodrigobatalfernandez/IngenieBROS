@@ -13,7 +13,7 @@ void ControlJuego::mueve()
 	{
 		mundo.mueve();
 
-		//NO entiendo esto----------------------------
+		//----------------------------
 		if (mundo.getNum() == 0)
 		{
 			if (!mundo.cargarNivel())
@@ -106,6 +106,8 @@ void ControlJuego::teclaAbajo(unsigned char key)
 		{
 			estado = PAUSA;
 		}
+		else if (key == 'n')
+			mundo.cargarNivel();
 		mundo.teclaAbajo(key);
 	}
 	else if (estado == GAMEOVER)

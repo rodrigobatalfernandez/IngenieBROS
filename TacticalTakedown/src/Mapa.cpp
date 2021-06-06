@@ -54,30 +54,50 @@ Pared* Mapa::operator[](int i)
 	return lista[i];
 }
 
-void Mapa::copia_nivel1() {
-	int matriz1[FIL][COL] = {
-		{0,0,0,0,0,0},
-		{0,1,1,1,1,0},
-		{0,1,1,0,1,0},
-		{0,1,0,2,1,0},
-		{0,1,1,1,1,0},
-		{0,0,0,0,0,0},
-	};
+void Mapa::copia_nivel(int nivel) {
+	if (nivel == 1) {
+		int matriz1[FIL][COL] = {
+			{0,0,0,0,0,0},
+			{0,1,1,1,1,0},
+			{0,1,1,0,1,0},
+			{0,1,0,2,1,0},
+			{0,1,1,1,1,0},
+			{0,0,0,0,0,0},
+		};
 
-	//Copia la matriz1 a la matriz principal mapa
-	for (int f = 0; f < FIL; f++)
-	{
-
-		for (int c = 0; c < COL; c++)
+		//Copia la matriz1 a la matriz principal mapa
+		for (int f = 0; f < FIL; f++)
 		{
-			mapa[f][c] = matriz1[FIL - f - 1][c]; //FIL-f-1 porque si no salen las filas traspuestas
+
+			for (int c = 0; c < COL; c++)
+			{
+				mapa[f][c] = matriz1[FIL - f - 1][c]; //FIL-f-1 porque si no salen las filas traspuestas
+			}
+		}
+	}
+	if (nivel == 2) {
+		int matriz2[FIL][COL] = {
+			{0,1,0,1,0,0},
+			{0,0,1,0,1,0},
+			{0,1,1,0,1,0},
+			{0,1,0,2,1,0},
+			{0,0,1,0,1,0},
+			{0,1,0,1,0,0},
+		};
+
+		//Copia la matriz1 a la matriz principal mapa
+		for (int f = 0; f < FIL; f++)
+		{
+
+			for (int c = 0; c < COL; c++)
+			{
+				mapa[f][c] = matriz2[FIL - f - 1][c]; //FIL-f-1 porque si no salen las filas traspuestas
+			}
 		}
 	}
 }
 
-void Mapa::dibuja() { //falta , ListaDisparos& disparos
-
-//	copia_nivel1();
+void Mapa::dibuja() {
 
 
 	for (int fil = 0; fil < FIL; fil++)
@@ -86,44 +106,7 @@ void Mapa::dibuja() { //falta , ListaDisparos& disparos
 		{
 
 			if (mapa[fil][col] == 0) { //Textura correspondiente a 0
-				//textura(fil, col, 0.3, "imagenes/HUDA.png");
-
-				////Se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
-				//pared[0].setPos((-3.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL-4)*ESCALA, (-2.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
-				//pared[1].setPos((-3.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
-				//pared[2].setPos((-3.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA, (-3.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
-				//pared[3].setPos((-2.0f + col) * ESCALA, (0.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - FIL + 1) * ESCALA + (FIL - 4) * ESCALA);
-
-				//for (int i = 0; i < 4; i++) {
-				//	//paredes.agregar(pared[i]);
-				//	pared[i].dibuja();
-				//}
-
-
-
-					//for (int i = 0; i < 4; i++) {
-					//	//bordes.agregar(&(pared[i]));
-					//	pared[i].dibuja();
-					//}
-
-				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)]);
-				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+1]);
-				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+2]);
-				//Interaccion::colision(jugador, pared[(fil * 4) + (col * 4)+3]);
-
-				//Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4)]);
-				//Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4) + 1]);
-				//Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4) + 2]);
-				//Interaccion::colision(enemigo, pared[(fil * 4) + (col * 4) + 3]);
-
-
-				//for (int i = 0; i < 4; i++) {
-				//	Disparo* aux = disparos.colision(pared[i]); //Devuelve la dirección de aquell disparo que ha colisionado con la pared
-				//	if (aux != 0 && (aux->getRebote() <= 0))	//si algún disparo ha colisionado y a este no le quedan rebotes
-				//		disparos.eliminar(aux);
-				//	aux;
-				//}
-
+				textura(fil, col, 0.3, "imagenes/HUDA.png");
 			}
 			if (mapa[fil][col] == 1) { //Textura correspondiente a 1
 				textura(fil, col, -0.1, "imagenes/StoneFloorTexture_0.png");
@@ -151,8 +134,11 @@ void Mapa::textura(int fil, int col, float altura, char const* cadena1)
 	glDisable(GL_TEXTURE_2D);
 }
 
-void Mapa::cargarBordes() {
-	copia_nivel1();
+void Mapa::cargarBordes(int nivel) {
+	if (nivel == 1)
+		copia_nivel(nivel);
+	else if (nivel == 2)
+		copia_nivel(nivel);
 	for (int fil = 0; fil < FIL; fil++)
 	{
 		for (int col = 0; col < COL; col++)
@@ -171,7 +157,6 @@ void Mapa::cargarBordes() {
 
 				for (int i = 0; i < 4; i++) {
 					agregar(&(pared[(fil * COL * 4) + (col * 4) + i]));
-					//pared[i].dibuja();
 				}
 			}
 		}

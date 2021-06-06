@@ -29,30 +29,11 @@ void Mundo::mueve()
 {
 	jugador.mueve(0.020f);
 
-	/*for (int i = 0; i < 4; i++) {
-		Interaccion::colision(jugador, pared[i]);
-		Interaccion::colision(enemigo, pared[i]);
-	}*/
-
-
-
-	//float aux = 0; //Pendiente de un apaño
-	//for (int i = 0; i < 4; i++) {
-	//	if (pared[i].obstaculiza(enemigo.getPos(), jugador.getPos()))
-	//		aux = 1;
-	//}
-	//if (aux == 0)
 	enemigos.mueve(jugador.getPos(), mapa, 0.020f);
 	enemigos.dispara(jugador.getPos(), disparos_enemigos);
 
 	disparos.mueve(0.020f);
 	disparos_enemigos.mueve(0.020f);
-
-	//for (int i = 0; i < 4; i++) {
-	//	Disparo* aux = disparos.colision(pared[i]); //Devuelve la dirección de aquell disparo que ha colisionado con la pared
-	//	if (aux != 0 && (aux->getRebote() <= 0))	//si algún disparo ha colisionado y a este no le quedan rebotes
-	//		disparos.eliminar(aux);
-	//}
 
 	Interaccion::colision(jugador, mapa);
 	Interaccion::colision(enemigos, mapa);
@@ -67,7 +48,7 @@ void Mundo::mueve()
 
 void Mundo::inicializa()
 {
-	nivel = 0;//No se si va aqui
+	nivel = 0;
 
 	cargarNivel();
 }
@@ -120,29 +101,34 @@ bool Mundo::cargarNivel()
 	//Destruir cosas
 	enemigos.destruirContenido();
 	disparos.destruirContenido();
+	//mapa.destruirContenido();  //Hay que corregirlo para que se destruyan
 
 	if (nivel == 1)
 	{
 		//Nivel 1
-		
+
 		for (int i = 0; i < 4; i++) {
 			Enemigo* e = new Enemigo();
-			e->setPos(2*i,2*i);
+			e->setPos(2 * i, 2 * i);
 			enemigos.agregar(e);
 		}
 
 		jugador.setPos(-1, 1);
 
-		//pared[0].setPos(0, -10, 10, -10);
-		//pared[1].setPos(10, -10, 10, 10);
-		//pared[2].setPos(10, 10, -10, 10);
-		//pared[3].setPos(-10, 10, -10, 0);
-
-		mapa.cargarBordes();
+		mapa.cargarBordes(nivel);
 	}
 	if (nivel == 2)
 	{
 		//Nivel 2
+		for (int i = 0; i < 4; i++) {
+			Enemigo* e = new Enemigo();
+			e->setPos(2 * i, 2 * i);
+			enemigos.agregar(e);
+		}
+
+		jugador.setPos(-2, 1);
+
+		mapa.cargarBordes(nivel);
 	}
 	if (nivel == 3)
 	{
