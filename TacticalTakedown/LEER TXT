@@ -1,0 +1,46 @@
+// TXT.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#include "fstream"
+#include "string"
+
+#define ESCALA 5 //escala de texturas
+#define  MAX 128
+int main()
+{
+	char cadena[MAX];
+	int const MAX_COL=6;
+	int const MAX_FIL=6;
+	std::ifstream fe("Nivel1.txt");
+	
+	int j = 0;
+	int k =0 ;
+	while (!fe.eof()) {
+		fe >> cadena;
+		int MATRIZ[MAX_COL][MAX_FIL];
+		for (int i = 0; i < MAX; i++) {
+			if ((cadena[i] >= '0') && (cadena[i] <= '9'))
+			{
+					MATRIZ[j][k] = cadena[i]-48;
+					std::cout << MATRIZ[j][k] << std::endl;
+			}
+			else if (cadena[i] == ',')
+				j++;
+			else if (cadena[i] == ';')
+				k++;
+		}
+	}
+	fe.close();
+
+}
+
+// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
+// Depurar programa: F5 o menú Depurar > Iniciar depuración
+
+// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
+//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
+//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
+//   4. Use la ventana Lista de errores para ver los errores
+//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
+//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
