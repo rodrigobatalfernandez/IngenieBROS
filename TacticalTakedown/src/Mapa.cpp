@@ -5,8 +5,8 @@
 //#include "ListaParedes.h"
 
 #define FIL 31 //filas del mapa
-#define COL 20 //columnas del mapa
-#define ESCALA 3 //escala de texturas
+#define COL 24 //columnas del mapa
+#define ESCALA 4 //escala de texturas
 
 //#include <iostream>
 //#include "fstream"
@@ -110,37 +110,36 @@ void Mapa::copia_nivel(int nivel) {
 	}
 	else if (nivel == 2) {
 		int matriz2[FIL][COL] = {
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-{1,2,2,3,4,2,2,2,4,2,2,3,3,2,2,2,2,4,2,1},
-{1,5,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,6,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,13,12,12,12,14,0,0,13,12,12,12,14,0,0,0,0,11,1},
-{1,9,11,1,1,1,9,0,0,11,1,1,1,9,0,0,0,0,11,1},
-{1,9,11,2,3,2,9,0,0,11,4,2,3,9,0,0,0,0,11,1},
-{1,9,16,10,10,10,15,0,0,16,10,10,10,15,0,0,0,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,13,12,12,12,14,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,11,1,1,1,9,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,11,2,4,2,9,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,16,10,10,10,15,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,0,0,13,12,12,12,14,0,0,13,12,12,12,14,0,11,1},
-{1,9,0,0,0,11,1,1,1,9,0,0,11,1,1,1,9,0,11,1},
-{1,9,0,0,0,11,2,4,2,9,0,0,11,2,2,2,9,0,11,1},
-{1,9,0,0,0,16,10,10,10,15,0,0,16,10,10,10,15,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,13,12,12,12,14,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,11,1,1,1,9,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,11,2,4,2,9,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,16,10,10,10,15,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,1},
-{1,8,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,7,1},
-{2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,12,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,17,1,1,1,1,6,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,19,1,17,1,1,1,1,1,1,},
+{1,1,1,1,1,1,1,1,1,1,1,1,19,1,17,1,1,1,1,1,1,},
+{17,17,17,17,17,17,1,2,2,2,2,2,19,1,17,1,1,1,1,1,1,},
+{1,2,2,2,1,17,1,5,10,10,10,10,21,1,17,1,1,1,1,1,1,},
+{1,5,10,6,1,17,1,9,13,12,12,14,28,1,17,1,1,1,1,1,1,},
+{1,8,27,7,1,17,1,9,11,3,4,9,6,1,17,1,1,1,1,1,1,},
+{1,1,19,2,2,2,2,9,16,10,10,15,11,1,17,1,1,1,1,1,1,},
+{17,1,23,18,18,18,18,20,29,8,12,12,7,1,17,1,1,1,1,1,1,},
+{17,1,1,1,1,1,1,1,1,1,1,1,1,1,17,1,1,1,1,1,1,},
 		};
 
 		//Copia la matriz1 a la matriz principal mapa
@@ -156,7 +155,8 @@ void Mapa::copia_nivel(int nivel) {
 }
 
 void Mapa::dibuja() {
-
+	//---------Para poner un fondo de nivel--------
+	//cargaFondo("imagenes/Tiles/tile084.png");
 
 	for (int fil = 0; fil < FIL; fil++)
 	{
@@ -214,6 +214,60 @@ void Mapa::dibuja() {
 			else if (mapa[fil][col] == 16) { //Textura correspondiente a 16
 				textura(fil, col, -0.1, "imagenes/Tiles/tile022.png");
 			}
+			else if (mapa[fil][col] == 17) { //Textura correspondiente a 17
+				textura(fil, col, -0.1, "imagenes/Tiles/tile017.png");
+			}
+			else if (mapa[fil][col] == 18) { //Textura correspondiente a 18
+				textura(fil, col, -0.1, "imagenes/Tiles/tile032.png");
+			}
+			else if (mapa[fil][col] == 19) { //Textura correspondiente a 19
+				textura(fil, col, -0.1, "imagenes/Tiles/tile018.png");
+			}
+			else if (mapa[fil][col] == 20) { //Textura correspondiente a 20
+				textura(fil, col, -0.1, "imagenes/Tiles/tile024.png");
+			}
+			else if (mapa[fil][col] == 21) { //Textura correspondiente a 21
+				textura(fil, col, -0.1, "imagenes/Tiles/tile025.png");
+			}
+			else if (mapa[fil][col] == 22) { //Textura correspondiente a 22
+				textura(fil, col, -0.1, "imagenes/Tiles/tile011.png");
+			}
+			else if (mapa[fil][col] == 23) { //Textura correspondiente a 23
+				textura(fil, col, -0.1, "imagenes/Tiles/tile010.png");
+			}
+			else if (mapa[fil][col] == 24) { //Textura correspondiente a 24
+				textura(fil, col, -0.1, "imagenes/Tiles/tile037.png");
+			}
+			else if (mapa[fil][col] == 25) { //Textura correspondiente a 25
+				textura(fil, col, -0.1, "imagenes/Tiles/tile039.png");
+			}
+			else if (mapa[fil][col] == 26) { //Textura correspondiente a 26
+				textura(fil, col, -0.1, "imagenes/Tiles/tile036.png");
+			}
+			else if (mapa[fil][col] == 27) { //Textura correspondiente a 27
+				textura(fil, col, -0.1, "imagenes/Tiles/tile038.png");
+			}
+			else if (mapa[fil][col] == 28) { //Textura correspondiente a 28
+				textura(fil, col, -0.1, "imagenes/Tiles/tile045.png");
+			}
+			else if (mapa[fil][col] == 29) { //Textura correspondiente a 29
+				textura(fil, col, -0.1, "imagenes/Tiles/tile004.png");
+			}
+			else if (mapa[fil][col] == 30) { //Textura correspondiente a 30
+				textura(fil, col, -0.1, "imagenes/Tiles/tile000.png");
+			}
+			else if (mapa[fil][col] == 31) { //Textura correspondiente a 31
+				textura(fil, col, -0.1, "imagenes/Tiles/tile001.png");
+			}
+			else if (mapa[fil][col] == 32) { //Textura correspondiente a 32
+				textura(fil, col, -0.1, "imagenes/Tiles/tile014.png");
+			}
+			else if (mapa[fil][col] == 33) { //Textura correspondiente a 33
+				textura(fil, col, -0.1, "imagenes/Tiles/tile015.png");
+			}
+			else if (mapa[fil][col] == 34) { //Textura correspondiente a 34
+			textura(fil, col, -0.1, "imagenes/Tiles/tile046.png");
+			}
 		}
 	}
 }
@@ -263,3 +317,21 @@ void Mapa::cargarBordes(int nivel) {
 		}
 	}
 }
+
+void Mapa::cargaFondo(char const* cadena1, float altura)
+{
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture(cadena1).id);
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glTexCoord2d(0, 1);    glVertex3f((-300) * ESCALA, (300) * ESCALA, altura);
+	glTexCoord2d(1, 1);    glVertex3f((200) * ESCALA, (300) * ESCALA, altura);
+	glTexCoord2d(1, 0);    glVertex3f((200) * ESCALA, (-200) * ESCALA, altura);
+	glTexCoord2d(0, 0);    glVertex3f((-300) * ESCALA, (-200) * ESCALA, altura);
+	glEnd();
+	glEnable(GL_LIGHTING);
+	glDisable(GL_TEXTURE_2D);
+}
+
+

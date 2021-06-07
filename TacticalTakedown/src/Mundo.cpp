@@ -110,7 +110,7 @@ bool Mundo::cargarNivel()
 			enemigos.agregar(e);
 		}
 
-		jugador.setPos(-4, -4);
+		jugador.setPos(-3, -3);
 
 		mapa.cargarBordes(nivel);
 	}
@@ -142,5 +142,5 @@ bool Mundo::cargarNivel()
 }
 
 void Mundo::musica() {//funcion musica, es necesaria pararlo
-	//ETSIDI::playMusica("sonidos/DiffBAJO.mp3", true);
+	ETSIDI::playMusica("sonidos/DiffBAJO.mp3", true);
 }

@@ -27,6 +27,7 @@ public:
 	void copia_nivel(int nivel);
 	void textura(int fil, int col, float altura, char const* cadena1);
 	void cargarBordes(int nivel);
+	void cargaFondo(char const* cadena1, float altura=-0.2); //---------Para poner un fondo de nivel--------
 
 	friend class Interaccion;
 };
