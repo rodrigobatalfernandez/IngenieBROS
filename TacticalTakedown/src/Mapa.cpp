@@ -249,10 +249,10 @@ void Mapa::dibuja() {
 				textura(fil, col, -0.1, "imagenes/Tiles/tile038.png");
 			}
 			else if (mapa[fil][col] == 28) { //Textura correspondiente a 28
-				textura(fil, col, -0.1, "imagenes/Tiles/tile045.png");
+				textura(fil, col, -0.1, "imagenes/Tiles/tile073.png");
 			}
 			else if (mapa[fil][col] == 29) { //Textura correspondiente a 29
-				textura(fil, col, -0.1, "imagenes/Tiles/tile004.png");
+				textura(fil, col, -0.1, "imagenes/Tiles/tile046.png");
 			}
 			else if (mapa[fil][col] == 30) { //Textura correspondiente a 30
 				textura(fil, col, -0.1, "imagenes/Tiles/tile000.png");
