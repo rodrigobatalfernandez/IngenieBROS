@@ -1,12 +1,25 @@
-﻿  Interaccion.cpp
-D:\Documents\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Mapa.h(19,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(59,41): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(60,41): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(71,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(78,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(85,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(92,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(93,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Documents\IngenieBROS\TacticalTakedown\src\Interaccion.cpp(103,14): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  TacticalTakedown.vcxproj -> D:\Documents\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+﻿  Mapa.cpp
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.h(19,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(167,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(182,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(185,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(188,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(191,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(194,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(197,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(200,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(203,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(206,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(209,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(212,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(215,57): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(228,68): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(228,47): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(229,68): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(229,47): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(230,68): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(230,47): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(231,68): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.cpp(231,47): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+  TacticalTakedown.vcxproj -> C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

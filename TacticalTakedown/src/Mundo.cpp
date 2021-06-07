@@ -106,11 +106,11 @@ bool Mundo::cargarNivel()
 
 		for (int i = 0; i < 4; i++) {
 			Enemigo* e = new Enemigo();
-			e->setPos(2 * i, 2 * i);
+			e->setPos(15 + 2 * i, 15 + 2 * i);
 			enemigos.agregar(e);
 		}
 
-		jugador.setPos(-1, 1);
+		jugador.setPos(-4, -4);
 
 		mapa.cargarBordes(nivel);
 	}
@@ -119,13 +119,14 @@ bool Mundo::cargarNivel()
 		//Nivel 2
 		for (int i = 0; i < 4; i++) {
 			Enemigo* e = new Enemigo();
-			e->setPos(2 * i, 2 * i);
+			e->setPos(15 + 2 * i, 15 + 2 * i);
 			enemigos.agregar(e);
 		}
-
-		Torreta* t = new Torreta();
-		t->setPos(10, 10);
-		enemigos.agregar(t);
+		for (int i = 0; i < 4; i++) {
+			Torreta* t = new Torreta();
+			t->setPos(20, 10+i*10);
+			enemigos.agregar(t);
+		}
 
 		jugador.setPos(-2, 1);
 
