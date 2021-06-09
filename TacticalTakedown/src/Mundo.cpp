@@ -128,7 +128,7 @@ bool Mundo::cargarNivel()
 			enemigos.agregar(t);
 		}
 
-		jugador.setPos(30, 22);
+		jugador.setPos(20, 22);
 
 		mapa.cargarBordes(nivel);
 	}
