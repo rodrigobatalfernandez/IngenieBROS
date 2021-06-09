@@ -56,6 +56,27 @@ void ListaEnemigos::eliminar(Enemigo* e)
 		}
 }
 
+void ListaEnemigos::crear(float x, float y)
+{
+	Enemigo* e = new Enemigo();
+	e->setPos(x, y);
+	agregar(e);
+}
+
+void ListaEnemigos::crear(Vector2D a)
+{
+	Enemigo* e = new Enemigo();
+	e->setPos(a.x, a.y);
+	agregar(e);
+}
+
+void ListaEnemigos::crearTorreta(float x, float y)
+{
+	Torreta* e = new Torreta();
+	e->setPos(x, y);
+	agregar(e);
+}
+
 Enemigo* ListaEnemigos::operator[](int i)
 {
 	if (i >= numero)//si me paso, devuelvo la ultima

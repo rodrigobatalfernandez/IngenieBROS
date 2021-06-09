@@ -20,6 +20,10 @@ public:
 	void destruirContenido();
 	void eliminar(int index);
 	void eliminar(Enemigo* e);
+	void crear(float x, float y);
+	void crear(Vector2D a);
+	void crearTorreta(float x, float y);
+
 
 	void dibuja();
 	void mueve(Vector2D Objetivo, Mapa& mapa, float t);

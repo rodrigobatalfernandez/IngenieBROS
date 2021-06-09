@@ -15,6 +15,7 @@ Jugador::Jugador() {
 	color.r = 255;
 	color.g = 0;
 	color.b = 0;
+	indice = 0;
 }
 
 void Jugador::mueve(float t) {

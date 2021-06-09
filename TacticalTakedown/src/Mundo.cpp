@@ -74,12 +74,10 @@ void Mundo::teclaArriba(unsigned char key)
 void Mundo::teclaEspecialAbajo(unsigned char key) 
 {
 	jugador.teclaEspecialAbajo(key);
-
 }
 
 void Mundo::teclaEspecialArriba(unsigned char key) {
 	jugador.teclaEspecialArriba(key);
-
 }
 
 Mundo::~Mundo()
@@ -105,9 +103,7 @@ bool Mundo::cargarNivel()
 		//Nivel 1
 
 		for (int i = 0; i < 4; i++) {
-			Enemigo* e = new Enemigo();
-			e->setPos(15 + 2 * i, 15 + 2 * i);
-			enemigos.agregar(e);
+			enemigos.crear(16 + 2 * i, 15 + 2 * i);
 		}
 
 		jugador.setPos(-3, -3);
@@ -118,14 +114,10 @@ bool Mundo::cargarNivel()
 	{
 		//Nivel 2
 		for (int i = 0; i < 4; i++) {
-			Enemigo* e = new Enemigo();
-			e->setPos(30 + 3 * i, 15 + 3 * i);
-			enemigos.agregar(e);
+			enemigos.crear(30 + 3 * i, 15 + 3 * i);
 		}
 		for (int i = 0; i < 4; i++) {
-			Torreta* t = new Torreta();
-			t->setPos(40, 10+i*10);
-			enemigos.agregar(t);
+			enemigos.crearTorreta(40, 10+i*10);
 		}
 
 		jugador.setPos(20, 22);
@@ -134,7 +126,20 @@ bool Mundo::cargarNivel()
 	}
 	if (nivel == 3)
 	{
-		//Nivel 3
+		for (int i = 0; i < 4; i++) {
+			Enemigo* e = new Enemigo();
+			e->setPos(30 + 3 * i, 15 + 3 * i);
+			enemigos.agregar(e);
+		}
+		for (int i = 0; i < 4; i++) {
+			Torreta* t = new Torreta();
+			t->setPos(40, 10 + i * 10);
+			enemigos.agregar(t);
+		}
+
+		jugador.setPos(20, 22);
+
+		mapa.cargarBordes(nivel-2);
 	}
 	if (nivel <= 3)
 		return true;

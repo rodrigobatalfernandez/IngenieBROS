@@ -9,6 +9,7 @@ public:
 
 	void mueve();
 	void dibuja();
+	void dialogo(char const* cadena = "imagenes/mgsEMPTY.png");
 
 	void teclaAbajo(unsigned char key);
 	void teclaArriba(unsigned char key);
@@ -16,7 +17,7 @@ public:
 	void teclaEspecialArriba(unsigned char key);
 
 protected:
-	enum Estado { INICIO, JUEGO, GAMEOVER, FIN, PAUSA };
+	enum Estado { INICIO, JUEGO, GAMEOVER, FIN, PAUSA, CONTROLES };
 	Estado estado;
 	Mundo mundo;
 };
