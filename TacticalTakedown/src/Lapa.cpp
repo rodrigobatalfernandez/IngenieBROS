@@ -1,6 +1,6 @@
 #include "Lapa.h"
 
-#define ESCALA 6
+#define ESCALA 3
 
 Lapa::Lapa()
 {
@@ -13,8 +13,13 @@ void Lapa::dibuja()
 	glTranslatef(posicion.x, posicion.y, 0);
 	glRotatef(orientacion + 180, 0, 0, 1);
 
+	if ((indice > 0) && (indice <= 8))
+		indice--;
+	else
+		indice = 5;
+
 	//Falta imagen chula
-	ETSIDI::SpriteSequence animacion("imagenes/SovietChiquito.png", 1, 1, 50, true, 0, 0, 1 * ESCALA, 0.566265 * ESCALA, 0);
+	ETSIDI::SpriteSequence animacion("imagenes/SpinnerRed.png", 4, 2, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, indice);
 	animacion.draw();
 
 	//glRotatef(-90, 1, 0, 0);
