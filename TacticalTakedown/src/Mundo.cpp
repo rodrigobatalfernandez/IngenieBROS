@@ -95,7 +95,7 @@ bool Mundo::cargarNivel()
 {
 	vida = 6;// temporal
 	nivel++;
-	jugador.setPos(0, 0);//Posicion inicial, comun para todos los niveles
+	//jugador.setPos(0, 0);//Posicion inicial, comun para todos los niveles
 
 	//Destruir cosas
 	enemigos.destruirContenido();
@@ -110,7 +110,7 @@ bool Mundo::cargarNivel()
 			enemigos.crearEnemigo(16 + 2 * i, 15 + 2 * i);
 		}
 
-		jugador.setPos(-3, -3);
+		jugador.setPos(32.5, -7);
 
 		mapa.cargarBordes(nivel);
 	}
@@ -121,7 +121,7 @@ bool Mundo::cargarNivel()
 			enemigos.crearEnemigo(30 + 3 * i, 15 + 3 * i);
 		}
 
-		jugador.setPos(17.5, 18);
+		jugador.setPos(22.5, 18);
 		jugador.setOri(270);
 
 		mapa.cargarBordes(nivel);
@@ -129,6 +129,13 @@ bool Mundo::cargarNivel()
 	if (nivel == 3)
 	{
 		//Nivel 3
+		for (int i = 0; i < 4; i++) {
+			enemigos.crearEnemigo(30 + 3 * i, 15 + 3 * i);
+		}
+
+		jugador.setPos(22.5, 18);
+
+		mapa.cargarBordes(nivel);
 	}
 	if (nivel <= 3)
 		return true;
