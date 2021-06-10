@@ -99,25 +99,29 @@ void ListaEnemigos::crearEnemigo(Vector2D a)
 
 void ListaEnemigos::cargarEnem(int nivel)
 {
-	if (nivel==1)
+	if (nivel == 1)
 	{
-		genEnem matN1[] = { 
+		genEnem matN1[] = {
 			{-7.5,12.7,0,1},
 			{-7.5,42.7,0,1},
 			{-7.5,72.7,0,1},
 			{-7.5,102.7,0,1},
-			{72.5,12.7,90,1},
-			{72.5,42.7,90,1},
-			{72.5,72.7,90,1},
-			{72.5,102.7,90,1},
-			{22.5, 5,90,3},
+			{82.5,12.7,180,1},
+			{82.5,42.7,180,1},
+			{82.5,72.7,180,1},
+			{82.5,102.7,180,1},
+			{17.5,107.5,270,2},
+			{57.5,107.5,270,2},
+			{22.5, 14,90,3},
+			{52.5, 14,90,3},
+
 		};
-		for (int i = 0; i < 9; i++)
+		for (int i = 0; i < 12; i++)
 		{
 			crearEnemigo(matN1[i].x, matN1[i].y, matN1[i].ori, matN1[i].tipo);
 		}
 	}
-	if (nivel == 1) {
+	else if (nivel == 2) {
 
 		genEnem matN2[] = {
 		{-7.5,12.7,0,1},
@@ -133,7 +137,28 @@ void ListaEnemigos::cargarEnem(int nivel)
 		};
 
 
-		for (int i = 0; i < 9; i++)
+		for (int i = 0; i < 10; i++)
+		{
+			crearEnemigo(matN2[i].x, matN2[i].y, matN2[i].ori, matN2[i].tipo);
+		}
+	}
+	else if (nivel == 3) {
+
+		genEnem matN2[] = {
+		{-7.5,12.7,0,1},
+		{-7.5,42.7,0,1},
+		{-7.5,72.7,0,1},
+		{-7.5,102.7,0,1},
+		{72.5,12.7,90,1},
+		{72.5,42.7,90,1},
+		{72.5,72.7,90,1},
+		{72.5,102.7,90,1},
+		{22.5, 5,90,2},
+		{22.5, 10,90,3},
+		};
+
+
+		for (int i = 0; i < 10; i++)
 		{
 			crearEnemigo(matN2[i].x, matN2[i].y, matN2[i].ori, matN2[i].tipo);
 		}

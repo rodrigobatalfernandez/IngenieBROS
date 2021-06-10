@@ -100,27 +100,23 @@ bool Mundo::cargarNivel()
 	//Destruir cosas
 	enemigos.destruirContenido();
 	disparos.destruirContenido();
-	mapa.destruirContenido();  //Hay que corregirlo para que se destruyan
+	mapa.destruirContenido();
 
 	if (nivel == 1)
 	{
 		//Nivel 1
 
-		/*for (int i = 0; i < 4; i++) {
-			enemigos.crearEnemigo(16 + 2 * i, 15 + 2 * i);
-		}*/
-		enemigos.cargarEnem(1);
+		enemigos.cargarEnem(nivel);
 
-		jugador.setPos(32.5, -7);
+		jugador.setPos(37.5, -7);
 
 		mapa.cargarBordes(nivel);
 	}
 	if (nivel == 2)
 	{
 		//Nivel 2
-		for (int i = 0; i < 4; i++) {
-			enemigos.crearEnemigo(30 + 3 * i, 15 + 3 * i);
-		}
+
+		enemigos.cargarEnem(nivel);
 
 		jugador.setPos(22.5, 18);
 		jugador.setOri(270);
@@ -130,9 +126,8 @@ bool Mundo::cargarNivel()
 	if (nivel == 3)
 	{
 		//Nivel 3
-		for (int i = 0; i < 4; i++) {
-			enemigos.crearEnemigo(30 + 3 * i, 15 + 3 * i);
-		}
+
+		enemigos.cargarEnem(nivel);
 
 		jugador.setPos(22.5, 18);
 
