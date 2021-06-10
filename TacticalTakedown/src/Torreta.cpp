@@ -4,7 +4,7 @@
 
 //Torreta::Torreta()
 //{
-//	velangular = 45;
+//	velangular = 1;
 //}
 
 void Torreta::mueve(float t)
@@ -26,11 +26,6 @@ void Torreta::dibuja()
 	//glRotatef(-90, 1, 0, 0);
 	glRotatef(-orientacion - 180, 0, 0, 1);
 	glTranslatef(-posicion.x, -posicion.y, 0);
-}
-
-void Torreta::setVelAng(float vo)
-{
-	velangular += vo;
 }
 
 //void Torreta::persiguePunto(Vector2D Objetivo)

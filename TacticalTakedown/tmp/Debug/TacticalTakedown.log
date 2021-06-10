@@ -1,4 +1,11 @@
-﻿  Torreta.cpp
-C:\Users\Guillermo\Documents\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Guillermo\Documents\IngenieBROS\TacticalTakedown\src\Torreta.cpp(23,123): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-  TacticalTakedown.vcxproj -> C:\Users\Guillermo\Documents\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+﻿  ListaEnemigos.cpp
+C:\Users\Guillermo\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Guillermo\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mapa.h(19,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Guillermo\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ListaEnemigos.cpp(118,3): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\Guillermo\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ListaEnemigos.cpp(137,3): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\Guillermo\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ListaEnemigos.cpp(158,3): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Torreta.cpp
+C:\Users\Guillermo\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Guillermo\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Torreta.cpp(23,123): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  Generando código...
+  TacticalTakedown.vcxproj -> C:\Users\Guillermo\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
