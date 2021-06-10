@@ -106,9 +106,10 @@ bool Mundo::cargarNivel()
 	{
 		//Nivel 1
 
-		for (int i = 0; i < 4; i++) {
+		/*for (int i = 0; i < 4; i++) {
 			enemigos.crearEnemigo(16 + 2 * i, 15 + 2 * i);
-		}
+		}*/
+		enemigos.cargarEnem(1);
 
 		jugador.setPos(32.5, -7);
 

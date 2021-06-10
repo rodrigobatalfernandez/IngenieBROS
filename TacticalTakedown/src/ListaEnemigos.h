@@ -1,6 +1,5 @@
 #pragma once
 #include "Enemigo.h"
-#include "Torreta.h"
 #include "ListaDisparos.h"
 #include "Mapa.h"
 #define MAX_ENEMIGOS 100
@@ -20,8 +19,9 @@ public:
 	void destruirContenido();
 	void eliminar(int index);
 	void eliminar(Enemigo* e);
-	void crearEnemigo(float x, float y,int tipo=1);
+	void crearEnemigo(float x, float y, float ori = 0, int tipo = 1);
 	void crearEnemigo(Vector2D a);
+	void cargarEnem(int nivel);
 
 
 	void dibuja();

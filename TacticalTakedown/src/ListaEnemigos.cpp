@@ -1,4 +1,15 @@
 #include "ListaEnemigos.h"
+#include "Torreta.h"
+#include "Lapa.h"
+
+struct genEnem
+{
+	float x;
+	float y;
+	float ori;		//ori ==0->derecha,ori ==90->arriba,ori ==180->izquierda,ori ==270->abajo
+	int tipo;
+};
+
 
 ListaEnemigos::ListaEnemigos()
 {
@@ -56,18 +67,27 @@ void ListaEnemigos::eliminar(Enemigo* e)
 		}
 }
 
-void ListaEnemigos::crearEnemigo(float x, float y, int tipo)
+void ListaEnemigos::crearEnemigo(float x, float y,float ori, int tipo)
 {
 	if (tipo == 1) {
 		Enemigo* e = new Enemigo();
 		e->setPos(x, y);
+		e->setOri(ori);
 		agregar(e);
 	}
 	else if (tipo == 2) {
 		Torreta* e = new Torreta();
 		e->setPos(x, y);
+		e->setOri(ori);
 		agregar(e);
 	}
+	else if (tipo == 3) {
+		Lapa* e = new Lapa();
+		e->setPos(x, y);
+		e->setOri(ori);
+		agregar(e);
+	}
+
 }
 
 void ListaEnemigos::crearEnemigo(Vector2D a)
@@ -75,6 +95,49 @@ void ListaEnemigos::crearEnemigo(Vector2D a)
 	Enemigo* e = new Enemigo();
 	e->setPos(a.x, a.y);
 	agregar(e);
+}
+
+void ListaEnemigos::cargarEnem(int nivel)
+{
+	if (nivel==1)
+	{
+		genEnem matN1[] = { 
+			{-7.5,12.7,0,1},
+			{-7.5,42.7,0,1},
+			{-7.5,72.7,0,1},
+			{-7.5,102.7,0,1},
+			{72.5,12.7,90,1},
+			{72.5,42.7,90,1},
+			{72.5,72.7,90,1},
+			{72.5,102.7,90,1},
+			{22.5, 5,90,3},
+		};
+		for (int i = 0; i < 9; i++)
+		{
+			crearEnemigo(matN1[i].x, matN1[i].y, matN1[i].ori, matN1[i].tipo);
+		}
+	}
+	if (nivel == 1) {
+
+		genEnem matN2[] = {
+		{-7.5,12.7,0,1},
+		{-7.5,42.7,0,1},
+		{-7.5,72.7,0,1},
+		{-7.5,102.7,0,1},
+		{72.5,12.7,90,1},
+		{72.5,42.7,90,1},
+		{72.5,72.7,90,1},
+		{72.5,102.7,90,1},
+		{22.5, 5,90,2},
+		{22.5, 10,90,3},
+		};
+
+
+		for (int i = 0; i < 9; i++)
+		{
+			crearEnemigo(matN2[i].x, matN2[i].y, matN2[i].ori, matN2[i].tipo);
+		}
+	}
 }
 
 Enemigo* ListaEnemigos::operator[](int i)
