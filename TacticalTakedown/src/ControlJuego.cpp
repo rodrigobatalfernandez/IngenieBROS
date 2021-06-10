@@ -2,7 +2,7 @@
 
 ControlJuego::ControlJuego()
 {
-	estado = INICIO;										
+	estado = INICIO;									
 }
 
 ControlJuego::~ControlJuego(){}
@@ -83,11 +83,25 @@ void ControlJuego::dibuja()
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::printxy("Pulsa -C- para volver al inicio", -5, 9);
 		ETSIDI::printxy("Usa -ESPACIO- para disparar", -5, 6);
-		ETSIDI::printxy("Usa -LAS FLECHAS- para disparar", -5, 5);
-		ETSIDI::printxy("Usa -WASD- para disparar", -5, 4);
+		ETSIDI::printxy("Usa FLECHA IZQ / DER para girar", -5, 4);
+		ETSIDI::printxy("Usa -W A S D- para desplazarte", -5, 2);
 
 		glTranslatef(3, 5, 10);
+	case ControlJuego::HISTORIA:
+		if (historia == 0)
+		{
+			dialogo();
 
+			glTranslatef(-7, -5, -10);
+			ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+			ETSIDI::setTextColor(1, 0, 0);
+			ETSIDI::printxy("tu puta madre", -5, 10);
+			glTranslatef(3, 5, 10);
+		}
+		else if (historia == 1)
+		{
+			//Segundo fragmento historia
+		}
 	default:
 		break;
 	}
@@ -118,8 +132,8 @@ void ControlJuego::teclaAbajo(unsigned char key)
 	{
 		if (key == 'e')
 		{
-			mundo.inicializa();
-			estado = JUEGO;
+			//mundo.inicializa();
+			estado = HISTORIA;
 		}
 		if (key == 's')
 			exit(0);
@@ -155,10 +169,18 @@ void ControlJuego::teclaAbajo(unsigned char key)
 		else if(key != ' ')
 			mundo.teclaAbajo(key);
 	}
-	else if (estado == JUEGO)
+	else if (estado == CONTROLES)
 	{
 		if (key == 'c')
 			estado = INICIO;
+	}
+	else if (estado == HISTORIA)
+	{
+		if (key == ' ' || key=='e'){
+			mundo.inicializa();
+		estado = JUEGO;
+		historia++;
+		}
 	}
 }
 

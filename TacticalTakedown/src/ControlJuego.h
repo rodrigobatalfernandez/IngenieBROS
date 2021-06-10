@@ -17,8 +17,9 @@ public:
 	void teclaEspecialArriba(unsigned char key);
 
 protected:
-	enum Estado { INICIO, JUEGO, GAMEOVER, FIN, PAUSA, CONTROLES };
+	enum Estado { INICIO, JUEGO, GAMEOVER, FIN, PAUSA, CONTROLES, HISTORIA };
 	Estado estado;
 	Mundo mundo;
+	int historia = 0;
 };
 

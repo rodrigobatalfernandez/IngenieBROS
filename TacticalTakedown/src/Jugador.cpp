@@ -9,8 +9,8 @@ Jugador::Jugador() {
 	posicion.y = 0;
 	orientacion = 90;
 	velangular = 0;
-	vel_avance = 20; //cambiar para testear
-	vel_rotacion = 100;
+	vel_avance = 10; //cambiar para testear
+	vel_rotacion = 150;
 	radio = 1.5f;
 	color.r = 255;
 	color.g = 0;
@@ -161,10 +161,10 @@ void Jugador::teclaEspecialArriba(unsigned char key) {
 
 		break;
 	case GLUT_KEY_LEFT:
-		setVelAng(getVelAng() - 100);
+		setVelAng(getVelAng() - vel_rotacion);
 		break;
 	case GLUT_KEY_RIGHT:
-		setVelAng(getVelAng() + 100);
+		setVelAng(getVelAng() + vel_rotacion);
 		break;
 	}
 }
