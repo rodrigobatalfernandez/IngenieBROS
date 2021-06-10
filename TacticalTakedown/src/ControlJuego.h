@@ -16,6 +16,8 @@ public:
 	void teclaEspecialAbajo(unsigned char key);
 	void teclaEspecialArriba(unsigned char key);
 
+	int posicionOK(int nivel);
+
 protected:
 	enum Estado { INICIO, JUEGO, GAMEOVER, FIN, PAUSA, CONTROLES, HISTORIA };
 	Estado estado;

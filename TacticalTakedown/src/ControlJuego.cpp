@@ -12,7 +12,7 @@ void ControlJuego::mueve()
 	if (estado == JUEGO)
 	{
 		mundo.mueve();
-		if (mundo.getEnem() == 0)
+		if (mundo.getEnem() == 0 && posicionOK(mundo.getNum()))
 		{
 			if (!mundo.cargarNivel())
 				estado = FIN;
@@ -96,7 +96,7 @@ void ControlJuego::dibuja()
 			glTranslatef(-7, -5, -10);
 			ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 			ETSIDI::setTextColor(1, 0, 0);
-			ETSIDI::printxy("tu puta madre", -5, 10);
+			ETSIDI::printxy("tu puta madre en bolas", -5, 10);
 			glTranslatef(3, 5, 10);
 		}
 		else if (historia == 1)
@@ -203,5 +203,32 @@ void ControlJuego::teclaEspecialArriba(unsigned char key)
 {
 	if ((estado == JUEGO) || (estado == PAUSA))
 		mundo.teclaEspecialArriba(key);
+}
+
+int ControlJuego::posicionOK(int nivel)
+{
+	//Devuelve 0 si no esta en ninguna posicion relevante
+	//Devuelve 1 si esta en la posicion para salir del nivel
+	//Devuelve 2 si esta en la posicion para curarse
+	//Devuelve 3 si esta en la posicion para acelerar
+
+	if (nivel == 1) {
+		Vector2D salidaLimX(36, 39), salidaLimY(120, 129);
+		if (mundo.getCam().x>36 && mundo.getCam().x <39 && mundo.getCam().y>120 && mundo.getCam().y < 129)
+			return 1;
+	}
+	else if (nivel == 2) {
+		Vector2D salidaLimX(36, 39), salidaLimY(120, 129);
+
+		//Incluir posiciones chulas
+	}
+	else if (nivel == 3) {
+		Vector2D salidaLimX(36, 39), salidaLimY(120, 129);
+
+		//Salidas chulas
+
+		
+	}
+	return 0;
 }
 
