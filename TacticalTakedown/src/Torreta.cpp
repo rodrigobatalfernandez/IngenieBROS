@@ -2,6 +2,11 @@
 
 #define ESCALA 6
 
+//Torreta::Torreta()
+//{
+//	velangular = 1;
+//}
+
 void Torreta::mueve(float t)
 {
 	//No se mueve

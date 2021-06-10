@@ -87,6 +87,7 @@ void ControlJuego::dibuja()
 		ETSIDI::printxy("Usa -W A S D- para desplazarte", -5, 2);
 
 		glTranslatef(3, 5, 10);
+		break;
 	case ControlJuego::HISTORIA:
 		if (historia == 0)
 		{
@@ -155,11 +156,13 @@ void ControlJuego::teclaAbajo(unsigned char key)
 	{
 		if (key == 'c')
 			estado = INICIO;
+		historia = 0;
 	}
 	else if (estado == FIN)
 	{
 		if (key == 'c')
 			estado = INICIO;
+		historia = 0;
 	}
 	else if (estado == PAUSA)
 	{

@@ -6,6 +6,7 @@ class Torreta :
     public Enemigo
 {
 public:
+    //Torreta();
     void mueve(float t);
     void dibuja(); //Funcion de dibujo
 
