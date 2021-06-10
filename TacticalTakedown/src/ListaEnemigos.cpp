@@ -79,6 +79,7 @@ void ListaEnemigos::crearEnemigo(float x, float y,float ori, int tipo)
 		Torreta* e = new Torreta();
 		e->setPos(x, y);
 		e->setOri(ori);
+		e->setVelAng(30);
 		agregar(e);
 	}
 	else if (tipo == 3) {
@@ -193,6 +194,8 @@ void ListaEnemigos::mueve(Vector2D Objetivo, Mapa& mapa, float t)
 			lista[i]->persiguePunto(Objetivo);
 			lista[i]->mueve(t);
 			lista[i]->redCoolMov();
+			lista[i]->setVelAng();
+
 		}
 	}
 }

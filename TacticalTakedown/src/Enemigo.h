@@ -36,7 +36,7 @@ public:
 	Vector2D getVel(); //Devuelve la velocidad
 	void setOri(float o); //Define una nueva orientacion
 	float getOri(); //Devuelve la orientacion actual
-	void setVelAng(float vo); //Define una nueva velocidad angular
+	virtual void setVelAng(float vo=0); //Define una nueva velocidad angular
 	float getVelAng(); //Devuelve la velocidad angular actual
 
 	void redCoolMov();

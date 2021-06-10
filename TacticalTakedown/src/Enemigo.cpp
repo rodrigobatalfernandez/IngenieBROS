@@ -82,7 +82,7 @@ float Enemigo::getOri()
 
 void Enemigo::setVelAng(float vo)
 {
-	velangular = vo;
+	velangular += vo;
 }
 
 float Enemigo::getVelAng()
