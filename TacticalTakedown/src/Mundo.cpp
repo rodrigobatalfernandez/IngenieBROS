@@ -1,6 +1,7 @@
 #include "Mundo.h"
 #include "freeglut.h"
 #include <math.h>
+#include <iostream>
 
 #define PI 3.141592
 
@@ -55,6 +56,9 @@ void Mundo::teclaAbajo(unsigned char key)
 	jugador.teclaAbajo(key);
 
 	switch (key) {
+	case ('l'):
+		std::cout << (jugador.getPos()).x << "  " << (jugador.getPos()).y << std::endl;
+		break;
 	case (' '):
 		Disparo* d = new Disparo();
 		d->Tex();
@@ -103,7 +107,7 @@ bool Mundo::cargarNivel()
 		//Nivel 1
 
 		for (int i = 0; i < 4; i++) {
-			enemigos.crear(16 + 2 * i, 15 + 2 * i);
+			enemigos.crearEnemigo(16 + 2 * i, 15 + 2 * i);
 		}
 
 		jugador.setPos(-3, -3);
@@ -114,32 +118,17 @@ bool Mundo::cargarNivel()
 	{
 		//Nivel 2
 		for (int i = 0; i < 4; i++) {
-			enemigos.crear(30 + 3 * i, 15 + 3 * i);
-		}
-		for (int i = 0; i < 4; i++) {
-			enemigos.crearTorreta(40, 10+i*10);
+			enemigos.crearEnemigo(30 + 3 * i, 15 + 3 * i);
 		}
 
-		jugador.setPos(20, 22);
+		jugador.setPos(17.5, 18);
+		jugador.setOri(270);
 
 		mapa.cargarBordes(nivel);
 	}
 	if (nivel == 3)
 	{
-		for (int i = 0; i < 4; i++) {
-			Enemigo* e = new Enemigo();
-			e->setPos(30 + 3 * i, 15 + 3 * i);
-			enemigos.agregar(e);
-		}
-		for (int i = 0; i < 4; i++) {
-			Torreta* t = new Torreta();
-			t->setPos(40, 10 + i * 10);
-			enemigos.agregar(t);
-		}
-
-		jugador.setPos(20, 22);
-
-		mapa.cargarBordes(nivel-2);
+		//Nivel 3
 	}
 	if (nivel <= 3)
 		return true;

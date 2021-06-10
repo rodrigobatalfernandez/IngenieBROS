@@ -56,24 +56,24 @@ void ListaEnemigos::eliminar(Enemigo* e)
 		}
 }
 
-void ListaEnemigos::crear(float x, float y)
+void ListaEnemigos::crearEnemigo(float x, float y, int tipo)
 {
-	Enemigo* e = new Enemigo();
-	e->setPos(x, y);
-	agregar(e);
+	if (tipo == 1) {
+		Enemigo* e = new Enemigo();
+		e->setPos(x, y);
+		agregar(e);
+	}
+	else if (tipo == 2) {
+		Torreta* e = new Torreta();
+		e->setPos(x, y);
+		agregar(e);
+	}
 }
 
-void ListaEnemigos::crear(Vector2D a)
+void ListaEnemigos::crearEnemigo(Vector2D a)
 {
 	Enemigo* e = new Enemigo();
 	e->setPos(a.x, a.y);
-	agregar(e);
-}
-
-void ListaEnemigos::crearTorreta(float x, float y)
-{
-	Torreta* e = new Torreta();
-	e->setPos(x, y);
 	agregar(e);
 }
 

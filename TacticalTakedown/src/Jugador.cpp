@@ -9,7 +9,7 @@ Jugador::Jugador() {
 	posicion.y = 0;
 	orientacion = 90;
 	velangular = 0;
-	vel_avance = 10;
+	vel_avance = 20; //cambiar para testear
 	vel_rotacion = 100;
 	radio = 1.5f;
 	color.r = 255;
