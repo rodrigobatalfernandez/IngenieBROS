@@ -12,9 +12,10 @@ Jugador::Jugador() {
 	vel_avance = 15; //cambiar para testear
 	vel_rotacion = 150;
 	radio = 1.5f;
-	color.r = 255;
-	color.g = 0;
-	color.b = 0;
+	movimiento = 0;
+	//color.r = 255;
+	//color.g = 0;
+	//color.b = 0;
 	indice = 0;
 }
 

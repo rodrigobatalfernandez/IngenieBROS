@@ -9,7 +9,7 @@ Lapa::Lapa()
 
 void Lapa::dibuja()
 {
-	glColor3ub(color.r, color.g, color.b);
+	//glColor3ub(color.r, color.g, color.b);
 	glTranslatef(posicion.x, posicion.y, 0);
 	glRotatef(orientacion + 180, 0, 0, 1);
 

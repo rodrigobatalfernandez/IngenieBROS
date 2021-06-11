@@ -5,7 +5,7 @@
 
 Disparo::Disparo() {
 	radio = 0.25f;
-	textura = false;
+	//textura = false;
 	indice = 0;
 	rebote = 0;
 	orientacion = 0;
@@ -23,7 +23,7 @@ void Disparo::setVel(float vx, float vy) {
 	velocidad.y = vy;
 }
 
-void Disparo::dibuja() {
+void Disparo::dibuja(bool textura) {
 		getOri();
 		glPushMatrix();
 		glTranslatef(posicion.x, posicion.y, 0);
@@ -34,11 +34,11 @@ void Disparo::dibuja() {
 			indice++;
 		else
 			indice = 0;
-		if (textura) {
+		if (textura) {//1 para aliado
 			ETSIDI::SpriteSequence animacion("imagenes/laser.png", 1, 11, 50, true, 0, 0, 2 * ESCALA, 1 * ESCALA, indice);
 			animacion.draw();
 		}
-		else {
+		else {//0 para enemigo
 			ETSIDI::SpriteSequence animacion("imagenes/laser4.png", 1, 11, 50, true, 0, 0, 2 * ESCALA, 1 * ESCALA, indice);
 			animacion.draw();
 		}

@@ -3,7 +3,7 @@
 #include <iostream>
 
 Pared::Pared() {
-	color.set(255, 255, 255);
+	//color.set(255, 255, 255);
 }
 
 void Pared::setPos(float x1, float y1, float x2, float y2) {
@@ -13,13 +13,13 @@ void Pared::setPos(float x1, float y1, float x2, float y2) {
 	limite2.y = y2;
 }
 
-void Pared::setColor(Byte r, Byte v, Byte a) {
-	color.set(r, v, a);
-}
+//void Pared::setColor(Byte r, Byte v, Byte a) {
+//	color.set(r, v, a);
+//}
 
 void Pared::dibuja()
 {
-	glColor3ub(color.r, color.g, color.b);
+	//glColor3ub(color.r, color.g, color.b);
 	glBegin(GL_LINES);
 	glVertex2d(limite1.x, limite1.y);
 	glVertex2d(limite2.x, limite2.y);

@@ -16,16 +16,17 @@ Enemigo::Enemigo(float xi, float yi, float ori)
 	vel_rotacion = 2;
 	vel_avance = 8;
 	radio = 1.5f;
-	color.r = 0;
-	color.g = 255;
-	color.b = 0;
+	indice = 0;
+	//color.r = 0;
+	//color.g = 255;
+	//color.b = 0;
 	cooldown_disparo = 0;
 	cooldown_movimiento = 0;
 }
 
 void Enemigo::dibuja()
 {
-	glColor3ub(color.r, color.g, color.b);
+	//glColor3ub(color.r, color.g, color.b);
 	glTranslatef(posicion.x, posicion.y, 0);
 	glRotatef(orientacion, 0, 0, 1);
 

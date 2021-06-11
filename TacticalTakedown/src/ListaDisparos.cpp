@@ -53,9 +53,9 @@ void ListaDisparos::mueve(float t) {
 		lista[i]->mueve(t);
 }
 
-void ListaDisparos::dibuja() {
+void ListaDisparos::dibuja(bool textura) {
 	for (int i = 0; i < numero; i++)
-		lista[i]->dibuja();
+		lista[i]->dibuja(textura);
 }
 
 Disparo* ListaDisparos::operator[](int i)

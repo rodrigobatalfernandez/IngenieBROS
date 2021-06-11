@@ -20,7 +20,7 @@ private:
 
 	int nivel = 0;
 	int vida = 4;
-	int abatidos;
+	int abatidos = 0;
 
 public:
 	~Mundo();

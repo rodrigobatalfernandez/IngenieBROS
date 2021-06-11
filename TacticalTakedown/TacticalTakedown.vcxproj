@@ -37,7 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Camara.h" />
-    <ClInclude Include="src\ColorRGB.h" />
     <ClInclude Include="src\ControlJuego.h" />
     <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\Enemigo.h" />

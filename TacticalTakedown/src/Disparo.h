@@ -10,7 +10,7 @@ private:
 	int rebote; //Solo se permite un rebote
 	int indice;
 	float orientacion;
-	bool textura;
+	//bool textura;
 
 public:
 	Disparo();
@@ -20,10 +20,10 @@ public:
 	void setVel(float vx, float vy);
 	float getRadio() { return radio; }
 	int getRebote() { return rebote; }
-	void dibuja();
+	void dibuja(bool textura = false);
 	void mueve(float t);
 	void getOri();
-	void Tex() { textura = true; } //Cambia la textura del disparo a la del aliado
+	//void Tex() { textura = true; } //Cambia la textura del disparo a la del aliado
 	void sonido_disparo_inicio();
 	void sonido_disparo_impacto();
 };

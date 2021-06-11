@@ -1,6 +1,6 @@
 #pragma once
 #include "Vector2D.h"
-#include "ColorRGB.h"
+//#include "ColorRGB.h"
 #include "ListaDisparos.h"
 #include "ETSIDI.h"
 
@@ -19,7 +19,7 @@ protected:
 	float vel_avance; //Parametro que define el modulo de la velocidad a la que avanza
 	float vel_rotacion; //Parametro que define a la velocidad a la que va a variar la velocidad angular
 
-	ColorRGB color; //Definicion del color
+	//ColorRGB color; //Definicion del color
 	float radio; //Definición del radio de la hitbox
 
 	float cooldown_disparo, cooldown_movimiento;

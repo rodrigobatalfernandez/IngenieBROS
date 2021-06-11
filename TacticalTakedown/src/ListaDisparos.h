@@ -15,7 +15,7 @@ private:
 public:
 	ListaDisparos();
 	//virtual ~ListaDisparos();
-	float getNumero() { return numero; }
+	int getNumero() { return numero; }
 	Disparo* operator [](int i);
 
 	bool agregar(Disparo* d);
@@ -24,7 +24,7 @@ public:
 	void destruirContenido();
 
 	void mueve(float t);
-	void dibuja();
+	void dibuja(bool textura=0);
 
 	Disparo* colision(Pared p);
 };

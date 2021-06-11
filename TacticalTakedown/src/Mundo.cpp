@@ -1,6 +1,5 @@
 #include "Mundo.h"
 #include "freeglut.h"
-#include <math.h>
 #include <iostream>
 
 #define PI 3.141592
@@ -16,7 +15,7 @@ void Mundo::dibuja()
 	jugador.dibuja();
 	enemigos.dibuja();
 
-	disparos.dibuja();
+	disparos.dibuja(1);
 	disparos_enemigos.dibuja();
 	
 	glDisable(GL_LIGHTING); //Desactiva la iluminación, para que todas las figuras reaccionen igual con la iluminación
@@ -58,10 +57,11 @@ void Mundo::teclaAbajo(unsigned char key)
 	switch (key) {
 	case ('l'):
 		std::cout << (jugador.getPos()).x << "  " << (jugador.getPos()).y << std::endl;
+
 		break;
 	case (' '):
 		Disparo* d = new Disparo();
-		d->Tex();
+		//d->Tex();
 		d->setPos(jugador.getPos().x, jugador.getPos().y);
 		d->setVel(20 * cos(jugador.getOri() * (PI / 180)), 20 * sin(jugador.getOri() * (PI / 180)));
 		disparos.agregar(d);

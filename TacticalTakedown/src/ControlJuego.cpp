@@ -2,10 +2,10 @@
 
 ControlJuego::ControlJuego()
 {
-	estado = INICIO;									
+	estado = INICIO;
 }
 
-ControlJuego::~ControlJuego(){}
+ControlJuego::~ControlJuego() {}
 
 void ControlJuego::mueve()
 {
@@ -14,8 +14,10 @@ void ControlJuego::mueve()
 		mundo.mueve();
 		if (mundo.getEnem() == 0 && posicionOK(mundo.getNum()))
 		{
+			estado = HISTORIA;
 			if (!mundo.cargarNivel())
 				estado = FIN;
+
 		}
 	}
 }
@@ -96,12 +98,18 @@ void ControlJuego::dibuja()
 			glTranslatef(-7, -5, -10);
 			ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 			ETSIDI::setTextColor(1, 0, 0);
-			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
-			glTranslatef(3, 5, 10);
+			ETSIDI::printxy("tu madre otra vez", -5, 10);
+			glTranslatef(7, 5, 10);
 		}
 		else if (historia == 1)
 		{
-			//Segundo fragmento historia
+			dialogo();
+
+			glTranslatef(-7, -5, -10);
+			ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+			ETSIDI::setTextColor(1, 0, 0);
+			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
+			glTranslatef(7, 5, 10);
 		}
 	default:
 		break;
@@ -131,9 +139,10 @@ void ControlJuego::teclaAbajo(unsigned char key)
 {
 	if (estado == INICIO)
 	{
+		historia = 0;
 		if (key == 'e')
 		{
-			//mundo.inicializa();
+			mundo.inicializa();
 			estado = HISTORIA;
 		}
 		if (key == 's')
@@ -156,20 +165,18 @@ void ControlJuego::teclaAbajo(unsigned char key)
 	{
 		if (key == 'c')
 			estado = INICIO;
-		historia = 0;
 	}
 	else if (estado == FIN)
 	{
 		if (key == 'c')
 			estado = INICIO;
-		historia = 0;
 	}
 	else if (estado == PAUSA)
 	{
 		if ((key == 'p') || (key == 'P')) {
 			estado = JUEGO;
 		}
-		else if(key != ' ')
+		else if (key != ' ')
 			mundo.teclaAbajo(key);
 	}
 	else if (estado == CONTROLES)
@@ -179,17 +186,16 @@ void ControlJuego::teclaAbajo(unsigned char key)
 	}
 	else if (estado == HISTORIA)
 	{
-		if (key == ' ' || key=='e'){
-			mundo.inicializa();
-		estado = JUEGO;
-		historia++;
+		if (key == ' ' || key == 'e') {
+			estado = JUEGO;
+			historia++;
 		}
 	}
 }
 
 void ControlJuego::teclaArriba(unsigned char key)
 {
-	if ((estado == JUEGO) || (estado==PAUSA))
+	if ((estado == JUEGO) || (estado == PAUSA))
 		mundo.teclaArriba(key);
 }
 
@@ -214,20 +220,22 @@ int ControlJuego::posicionOK(int nivel)
 
 	if (nivel == 1) {
 		Vector2D salidaLimX(36, 39), salidaLimY(120, 129);
-		if (mundo.getCam().x>36 && mundo.getCam().x <39 && mundo.getCam().y>120 && mundo.getCam().y < 129)
+		if (mundo.getCam().x > 36 && mundo.getCam().x < 39 && mundo.getCam().y>120 && mundo.getCam().y < 129)
 			return 1;
 	}
 	else if (nivel == 2) {
 		Vector2D salidaLimX(36, 39), salidaLimY(120, 129);
 
 		//Incluir posiciones chulas
+
+		return 1;
 	}
 	else if (nivel == 3) {
 		Vector2D salidaLimX(36, 39), salidaLimY(120, 129);
 
 		//Salidas chulas
 
-		
+		return 1;
 	}
 	return 0;
 }

@@ -1,2 +1,5 @@
-﻿  Jugador.cpp
-  TacticalTakedown.vcxproj -> C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+﻿  Mundo.cpp
+C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mundo.cpp(66,57): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mundo.cpp(66,16): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mundo.cpp(122,27): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  TacticalTakedown.vcxproj -> C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

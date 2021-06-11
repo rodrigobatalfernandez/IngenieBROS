@@ -1,6 +1,6 @@
 #pragma once
 #include "Vector2D.h"
-#include "ColorRGB.h"
+//#include "ColorRGB.h"
 
 class Jugador{
 	friend class Interaccion;
@@ -16,7 +16,7 @@ private:
 	float velangular; //Velocidad de rotacion
 	int movimiento;// int si esta en movimiento; <0  ----> en movimiento
 
-	ColorRGB color; //Definicion del color
+	//ColorRGB color; //Definicion del color
 	float radio; //Definición del radio de la hitbox
 	int indice;	//Nº de sprite en la secuencia de animación
 public:
