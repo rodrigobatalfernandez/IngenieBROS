@@ -33,7 +33,7 @@ public:
 	void cargarBordes(int nivel);
 	void cargaFondo(char const* cadena1, float altura=-0.2); //---------Para poner un fondo de nivel--------
 
-	int** leerMatrices(const char* fileName, int& FILS, int& COLS);
+	int** leerMatrices(const char* fileName);
 
 	friend class Interaccion;
 };

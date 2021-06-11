@@ -64,27 +64,18 @@ Pared* Mapa::operator[](int i)
 void Mapa::copia_nivel(int nivel) {
 	if (nivel == 1) {
 		FIL = 0; COL = 0;
-		int** matrix1 = leerMatrices("Mapa1.txt", FIL, COL);
-		FIL++;
-		COL++;
-
-		//cout << FIL << " " << COL << std::endl;
-		//cout << "LA MATRIZ ES:  " << endl;
-		//for (int i = 0; i < FIL; i++) {
-		//	for (int j = 0; j < COL; j++)
-		//	{
-		//		cout << mapa[i][j] << " ";
-		//	}
-		//	cout << endl;
-		//}
+		int** matrix1 = leerMatrices("Mapa1.txt");
 
 		//Copia la matriz1 a la matriz principal mapa
+		
+		//cout << "Matriz 1: " << endl;
 		for (int f = 0; f < FIL; f++)
 		{
 
 			for (int c = 0; c < COL; c++)
 			{
 				mapa[f][c] = matrix1[FIL - f - 1][c]; //FIL-f-1 porque si no salen las filas traspuestas
+				//mapa = matrix1;
 				//cout << mapa[f][c] << " ";
 			}
 			//cout << endl;
@@ -93,19 +84,7 @@ void Mapa::copia_nivel(int nivel) {
 	}
 	else if (nivel == 2) {
 		FIL = 0; COL = 0;
-		int** matrix2 = leerMatrices("Mapa2.txt", FIL, COL);
-		FIL++;
-		COL++;
-
-		//cout << FIL << " " << COL << std::endl;
-		//cout << "LA MATRIZ ES:  " << endl;
-		//for (int i = 0; i < FIL; i++) {
-		//	for (int j = 0; j < COL; j++)
-		//	{
-		//		cout << mapa[i][j] << " ";
-		//	}
-		//	cout << endl;
-		//}
+		int** matrix2 = leerMatrices("Mapa2.txt");
 
 		//Copia la matriz1 a la matriz principal mapa
 		for (int f = 0; f < FIL; f++)
@@ -114,28 +93,13 @@ void Mapa::copia_nivel(int nivel) {
 			for (int c = 0; c < COL; c++)
 			{
 				mapa[f][c] = matrix2[FIL - f - 1][c]; //FIL-f-1 porque si no salen las filas traspuestas
-				//cout << mapa[f][c] << " ";
 			}
-			//cout << endl;
 		}
-
 		//delete matrix2;
 	}
 	else if (nivel == 3) {
 		FIL = 0; COL = 0;
-		int** matrix3 = leerMatrices("Mapa3.txt", FIL, COL);
-		FIL++;
-		COL++;
-
-		//cout << FIL << " " << COL << std::endl;
-		//cout << "LA MATRIZ ES:  " << endl;
-		//for (int i = 0; i < FIL; i++) {
-		//	for (int j = 0; j < COL; j++)
-		//	{
-		//		cout << mapa[i][j] << " ";
-		//	}
-		//	cout << endl;
-		//}
+		int** matrix3 = leerMatrices("Mapa3.txt");
 
 		//Copia la matriz1 a la matriz principal mapa
 		for (int f = 0; f < FIL; f++)
@@ -144,11 +108,8 @@ void Mapa::copia_nivel(int nivel) {
 			for (int c = 0; c < COL; c++)
 			{
 				mapa[f][c] = matrix3[FIL - f - 1][c]; //FIL-f-1 porque si no salen las filas traspuestas
-				//cout << mapa[f][c] << " ";
 			}
-			//cout << endl;
 		}
-
 		//delete matrix3;
 	}
 }
@@ -315,8 +276,9 @@ void Mapa::cargarBordes(int nivel) {
 		//cout << "Mapa leido: " << fil <<endl;
 		for (int col = 0; col < COL; col++)
 		{
+			int num = mapa[fil][col];
 			//cout << mapa[fil][col] << " ";
-			if (mapa[fil][col] == 1 || mapa[fil][col] == 2 || mapa[fil][col] == 3 || mapa[fil][col] == 4 || mapa[fil][col] == 28 || mapa[fil][col] == 29 || mapa[fil][col] == 36 || mapa[fil][col] == 37) { //texturas con colisiones
+			if ((num == 1) || num == 2 || num == 3 || num == 4 || num == 28 || num == 29 || num == 36 || num == 37) { //texturas con colisiones
 
 				//se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
 				Pared* p1 = new Pared;
@@ -332,6 +294,7 @@ void Mapa::cargarBordes(int nivel) {
 				p4->setPos((-2.0f + col) * ESCALA, (0.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA, (-2.0f + col) * ESCALA, (1.0f + fil - fil + 1) * ESCALA + (fil - 4) * ESCALA);
 				agregar(p4);
 			}
+			num = 0;
 		}
 	}
 }
@@ -352,7 +315,7 @@ void Mapa::cargaFondo(char const* cadena1, float altura)
 	glDisable(GL_TEXTURE_2D);
 }
 
-int** Mapa::leerMatrices(const char* fileName, int& FILS, int& COLS) {
+int** Mapa::leerMatrices(const char* fileName) {
 	char cadena[MAX]; //cadena para leer lineas, limitado por el numero max es 100 ahora, se puede modificar
 	bool flag_inicio = 0;
 	int num = 0;
@@ -360,6 +323,8 @@ int** Mapa::leerMatrices(const char* fileName, int& FILS, int& COLS) {
 	int k = 0;
 	int cifra = 0;
 	FILE* entrada;
+	FIL = 0;
+	COL = 0;
 
 	int** matriz = NULL;//punto a matriz
 
@@ -373,7 +338,7 @@ int** Mapa::leerMatrices(const char* fileName, int& FILS, int& COLS) {
 		for (int n = 0; n < 2; n++) {
 			if ((cadena[n] >= '0') && (cadena[n] <= '9')) {
 				cifra = cadena[n] - 48; //char a int
-				COLS = COLS * 10 + cifra;
+				COL = COL * 10 + cifra;
 			}
 
 		}
@@ -383,12 +348,12 @@ int** Mapa::leerMatrices(const char* fileName, int& FILS, int& COLS) {
 			if ((cadena[u] >= '0') && (cadena[u] <= '9')) {
 
 				cifra = cadena[u] - 48; //char a int
-				FILS = FILS * 10 + cifra;
+				FIL = FIL * 10 + cifra;
 			}
 		}
-		matriz = new int* [FILS];//CREAMOS MATRIZ
-		for (int i = 0; i <= FILS; i++) {
-			matriz[i] = new int[COLS];
+		matriz = new int* [FIL];//CREAMOS MATRIZ
+		for (int i = 0; i <= FIL; i++) {
+			matriz[i] = new int[COL];
 		}
 		j = k = 0;//reset variables 
 		while (!feof(entrada))
@@ -396,7 +361,7 @@ int** Mapa::leerMatrices(const char* fileName, int& FILS, int& COLS) {
 
 			fgets(cadena, MAX, entrada);
 			for (int i = 0; i < MAX; i++) {
-				if (j <= FILS && k <= COLS)
+				if (j <= FIL && k <= COL)
 				{
 
 					if (cadena[i] == '{')//inicio fila
@@ -427,6 +392,28 @@ int** Mapa::leerMatrices(const char* fileName, int& FILS, int& COLS) {
 		}
 	}
 	std::fclose(entrada);//cerramos fichero
-
+	//Copia la matriz a su traspuesta
+	//int** matrizaux = matriz;
+	FIL++; COL++;
+	//cout << "Matriz Principal: " << endl;
+	//for (int f = 0; f < FIL; f++)
+	//{
+	//	for (int c = 0; c < COL; c++)
+	//	{
+	//		//mapa[f][c] = matrix1[FIL - f - 1][c]; //FIL-f-1 porque si no salen las filas traspuestas
+	//		matriz[f][c] = matrizaux[FIL - f -1][c];
+	//		cout << matriz[f][c] << " ";
+	//	}
+	//	cout << endl;
+	//}
+	//cout << "Matriz Auxiliar: "<<endl;
+	//for (int f = 0; f < FIL; f++)
+	//{
+	//	for (int c = 0; c < COL; c++)
+	//	{
+	//		cout << matrizaux[f][c] << " ";
+	//	}
+	//	cout << endl;
+	//}
 	return matriz;
 }
