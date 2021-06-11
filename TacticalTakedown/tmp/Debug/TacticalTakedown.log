@@ -1,4 +1,2 @@
-﻿  ControlJuego.cpp
-C:\Users\Guillermo\Documents\IngenieBROS\TacticalTakedown\src\ListaDisparos.h(18,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Guillermo\Documents\IngenieBROS\TacticalTakedown\src\Mapa.h(19,29): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-  TacticalTakedown.vcxproj -> C:\Users\Guillermo\Documents\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+﻿  Jugador.cpp
+  TacticalTakedown.vcxproj -> C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

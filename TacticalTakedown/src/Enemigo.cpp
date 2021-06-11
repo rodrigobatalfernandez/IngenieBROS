@@ -15,7 +15,7 @@ Enemigo::Enemigo(float xi, float yi, float ori)
 	velangular = 0;
 	vel_rotacion = 2;
 	vel_avance = 8;
-	radio = 1.0f;
+	radio = 1.5f;
 	color.r = 0;
 	color.g = 255;
 	color.b = 0;

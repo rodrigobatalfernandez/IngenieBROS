@@ -108,7 +108,8 @@ bool Mundo::cargarNivel()
 
 		enemigos.cargarEnem(nivel);
 
-		jugador.setPos(37.5, -7);
+		jugador.setPos(22.5, 18);
+		jugador.setOri(270);
 
 		mapa.cargarBordes(nivel);
 	}
@@ -118,8 +119,7 @@ bool Mundo::cargarNivel()
 
 		enemigos.cargarEnem(nivel);
 
-		jugador.setPos(22.5, 18);
-		jugador.setOri(270);
+		jugador.setPos(-7.5, 2.7);
 
 		mapa.cargarBordes(nivel);
 	}
@@ -129,7 +129,7 @@ bool Mundo::cargarNivel()
 
 		enemigos.cargarEnem(nivel);
 
-		jugador.setPos(22.5, 18);
+		jugador.setPos(37.5, -7);
 
 		mapa.cargarBordes(nivel);
 	}

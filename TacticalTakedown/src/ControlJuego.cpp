@@ -96,7 +96,7 @@ void ControlJuego::dibuja()
 			glTranslatef(-7, -5, -10);
 			ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 			ETSIDI::setTextColor(1, 0, 0);
-			ETSIDI::printxy("tu puta madre en bolas", -5, 10);
+			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
 			glTranslatef(3, 5, 10);
 		}
 		else if (historia == 1)
