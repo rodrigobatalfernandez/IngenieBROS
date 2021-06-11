@@ -12,7 +12,11 @@ private: //Para incluir los bordes en lista paredes necesitan ser punteros (Pare
 	Pared* lista[MAX_PAREDES];
 	int numero;
 	Pared pared[MAX_PAREDES];//borde_arriba, borde_abajo, borde_izq, borde_dcha;
-	//ListaParedes paredes;
+	//int FIL=30, COL=21;
+	int FIL = 0, COL = 0;
+	//int** mapa = NULL; //matriz principal mapa
+	int mapa[100][100];
+
 public:
 	Mapa();
 	//virtual ~Mapa();
@@ -28,6 +32,8 @@ public:
 	void textura(int fil, int col, float altura, char const* cadena1);
 	void cargarBordes(int nivel);
 	void cargaFondo(char const* cadena1, float altura=-0.2); //---------Para poner un fondo de nivel--------
+
+	int** leerMatrices(const char* fileName, int& FILS, int& COLS);
 
 	friend class Interaccion;
 };
