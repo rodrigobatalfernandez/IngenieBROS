@@ -12,7 +12,7 @@ void ControlJuego::mueve()
 	if (estado == JUEGO)
 	{
 		mundo.mueve();
-		if (mundo.getEnem() == 0 && posicionOK(mundo.getNum()))
+		if (mundo.getEnem() == 0 /*&& posicionOK(mundo.getNum())*/)
 		{
 			estado = HISTORIA;
 			if (!mundo.cargarNivel())
@@ -73,6 +73,8 @@ void ControlJuego::dibuja()
 		ETSIDI::printxy("PAUSA: Menu de pausa", -5, 10);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::printxy("Pulsa -P- para continuar", -5, 5);
+		ETSIDI::printxy("Pulsa -I- para volver al inicio", -5, 4);
+
 		glTranslatef(-aux.x, -aux.y, -2);
 		break;
 	case ControlJuego::CONTROLES:
@@ -178,6 +180,10 @@ void ControlJuego::teclaAbajo(unsigned char key)
 		}
 		else if (key != ' ')
 			mundo.teclaAbajo(key);
+		if ((key == 'i') || (key == 'I')) {
+			estado = INICIO;
+		}
+
 	}
 	else if (estado == CONTROLES)
 	{
