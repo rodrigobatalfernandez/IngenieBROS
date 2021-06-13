@@ -1,7 +1,7 @@
 #include "Enemigo.h"
 #include <math.h>
 
-#define PI 3.141592
+#define PI 3.141592f
 #define COOLDOWN_DISP 60
 #define COOLDOWN_MOV 40
 #define ESCALA 3
@@ -137,7 +137,7 @@ void Enemigo::persiguePunto(Vector2D& Objetivo)
 	//float dif_ori = difAngular(Objetivo);
 	velangular = vel_rotacion * difAngular(Objetivo);
 
-	setVel(vel_avance * cos(orientacion * (PI / 180)), vel_avance * sin(orientacion * (PI / 180)));
+	setVel(vel_avance * (float)cos(orientacion * (PI / 180)), vel_avance * (float)sin(orientacion * (PI / 180)));
 }
 
 void Enemigo::dispara(Vector2D& Objetivo, ListaDisparos& disparos) {

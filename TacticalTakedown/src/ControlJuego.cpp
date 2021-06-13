@@ -17,6 +17,7 @@ void ControlJuego::mueve()
 			estado = HISTORIA;
 			if (!mundo.cargarNivel())
 				estado = FIN;
+			//Si se quiere hacer todo en historia hay que variar esto
 
 		}
 	}
@@ -92,6 +93,13 @@ void ControlJuego::dibuja()
 
 		glTranslatef(3, 5, 10);
 		break;
+	case ControlJuego::COLOR:
+		//Texto para elegir color
+		//Crear funcion en mundo
+		//color tanque. 0-verde,1-rojo,2-amarillo,3-azul,4-morado,5-celeste,6-naranja,7-pink
+		//ListaDisparos.cpp linea 18 revisar
+
+		break;
 	case ControlJuego::HISTORIA:
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::setTextColor(1, 0, 0);
@@ -104,15 +112,23 @@ void ControlJuego::dibuja()
 		}
 		else if (historia == 1)
 		{
+			dialogo();
+			glTranslatef(-7, -5, -10);
 			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
 		}
 		else if (historia == 2)
 		{
+			dialogo();
+			glTranslatef(-7, -5, -10);
 			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
 		}
 		else if (historia == 3)
 		{
+			dialogo();
+			glTranslatef(-7, -5, -10);
 			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
+			//Si esta historia es la de ganar la partida no va aqui
+			//Si esta historia es la de perder la partida no va aqui
 		}
 
 		glTranslatef(7, 5, 10);
@@ -155,6 +171,7 @@ void ControlJuego::teclaAbajo(unsigned char key)
 			exit(0);
 		if (key == 'c')
 			estado = CONTROLES;
+		//Forma de llegar a color
 
 	}
 	else if (estado == JUEGO)
@@ -201,6 +218,12 @@ void ControlJuego::teclaAbajo(unsigned char key)
 			historia++;
 		}
 	}
+	else if (estado == COLOR)
+	{
+		//Teclas para color y salir
+	}
+
+
 }
 
 void ControlJuego::teclaArriba(unsigned char key)
@@ -229,6 +252,7 @@ int ControlJuego::posicionOK(int nivel)
 	//Devuelve 3 si esta en la posicion para acelerar
 
 	if (nivel == 1) {
+		//Mejora: Poner centro del cuadrado de salida y meter margenes
 		Vector2D salidaLimX(-10, -7), salidaLimY(105, 110);
 		if(mundo.getCam().x > salidaLimX.x && mundo.getCam().x < salidaLimX.y && mundo.getCam().y> salidaLimY.x && mundo.getCam().y < salidaLimY.y)
 			return 1;

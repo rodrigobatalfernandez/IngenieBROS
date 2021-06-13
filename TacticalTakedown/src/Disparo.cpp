@@ -2,6 +2,8 @@
 #include "freeglut.h"
 #include "ETSIDI.h"
 #define ESCALA 1
+#define PI 3.141592f
+
 
 Disparo::Disparo() {
 	radio = 0.25f;
@@ -54,7 +56,7 @@ void Disparo::mueve(float t) {
 	velocidad = velocidad + aceleracion * t;
 }
 void Disparo::getOri() {
-	orientacion = 180 / 3.141592 * atan2(velocidad.x, velocidad.y);
+	orientacion = 180 / PI * (float)atan2(velocidad.x, velocidad.y);
 }
 void Disparo::sonido_disparo_inicio() {
 	ETSIDI::play("sonidos/IMPACTO LASER.wav");

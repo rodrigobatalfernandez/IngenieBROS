@@ -15,7 +15,7 @@ bool ListaDisparos::agregar(Disparo* d) {
 				return false; // el disparo ya se encuentra en la lista
 		}
 		lista[numero++] = d; // último puesto sin rellenar
-		lista[numero]->sonido_disparo_inicio();
+		lista[numero]->sonido_disparo_inicio();//Revisar
 		return true;
 	}
 	return false; // capacidad máxima alcanzada

@@ -98,7 +98,7 @@ bool Mundo::cargarNivel()
 	nivel++;
 	//jugador.setPos(0, 0);//Posicion inicial, comun para todos los niveles
 	
-
+	jugador.setVel(0, 0);
 	//Destruir cosas
 	enemigos.destruirContenido();
 	disparos.destruirContenido();

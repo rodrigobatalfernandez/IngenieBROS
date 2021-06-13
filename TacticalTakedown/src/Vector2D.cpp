@@ -5,15 +5,13 @@
 float max(float a, float b) {
 	if (a > b)
 		return a;
-	else
-		return b;
+	return b;
 }
 
 float min(float a, float b) {
 	if (a > b)
 		return b;
-	else
-		return a;
+	return a;
 }
 
 

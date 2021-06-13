@@ -99,6 +99,7 @@ void ListaEnemigos::crearEnemigo(Vector2D a)
 
 void ListaEnemigos::cargarEnem(int nivel)
 {
+	//posible implementacion con for de rango
 	if (nivel == 1)
 	{
 		genEnem matN1[] = {
