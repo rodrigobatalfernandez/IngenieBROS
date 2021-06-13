@@ -4,7 +4,7 @@
 #include "Pared.h"
 #include "ListaDisparos.h"
 
-#define MAX_PAREDES 100000
+#define MAX_PAREDES 10000
 
 
 class Mapa {

@@ -2,7 +2,7 @@
 #include "Enemigo.h"
 #include "ListaDisparos.h"
 #include "Mapa.h"
-#define MAX_ENEMIGOS 25
+#define MAX_ENEMIGOS 20
 
 class ListaEnemigos
 {

@@ -93,26 +93,30 @@ void ControlJuego::dibuja()
 		glTranslatef(3, 5, 10);
 		break;
 	case ControlJuego::HISTORIA:
+		dialogo();
+		glTranslatef(-7, -5, -10);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::setTextColor(1, 0, 0);
+
 		if (historia == 0)
 		{
-			dialogo();
-
-			glTranslatef(-7, -5, -10);
-			ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-			ETSIDI::setTextColor(1, 0, 0);
 			ETSIDI::printxy("tu madre otra vez", -5, 10);
-			glTranslatef(7, 5, 10);
 		}
 		else if (historia == 1)
 		{
-			dialogo();
-
-			glTranslatef(-7, -5, -10);
-			ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-			ETSIDI::setTextColor(1, 0, 0);
 			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
-			glTranslatef(7, 5, 10);
 		}
+		else if (historia == 2)
+		{
+			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
+		}
+		else if (historia == 3)
+		{
+			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
+		}
+
+		glTranslatef(7, 5, 10);
+		break;
 	default:
 		break;
 	}

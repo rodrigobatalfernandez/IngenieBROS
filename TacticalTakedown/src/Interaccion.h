@@ -9,9 +9,9 @@
 class Interaccion {
 public:
 	//Colisiones contra las paredes
-	static bool colision(Jugador& j, Pared p);
-	static bool colision(Enemigo& e, Pared p);
-	static bool colision(Disparo& d, Pared p);
+	static bool colision(Jugador& j, Pared& p);
+	static bool colision(Enemigo& e, Pared& p);
+	static bool colision(Disparo& d, Pared& p);
 
 	//Colisiones ente objetos móviles
 	static bool colision(Enemigo& e, Disparo& d);
@@ -23,8 +23,8 @@ public:
 	static void colision(Jugador& j, Mapa& mapa);
 	static void colision(ListaEnemigos& enemigos, Mapa& mapa);
 	static void colision(ListaDisparos& disparos, Mapa& mapa);
-	static void colision(ListaEnemigos& enemigos, ListaDisparos& disparos, int abatidos);
-	static void colision(Jugador& j, ListaDisparos& disparos, int vida);
-	static void colision(Jugador& j, ListaEnemigos& enemigos, int vida);
+	static void colision(ListaEnemigos& enemigos, ListaDisparos& disparos, int& abatidos);
+	static void colision(Jugador& j, ListaDisparos& disparos, int& vida);
+	static void colision(Jugador& j, ListaEnemigos& enemigos, int& vida);
 	static void colision(ListaEnemigos& enemigos);
 };

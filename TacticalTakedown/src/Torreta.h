@@ -1,6 +1,5 @@
 #pragma once
 #include "Enemigo.h"
-#include "ETSIDI.h"
 
 class Torreta :
     public Enemigo

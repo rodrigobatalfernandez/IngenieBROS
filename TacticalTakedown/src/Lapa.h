@@ -8,6 +8,6 @@ class Lapa :
 public:
     Lapa();
     void dibuja();
-    void dispara(Vector2D Objetivo, ListaDisparos& lista){/*No dispara*/ }
+    void dispara(Vector2D& Objetivo, ListaDisparos& lista){/*No dispara*/ }
 };
 

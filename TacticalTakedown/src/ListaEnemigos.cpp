@@ -28,10 +28,10 @@ bool ListaEnemigos::agregar(Enemigo* e)
 				return false; // el disparo ya se encuentra en la lista
 		}
 		lista[numero++] = e; // último puesto sin rellenar
+		return true;	// operación exitosa
+
 	}
-	else
-		return false; // capacidad máxima alcanzada
-	return true;	// operación exitosa
+	return false; // capacidad máxima alcanzada
 }
 
 void ListaEnemigos::dibuja()

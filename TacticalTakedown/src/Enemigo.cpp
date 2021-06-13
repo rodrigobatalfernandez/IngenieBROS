@@ -2,7 +2,7 @@
 #include <math.h>
 
 #define PI 3.141592
-#define COOLDOWN_DISP 30
+#define COOLDOWN_DISP 60
 #define COOLDOWN_MOV 40
 #define ESCALA 3
 
@@ -17,9 +17,6 @@ Enemigo::Enemigo(float xi, float yi, float ori)
 	vel_avance = 8;
 	radio = 1.5f;
 	indice = 0;
-	//color.r = 0;
-	//color.g = 255;
-	//color.b = 0;
 	cooldown_disparo = 0;
 	cooldown_movimiento = 0;
 }
@@ -43,8 +40,8 @@ void Enemigo::dibuja()
 
 void Enemigo::mueve(float t)
 {
-	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
-	velocidad = velocidad + aceleracion * t;
+	posicion = posicion + velocidad * t;// + aceleracion * (0.5f * t * t);
+	//velocidad = velocidad; //+ aceleracion * t;
 
 	orientacion += velangular * t;
 }
@@ -103,9 +100,9 @@ float Enemigo::getCoolMov() {
 	return cooldown_movimiento;
 }
 
-float Enemigo::difAngular(Vector2D Objetivo) {
-	float ori_deseada = 180 / PI * (Objetivo - posicion).argumento();
-	float dif_ori = ori_deseada - orientacion;
+float Enemigo::difAngular(Vector2D& Objetivo) {
+	//float ori_deseada = 180 / PI * (Objetivo - posicion).argumento();
+	float dif_ori = (180 / PI * (Objetivo - posicion).argumento()) - orientacion;
 
 	dif_ori = dif_ori > 180 ? (dif_ori - 360) : dif_ori; //por si se pasa el asunto de el márgen de +-180º
 	dif_ori = dif_ori < -180 ? (dif_ori + 360) : dif_ori;
@@ -120,31 +117,30 @@ float Enemigo::difAngular(Vector2D Objetivo) {
 	return dif_ori;
 }
 
-void Enemigo::miraPunto(Vector2D Objetivo)
+void Enemigo::miraPunto(Vector2D& Objetivo)
 {
-	float dif_ori = difAngular(Objetivo);
+	//float dif_ori = difAngular(Objetivo);
 
-	velangular = vel_rotacion * dif_ori;
+	velangular = vel_rotacion * difAngular(Objetivo);
 }
 
-void Enemigo::persiguePunto(Vector2D Objetivo)
+void Enemigo::persiguePunto(Vector2D& Objetivo)
 {
-	float dif_ori = difAngular(Objetivo);
-	velangular = vel_rotacion * dif_ori;
+	//float dif_ori = difAngular(Objetivo);
+	velangular = vel_rotacion * difAngular(Objetivo);
 
 	setVel(vel_avance * cos(orientacion * (PI / 180)), vel_avance * sin(orientacion * (PI / 180)));
 }
 
-void Enemigo::dispara(Vector2D Objetivo, ListaDisparos& disparos) {
-	float dif_ori = difAngular(Objetivo);
+void Enemigo::dispara(Vector2D& Objetivo, ListaDisparos& disparos) {
+	//float dif_ori = difAngular(Objetivo);
 
-	if (abs(dif_ori) < 20 && cooldown_disparo <= 0) {
+	cooldown_disparo--;
+	if (abs(difAngular(Objetivo)) < 20 && cooldown_disparo <= 0) {
 		Disparo* d = new Disparo();
 		d->setPos(posicion.x, posicion.y);
 		d->setVel(20 * cos(orientacion * (PI / 180)), 20 * sin(orientacion * (PI / 180)));
 		disparos.agregar(d);
 		cooldown_disparo = COOLDOWN_DISP;
 	}
-	else
-		cooldown_disparo--;
 }

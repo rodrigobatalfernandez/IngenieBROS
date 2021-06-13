@@ -1,16 +1,16 @@
 #include "Interaccion.h"
 
-bool Interaccion::colision(Jugador& j, Pared p) {
+bool Interaccion::colision(Jugador& j, Pared& p) {
 	Vector2D dist;
 	float dif = p.distancia(j.posicion, &dist) - j.radio;
 	if (dif <= 0.0f) {
 		j.posicion = j.posicion - dist * dif;
-	return true;
+		return true;
 	}
 	return false;
 }
 
-bool Interaccion::colision(Enemigo& e, Pared p) {
+bool Interaccion::colision(Enemigo& e, Pared& p) {
 	Vector2D dir;
 	float dif = p.distancia(e.posicion, &dir) - e.radio;
 	if (dif <= 0.0f) {
@@ -20,7 +20,7 @@ bool Interaccion::colision(Enemigo& e, Pared p) {
 	return false;
 }
 
-bool Interaccion::colision(Disparo& d, Pared p) {
+bool Interaccion::colision(Disparo& d, Pared& p) {
 	Vector2D dir;
 	float dif = p.distancia(d.posicion, &dir) - 2 * d.radio; //Se ha dejado como márgen de error el propio radio para un correcto reconocimiento de colisión
 		if (dif <= 0.0f)
@@ -81,7 +81,7 @@ void Interaccion::colision(ListaEnemigos& enemigos, Mapa& mapa) {
 	}
 }
 
-void Interaccion::colision(Jugador& j, ListaDisparos& disparos, int vida) {
+void Interaccion::colision(Jugador& j, ListaDisparos& disparos, int& vida) {
 	for (int i = disparos.getNumero() - 1; i >= 0; i--) {
 		if (Interaccion::colision(j, *disparos[i]))
 			vida--;
@@ -98,7 +98,7 @@ void Interaccion::colision(ListaDisparos& disparos, Mapa& mapa) {
 	}
 }
 
-void Interaccion::colision(ListaEnemigos& enemigos, ListaDisparos& disparos, int abatidos) {
+void Interaccion::colision(ListaEnemigos& enemigos, ListaDisparos& disparos, int& abatidos) {
 	for (int i = enemigos.getNumero()-1; i >= 0; i--) {
 		for (int j = disparos.getNumero()-1; j >= 0; j--) {
 			if (Interaccion::colision(*enemigos[i], *disparos[j])) {
@@ -110,7 +110,7 @@ void Interaccion::colision(ListaEnemigos& enemigos, ListaDisparos& disparos, int
 	}
 }
 
-void Interaccion::colision(Jugador& j, ListaEnemigos& enemigos, int vida) {
+void Interaccion::colision(Jugador& j, ListaEnemigos& enemigos, int& vida) {
 	for (int i = enemigos.getNumero() - 1; i >= 0; i--) {
 		if (Interaccion::colision(j, *enemigos[i]))
 			//enemigos.eliminar(enemigos[i]);

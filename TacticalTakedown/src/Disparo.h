@@ -6,11 +6,10 @@ class Disparo {
 private:
 	float radio;
 	Vector2D posicion, velocidad, aceleracion;
-	Vector2D origen;
+	//Vector2D origen;
 	int rebote; //Solo se permite un rebote
 	int indice;
 	float orientacion;
-	//bool textura;
 
 public:
 	Disparo();

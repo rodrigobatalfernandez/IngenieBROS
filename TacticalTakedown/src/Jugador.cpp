@@ -10,12 +10,9 @@ Jugador::Jugador() {
 	orientacion = 90;
 	velangular = 0;
 	vel_avance = 15; //cambiar para testear
-	vel_rotacion = 150;
+	vel_rotacion = 225;
 	radio = 1.5f;
 	movimiento = 0;
-	//color.r = 255;
-	//color.g = 0;
-	//color.b = 0;
 	indice = 0;
 }
 
@@ -137,12 +134,12 @@ void Jugador::teclaArriba(unsigned char key) {
 void Jugador::teclaEspecialAbajo(unsigned char key) {
 	switch (key)
 	{
-	case GLUT_KEY_UP:
+	//case GLUT_KEY_UP:
 
-		break;
-	case GLUT_KEY_DOWN:
+	//	break;
+	//case GLUT_KEY_DOWN:
 
-		break;
+	//	break;
 	case GLUT_KEY_LEFT:
 		setVelAng(getVelAng() + vel_rotacion);
 		break;
@@ -155,12 +152,12 @@ void Jugador::teclaEspecialAbajo(unsigned char key) {
 void Jugador::teclaEspecialArriba(unsigned char key) {
 	switch (key)
 	{
-	case GLUT_KEY_UP:
+	/*case GLUT_KEY_UP:
 
 		break;
 	case GLUT_KEY_DOWN:
 
-		break;
+		break;*/
 	case GLUT_KEY_LEFT:
 		setVelAng(getVelAng() - vel_rotacion);
 		break;
