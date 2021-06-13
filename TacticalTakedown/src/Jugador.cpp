@@ -12,8 +12,7 @@ Jugador::Jugador() {
 	vel_avance = 15; //cambiar para testear
 	vel_rotacion = 225;
 	radio = 1.5f;
-	movimiento = 0;
-	indice = 0;
+	indice = 7 + 8 * color;
 }
 
 void Jugador::mueve(float t) {
@@ -25,11 +24,11 @@ void Jugador::mueve(float t) {
 void Jugador::dibuja() {
 	glTranslatef(posicion.x, posicion.y, 0);
 	glRotatef(orientacion, 0, 0, 1);
-	if (movimiento > 0) {
-		if ((indice >= 0) && (indice <= 7))
+	if (velocidad.modulo() > 0) {
+		if ((indice > 8*color) && (indice <= 7+8*color))
 			indice--;
 		else
-			indice = 7;
+			indice = 7+8*color;
 	}
 	ETSIDI::SpriteSequence animacion("imagenes/TANKHUNG.png", 8, 8, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, indice);
 	animacion.draw();
@@ -86,21 +85,17 @@ void Jugador::teclaAbajo(unsigned char key) {
 	{
 	case 'w': {
 		setVel(getVel().x, getVel().y + vel_avance);
-		movimiento++;
 		break; }
 
 	case 'a': {
 		setVel(getVel().x - vel_avance, getVel().y);
-		movimiento++;
 		break; }
 
 	case 's': {
 		setVel(getVel().x, getVel().y - vel_avance);
-		movimiento++;
 		break; }
 	case 'd': {
 		setVel(getVel().x + vel_avance, getVel().y);
-		movimiento++;
 		break; }
 	}
 }
@@ -111,22 +106,18 @@ void Jugador::teclaArriba(unsigned char key) {
 
 	case 'w': {
 		setVel(getVel().x, getVel().y - vel_avance);
-		movimiento--;
 		break; }
 
 	case 'a': {
 		setVel(getVel().x + vel_avance, getVel().y);
-		movimiento--;
 		break; }
 
 	case 's': {
 		setVel(getVel().x, getVel().y + vel_avance);
-		movimiento--;
 		break; }
 
 	case 'd': {
 		setVel(getVel().x - vel_avance, getVel().y);
-		movimiento--;
 		break; }
 	}
 }

@@ -19,7 +19,7 @@ public:
 	int posicionOK(int nivel);
 
 protected:
-	enum Estado { INICIO, JUEGO, GAMEOVER, FIN, PAUSA, CONTROLES, HISTORIA };
+	enum Estado { INICIO, JUEGO, GAMEOVER, FIN, PAUSA, CONTROLES, HISTORIA, COLOR };
 	Estado estado;
 	Mundo mundo;
 	int historia = 0;

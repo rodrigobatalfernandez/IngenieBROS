@@ -1,9 +1,2 @@
-﻿  Enemigo.cpp
-C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Enemigo.cpp(105,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Enemigo.cpp(132,64): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Enemigo.cpp(132,20): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Enemigo.cpp(142,52): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Enemigo.cpp(142,16): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  Jugador.cpp
-  Generando código...
-  TacticalTakedown.vcxproj -> C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+﻿  ControlJuego.cpp
+  TacticalTakedown.vcxproj -> C:\Users\pablo\OneDrive\Documentos\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

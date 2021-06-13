@@ -22,6 +22,7 @@ protected:
 	float cooldown_disparo, cooldown_movimiento;
 
 	int indice;//indice sprite
+	int color; //igual que en jugador
 public:
 	Enemigo(float xi = 0, float yi = 0, float ori = 0); //Constructor
 	virtual void dibuja(); //Funcion de dibujo

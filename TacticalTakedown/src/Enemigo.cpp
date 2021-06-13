@@ -19,6 +19,9 @@ Enemigo::Enemigo(float xi, float yi, float ori)
 	indice = 0;
 	cooldown_disparo = 0;
 	cooldown_movimiento = 0;
+	color = 1;
+	indice = 7 + 8 * color;
+
 }
 
 void Enemigo::dibuja()
@@ -26,11 +29,12 @@ void Enemigo::dibuja()
 	//glColor3ub(color.r, color.g, color.b);
 	glTranslatef(posicion.x, posicion.y, 0);
 	glRotatef(orientacion, 0, 0, 1);
-
-	if ((indice > 8) && (indice <= 15))
-		indice--;
-	else
-		indice = 15;
+	if (velocidad.modulo() > 0) {
+		if ((indice > 8 * color) && (indice <= 7 + 8 * color))
+			indice--;
+		else
+			indice = 7 + 8 * color;
+	}
 	ETSIDI::SpriteSequence animacion("imagenes/TANKHUNG.png", 8, 8, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, indice);
 	animacion.draw();
 

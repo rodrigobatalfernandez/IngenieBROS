@@ -96,6 +96,7 @@ bool Mundo::cargarNivel()
 	vida = 6;// temporal
 	nivel++;
 	//jugador.setPos(0, 0);//Posicion inicial, comun para todos los niveles
+	
 
 	//Destruir cosas
 	enemigos.destruirContenido();
