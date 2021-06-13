@@ -83,8 +83,10 @@ void Interaccion::colision(ListaEnemigos& enemigos, Mapa& mapa) {
 
 void Interaccion::colision(Jugador& j, ListaDisparos& disparos, int& vida) {
 	for (int i = disparos.getNumero() - 1; i >= 0; i--) {
-		if (Interaccion::colision(j, *disparos[i]))
+		if (Interaccion::colision(j, *disparos[i])){
+			disparos.eliminar(i);
 			vida--;
+		}
 	}
 }
 

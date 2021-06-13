@@ -12,7 +12,7 @@ void ControlJuego::mueve()
 	if (estado == JUEGO)
 	{
 		mundo.mueve();
-		if (mundo.getEnem() == 0 /*&& posicionOK(mundo.getNum())*/)
+		if (mundo.getEnem() == 0 && posicionOK(mundo.getNum())==1)
 		{
 			estado = HISTORIA;
 			if (!mundo.cargarNivel())
@@ -93,13 +93,13 @@ void ControlJuego::dibuja()
 		glTranslatef(3, 5, 10);
 		break;
 	case ControlJuego::HISTORIA:
-		dialogo();
-		glTranslatef(-7, -5, -10);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::setTextColor(1, 0, 0);
 
 		if (historia == 0)
 		{
+			dialogo();
+			glTranslatef(-7, -5, -10);
 			ETSIDI::printxy("tu madre otra vez", -5, 10);
 		}
 		else if (historia == 1)
@@ -229,8 +229,8 @@ int ControlJuego::posicionOK(int nivel)
 	//Devuelve 3 si esta en la posicion para acelerar
 
 	if (nivel == 1) {
-		Vector2D salidaLimX(36, 39), salidaLimY(120, 129);
-		if (mundo.getCam().x > 36 && mundo.getCam().x < 39 && mundo.getCam().y>120 && mundo.getCam().y < 129)
+		Vector2D salidaLimX(-10, -7), salidaLimY(105, 110);
+		if(mundo.getCam().x > salidaLimX.x && mundo.getCam().x < salidaLimX.y && mundo.getCam().y> salidaLimY.x && mundo.getCam().y < salidaLimY.y)
 			return 1;
 	}
 	else if (nivel == 2) {

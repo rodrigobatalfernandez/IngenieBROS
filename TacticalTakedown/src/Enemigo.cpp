@@ -48,6 +48,10 @@ void Enemigo::mueve(float t)
 	//velocidad = velocidad; //+ aceleracion * t;
 
 	orientacion += velangular * t;
+	if (orientacion > 360)
+		orientacion -= 360;
+	else if(orientacion<0)
+		orientacion += 360;
 }
 
 void Enemigo::setPos(float ix, float iy)

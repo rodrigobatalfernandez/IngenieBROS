@@ -36,7 +36,7 @@ void Mundo::mueve()
 	Interaccion::colision(disparos, mapa);
 	Interaccion::colision(disparos_enemigos, mapa);
 	Interaccion::colision(enemigos, disparos, abatidos);
-	Interaccion::colision(jugador, disparos, vida);
+	Interaccion::colision(jugador, disparos_enemigos, vida);
 	Interaccion::colision(jugador, enemigos, vida);
 	Interaccion::colision(enemigos);
 	
@@ -89,6 +89,7 @@ Mundo::~Mundo()
 	disparos.destruirContenido();
 	enemigos.destruirContenido();
 	mapa.destruirContenido();
+	disparos_enemigos.destruirContenido();
 }
 
 bool Mundo::cargarNivel()
@@ -101,6 +102,7 @@ bool Mundo::cargarNivel()
 	//Destruir cosas
 	enemigos.destruirContenido();
 	disparos.destruirContenido();
+	disparos_enemigos.destruirContenido();
 	mapa.destruirContenido();
 
 	if (nivel == 1)

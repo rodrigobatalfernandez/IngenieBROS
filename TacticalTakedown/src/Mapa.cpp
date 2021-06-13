@@ -235,7 +235,7 @@ void Mapa::dibuja() {
 				textura(fil, col, 0.2, "imagenes/Tiles/tile086.png");
 			}
 			else if (mapa[fil][col] == 37) { //Textura correspondiente a 37
-			//No tiene textura porque es una "pared" invisible  
+			textura(fil, col, 0, "imagenes/Tiles/tile087.png");
 			}
 			else if (mapa[fil][col] == 38) { //Textura correspondiente a 38
 				textura(fil, col, 0, "imagenes/Tiles/tile084.png");
