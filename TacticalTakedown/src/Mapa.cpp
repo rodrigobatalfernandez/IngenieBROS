@@ -235,16 +235,16 @@ void Mapa::dibuja() {
 				textura(fil, col, 0.2, "imagenes/Tiles/tile086.png");
 			}
 			else if (mapa[fil][col] == 37) { //Textura correspondiente a 37
-			//No tiene textura porque es una "pared" invisible
+			//No tiene textura porque es una "pared" invisible  
 			}
 			else if (mapa[fil][col] == 38) { //Textura correspondiente a 38
 				textura(fil, col, 0, "imagenes/Tiles/tile084.png");
 			}
 			else if (mapa[fil][col] == 39) { //Textura correspondiente a 39
-			//TEXTURA DE ZONA DE REPARACIÓN
+				textura(fil, col, -0.1, "imagenes/Tiles/tile002.png");
 			}
 			else if (mapa[fil][col] == 40) { //Textura correspondiente a 40
-			//TEXTURA DE ZONA DE ACELERACIÓN
+				textura(fil, col, -0.1, "imagenes/Tiles/tile072.png");
 			}
 			else if (mapa[fil][col] == 41) { //Textura correspondiente a 41
 				textura(fil, col, 0, "imagenes/Tiles/tile087.png");
