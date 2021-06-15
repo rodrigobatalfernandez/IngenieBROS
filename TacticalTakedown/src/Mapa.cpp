@@ -15,6 +15,11 @@ Mapa::Mapa() {
 	numero = 0;
 	for (int i = 0; i < MAX_PAREDES; i++)
 		lista[i] = nullptr;
+	for (int i = 0; i < 100; i++)
+		for (int j = 0; j < 100; j++)
+		{
+			mapa[i][j] = 0;
+		}
 }
 
 bool Mapa::agregar(Pared* p)
@@ -115,130 +120,130 @@ void Mapa::dibuja() {
 		{
 
 			if (mapa[fil][col] == 0) { //Textura correspondiente a 0
-				textura(fil, col, -0.1, "imagenes/Tiles/tile020.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile020.png");
 			}
 			else if (mapa[fil][col] == 1) { //Textura correspondiente a 1
-				textura(fil, col, 0, "imagenes/Tiles/tile084.png");
+				textura(fil, col, 0.0f, "imagenes/Tiles/tile084.png");
 			}
 			else if (mapa[fil][col] == 2) { //Textura correspondiente a 2
-				textura(fil, col, 0, "imagenes/Tiles/tile042.png");
+				textura(fil, col, 0.0f, "imagenes/Tiles/tile042.png");
 			}
 			else if (mapa[fil][col] == 3) { //Textura correspondiente a 3
-				textura(fil, col, 0, "imagenes/Tiles/tile043.png");
+				textura(fil, col, 0.0f, "imagenes/Tiles/tile043.png");
 			}
 			else if (mapa[fil][col] == 4) { //Textura correspondiente a 4
-				textura(fil, col, 0, "imagenes/Tiles/tile044.png");
+				textura(fil, col, 0.0f, "imagenes/Tiles/tile044.png");
 			}
 			else if (mapa[fil][col] == 5) { //Textura correspondiente a 5
-				textura(fil, col, -0.1, "imagenes/Tiles/tile005.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile005.png");
 			}
 			else if (mapa[fil][col] == 6) { //Textura correspondiente a 6
-				textura(fil, col, -0.1, "imagenes/Tiles/tile007.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile007.png");
 			}
 			else if (mapa[fil][col] == 7) { //Textura correspondiente a 7
-				textura(fil, col, -0.1, "imagenes/Tiles/tile035.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile035.png");
 			}
 			else if (mapa[fil][col] == 8) { //Textura correspondiente a 8
-				textura(fil, col, -0.1, "imagenes/Tiles/tile033.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile033.png");
 			}
 			else if (mapa[fil][col] == 9) { //Textura correspondiente a 9
-				textura(fil, col, -0.1, "imagenes/Tiles/tile019.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile019.png");
 			}
 			else if (mapa[fil][col] == 10) { //Textura correspondiente a 10
-				textura(fil, col, -0.1, "imagenes/Tiles/tile006.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile006.png");
 			}
 			else if (mapa[fil][col] == 11) { //Textura correspondiente a 11
-				textura(fil, col, -0.1, "imagenes/Tiles/tile021.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile021.png");
 			}
 			else if (mapa[fil][col] == 12) { //Textura correspondiente a 12
-				textura(fil, col, -0.1, "imagenes/Tiles/tile034.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile034.png");
 			}
 			else if (mapa[fil][col] == 13) { //Textura correspondiente a 13
-				textura(fil, col, -0.1, "imagenes/Tiles/tile008.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile008.png");
 			}
 			else if (mapa[fil][col] == 14) { //Textura correspondiente a 14
-				textura(fil, col, -0.1, "imagenes/Tiles/tile009.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile009.png");
 			}
 			else if (mapa[fil][col] == 15) { //Textura correspondiente a 15
-				textura(fil, col, -0.1, "imagenes/Tiles/tile023.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile023.png");
 			}
 			else if (mapa[fil][col] == 16) { //Textura correspondiente a 16
-				textura(fil, col, -0.1, "imagenes/Tiles/tile022.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile022.png");
 			}
 			else if (mapa[fil][col] == 17) { //Textura correspondiente a 17
 				//textura(fil, col, -0.1, "imagenes/Tiles/tile017.png");  //Puede ponerse un tile de oscuridad o dejarlo vacío
 			}
 			else if (mapa[fil][col] == 18) { //Textura correspondiente a 18
-				textura(fil, col, -0.1, "imagenes/Tiles/tile032.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile032.png");
 			}
 			else if (mapa[fil][col] == 19) { //Textura correspondiente a 19
-				textura(fil, col, -0.1, "imagenes/Tiles/tile018.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile018.png");
 			}
 			else if (mapa[fil][col] == 20) { //Textura correspondiente a 20
-				textura(fil, col, -0.1, "imagenes/Tiles/tile024.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile024.png");
 			}
 			else if (mapa[fil][col] == 21) { //Textura correspondiente a 21
-				textura(fil, col, -0.1, "imagenes/Tiles/tile025.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile025.png");
 			}
 			else if (mapa[fil][col] == 22) { //Textura correspondiente a 22
-				textura(fil, col, -0.1, "imagenes/Tiles/tile011.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile011.png");
 			}
 			else if (mapa[fil][col] == 23) { //Textura correspondiente a 23
-				textura(fil, col, -0.1, "imagenes/Tiles/tile010.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile010.png");
 			}
 			else if (mapa[fil][col] == 24) { //Textura correspondiente a 24
-				textura(fil, col, -0.1, "imagenes/Tiles/tile037.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile037.png");
 			}
 			else if (mapa[fil][col] == 25) { //Textura correspondiente a 25
-				textura(fil, col, -0.1, "imagenes/Tiles/tile039.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile039.png");
 			}
 			else if (mapa[fil][col] == 26) { //Textura correspondiente a 26
-				textura(fil, col, -0.1, "imagenes/Tiles/tile036.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile036.png");
 			}
 			else if (mapa[fil][col] == 27) { //Textura correspondiente a 27
-				textura(fil, col, -0.1, "imagenes/Tiles/tile038.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile038.png");
 			}
 			else if (mapa[fil][col] == 28) { //Textura correspondiente a 28
-				textura(fil, col, 0, "imagenes/Tiles/tile073.png");
+				textura(fil, col, 0.0f, "imagenes/Tiles/tile073.png");
 			}
 			else if (mapa[fil][col] == 29) { //Textura correspondiente a 29
-				textura(fil, col, 0, "imagenes/Tiles/tile046.png");
+				textura(fil, col, 0.0f, "imagenes/Tiles/tile046.png");
 			}
 			else if (mapa[fil][col] == 30) { //Textura correspondiente a 30
-				textura(fil, col, -0.1, "imagenes/Tiles/tile000.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile000.png");
 			}
 			else if (mapa[fil][col] == 31) { //Textura correspondiente a 31
-				textura(fil, col, -0.1, "imagenes/Tiles/tile001.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile001.png");
 			}
 			else if (mapa[fil][col] == 32) { //Textura correspondiente a 32
-				textura(fil, col, -0.1, "imagenes/Tiles/tile014.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile014.png");
 			}
 			else if (mapa[fil][col] == 33) { //Textura correspondiente a 33
-				textura(fil, col, -0.1, "imagenes/Tiles/tile015.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile015.png");
 			}
 			else if (mapa[fil][col] == 34) { //Textura correspondiente a 34
-				textura(fil, col, 0, "imagenes/Tiles/tile004.png");
+				textura(fil, col, 0.0f, "imagenes/Tiles/tile004.png");
 			}
 			else if (mapa[fil][col] == 35) { //Textura correspondiente a 35
-				textura(fil, col, 0, "imagenes/Tiles/tile062.png");
+				textura(fil, col, 0.0f, "imagenes/Tiles/tile062.png");
 			}
 			else if (mapa[fil][col] == 36) { //Textura correspondiente a 36
-				textura(fil, col, 0.2, "imagenes/Tiles/tile086.png");
+				textura(fil, col, 0.2f, "imagenes/Tiles/tile086.png");
 			}
 			else if (mapa[fil][col] == 37) { //Textura correspondiente a 37
-			textura(fil, col, 0, "imagenes/Tiles/tile087.png");
+			textura(fil, col, 0.0f, "imagenes/Tiles/tile087.png");
 			}
 			else if (mapa[fil][col] == 38) { //Textura correspondiente a 38
-				textura(fil, col, 0, "imagenes/Tiles/tile084.png");
+				textura(fil, col, 0.0f, "imagenes/Tiles/tile084.png");
 			}
 			else if (mapa[fil][col] == 39) { //Textura correspondiente a 39
-				textura(fil, col, -0.1, "imagenes/Tiles/tile002.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile002.png");
 			}
 			else if (mapa[fil][col] == 40) { //Textura correspondiente a 40
-				textura(fil, col, -0.1, "imagenes/Tiles/tile072.png");
+				textura(fil, col, -0.1f, "imagenes/Tiles/tile072.png");
 			}
 			else if (mapa[fil][col] == 41) { //Textura correspondiente a 41
-				textura(fil, col, 0, "imagenes/Tiles/tile087.png");
+				textura(fil, col, 0.0f, "imagenes/Tiles/tile087.png");
 			}
 		}
 	}
@@ -251,10 +256,10 @@ void Mapa::textura(int fil, int col, float altura, char const* cadena1)
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 1);    glVertex3f((-3 + col) * ESCALA, (-3 + fil) * ESCALA, altura);
-	glTexCoord2d(1, 1);    glVertex3f((-2 + col) * ESCALA, (-3 + fil) * ESCALA, altura);
-	glTexCoord2d(1, 0);    glVertex3f((-2 + col) * ESCALA, (-2 + fil) * ESCALA, altura);
-	glTexCoord2d(0, 0);    glVertex3f((-3 + col) * ESCALA, (-2 + fil) * ESCALA, altura);
+	glTexCoord2d(0, 1);    glVertex3f((-3.0f + (float)col) * ESCALA, (-3.0f + (float)fil) * ESCALA, altura);
+	glTexCoord2d(1, 1);    glVertex3f((-2.0f + (float)col) * ESCALA, (-3.0f + (float)fil) * ESCALA, altura);
+	glTexCoord2d(1, 0);    glVertex3f((-2.0f + (float)col) * ESCALA, (-2.0f + (float)fil) * ESCALA, altura);
+	glTexCoord2d(0, 0);    glVertex3f((-3.0f + (float)col) * ESCALA, (-2.0f + (float)fil) * ESCALA, altura);
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);

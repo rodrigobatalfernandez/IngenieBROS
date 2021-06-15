@@ -42,6 +42,8 @@ public:
 	int getAbatidos() { return abatidos; }
 	void setColor(int color) { jugador.setColor(color); }
 	int getEnem() { return enemigos.getNumero(); }
+	void sumaVida() { vida += 2; }
+	void recarga() { jugador.Cooldown(1); }
 
 	bool cargarNivel();
 	void dibuja_corazones();

@@ -56,8 +56,8 @@ bool Interaccion::colision(Jugador& j, Disparo& d) {
 bool Interaccion::colision(Enemigo& e1, Enemigo& e2) {
 	Vector2D dis = e1.posicion - e2.posicion;
 	if (dis.modulo() - e1.radio - e2.radio <= 0.0f) {
-		e1.posicion = e1.posicion + dis * 0.1;
-		e2.posicion = e2.posicion - dis * 0.1;
+		e1.posicion = e1.posicion + dis * 0.1f;
+		e2.posicion = e2.posicion - dis * 0.1f;
 		return true;
 	}
 	return false;

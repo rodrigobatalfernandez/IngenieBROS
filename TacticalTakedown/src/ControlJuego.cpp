@@ -395,21 +395,24 @@ int ControlJuego::posicionOK(int nivel)
 {
 	//Devuelve 0 si no esta en ninguna posicion relevante
 	//Devuelve 1 si esta en la posicion para salir del nivel
-	//Devuelve 2 si esta en la posicion para curarse
-	//Devuelve 3 si esta en la posicion para acelerar
+	//Se cura si esta donde gana vidas y recarga mas rapido si esta en la celda de recarga
 	if (nivel == 1) {
 		Vector2D salida(-10, 107.5);
 		if(mundo.getCam().x > (salida.x-2.5) && mundo.getCam().x < (salida.x+2.5) && mundo.getCam().y> (salida.y-2.5) && mundo.getCam().y < (salida.y+2.5))
 			return 1;
 	}
 	else if (nivel == 2) {
-		Vector2D salida(85, 87.5), cura(77.5,-2.5), acelerar(77.5,7.5);
+		Vector2D salida(85, 87.5), cura(77.5,-2.5), recarga(77.5,7.5);
 		if (mundo.getCam().x > (salida.x - 2.5) && mundo.getCam().x < (salida.x + 2.5) && mundo.getCam().y>(salida.y - 2.5) && mundo.getCam().y < (salida.y + 2.5))
 			return 1;
 		if (mundo.getCam().x > (cura.x - 2.5) && mundo.getCam().x < (cura.x + 2.5) && mundo.getCam().y>(cura.y - 2.5) && mundo.getCam().y < (cura.y + 2.5))
-			return 2;
-		if (mundo.getCam().x > (acelerar.x - 2.5) && mundo.getCam().x < (acelerar.x + 2.5) && mundo.getCam().y>(acelerar.y - 2.5) && mundo.getCam().y < (acelerar.y + 2.5))
-			return 3;
+		{
+			mundo.sumaVida();
+			cura.x = -300;
+			cura.y = -300;
+		}
+		if (mundo.getCam().x > (recarga.x - 2.5) && mundo.getCam().x < (recarga.x + 2.5) && mundo.getCam().y>(recarga.y - 2.5) && mundo.getCam().y < (recarga.y + 2.5))
+			mundo.recarga();
 	}
 	else if (nivel == 3) {
 		Vector2D salida(37.5, 130);

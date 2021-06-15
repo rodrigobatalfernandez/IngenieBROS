@@ -1,3 +1,2 @@
-﻿  ListaEnemigos.cpp
-C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ListaEnemigos.cpp(164,3): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  TacticalTakedown.vcxproj -> C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+﻿  Mapa.cpp
+  TacticalTakedown.vcxproj -> C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
