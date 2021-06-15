@@ -15,18 +15,26 @@ void ControlJuego::mueve()
 		mundo.mueve();
 		if (mundo.getEnem() == 0 && posicionOK(mundo.getNum())==1)
 		{
-			estado = HISTORIA;
-			if (!mundo.cargarNivel())
+
+			if (!mundo.cargarNivel()){
+				ETSIDI::playMusica("sonidos/Victory_bajo.mp3", false);
 				estado = FIN;
+			}
+			else {
+				ETSIDI::play("sonidos/Metal Gear Solid Codec Sound.wav");
+				estado = HISTORIA;
+			}
 		}
-		if (mundo.getVida()<=0)
+		if (mundo.getVida()<=0){
+			ETSIDI::playMusica("sonidos/Death.mp3",false);
 			estado = GAMEOVER;
+		}
 	}
 }
 
 void ControlJuego::dibuja()
 {
-	const char col = color + 49;
+	
 	const char abatidos[] = { (mundo.getAbatidos() / 10 + 48), (mundo.getAbatidos() - (mundo.getAbatidos() / 10) * 10 + 48) };
 	switch (estado)
 	{
@@ -66,36 +74,58 @@ void ControlJuego::dibuja()
 
 		ETSIDI::printxy("IngenieBROS", 8, 0);
 		glTranslatef(5, 5.5, 10);
-	
+
 
 		break;
 	case ControlJuego::JUEGO:
 		mundo.dibuja();
 		break;
 	case ControlJuego::GAMEOVER:
-		dialogo();
-		glTranslatef(-3, -5, -10);
+		dialogo("imagenes/mgs_death.png");
+		glTranslatef(-7, -5, -10);
 		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
-		ETSIDI::printxy("GAMEOVER: Has perdido", -5, 10);
-		ETSIDI::printxy("Enemigos abatidos;", -5, 9);
-		ETSIDI::printxy(abatidos, 11, 9);
-		ETSIDI::printxy("Pulsa  C  para continuar", -5, 5);
-		glTranslatef(3, 5, 10);
+		ETSIDI::printxy("Doctor Jagger;", -10, 12);
+		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::printxy("Python? Python?! PYTHOOOON!!", -10, 10);
+		ETSIDI::setFont("fuentes/METAG___.ttf", 20);
+		ETSIDI::setTextColor(1, 1, 0);
+		ETSIDI::printxy("GAMEOVER", -5, 6);
+		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
+		ETSIDI::printxy("Enemigos abatidos;", -5, 4);
+		ETSIDI::printxy(abatidos, 11, 4);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
+		ETSIDI::printxy("Pulsa E o ESPACIO para continuar", 10, -1);
+		glTranslatef(7, 5, 10);
 
 		break;
 	case ControlJuego::FIN:
 		dialogo();
-
-		glTranslatef(-3, -5, -10);
+		glTranslatef(-7, -5, -10);
+		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
-		ETSIDI::printxy("ENHORABUENA, ¡Has triunfado!", -5, 10);
-		ETSIDI::printxy("Enemigos abatidos;", -5, 9);
-		ETSIDI::printxy(abatidos, 11, 9);
-
-		//Mostrar Puntuación y tiempo sobrevivido
-		ETSIDI::printxy("Pulsa -C- para continuar", -5, 7);
-		glTranslatef(3, 5, 10);
+		ETSIDI::printxy("Coronel Sanders;", -10, 12);
+		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::printxy("Enhorabuena, soldado. Has completado la ", -10, 10);
+		ETSIDI::printxy("simulacion. Ahora formas parte del batallon", -10, 9);
+		ETSIDI::printxy("acorazado del ejercito de los Estados Unidos.", -10, 8);
+		ETSIDI::setTextColor(1, 0, 0);
+		ETSIDI::printxy("Python;", 15, 6);
+		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::printxy("Simulacion? Un momento...", 6, 5);
+		ETSIDI::setFont("fuentes/METAG___.ttf", 16);
+		ETSIDI::setTextColor(1, 1, 0);
+		ETSIDI::printxy("TACTICAL TAKEDOWN", -10, 3);
+		ETSIDI::setFont("fuentes/Tactical Espionage Action.ttf", 20);
+		ETSIDI::printxy("FIN", -6, 2);
+		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
+		ETSIDI::printxy("Enemigos abatidos;", -7, 1);
+		ETSIDI::printxy(abatidos, 9, 1);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
+		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::printxy("Pulsa E o ESPACIO para continuar", 10, -1);
+		glTranslatef(-7, -5, -10);
 
 		break;
 	case ControlJuego::PAUSA:
@@ -143,11 +173,12 @@ void ControlJuego::dibuja()
 
 		glTranslatef(3, 5, 10);
 		break;
-	case ControlJuego::COLOR:
+	case ControlJuego::COLOR: {
 		//Texto para elegir color
 		//Crear funcion en mundo
 		//color tanque. 0-verde,1-rojo,2-amarillo,3-azul,4-morado,5-celeste,6-naranja,7-pink
 		//ListaDisparos.cpp linea 18 revisar
+		const char col = color + 49;
 		dialogo();
 		glTranslatef(-7, -5, -10);
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
@@ -157,7 +188,7 @@ void ControlJuego::dibuja()
 		ETSIDI::printxy(&col, 11, 10);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::printxy("Pulsa -C- para volver al inicio", -5, 9);
-		ETSIDI::printxy("Usa -1- para cambiar a verde", -5, 7);
+		ETSIDI::printxy("Usa -1-  para cambiar a verde", -5, 7);
 		ETSIDI::printxy("Usa -2- para cambiar a rojo", -5, 6);
 		ETSIDI::printxy("Usa -3- para cambiar a amarillo", -5, 5);
 		ETSIDI::printxy("Usa -4- para cambiar a azul", -5, 4);
@@ -168,6 +199,7 @@ void ControlJuego::dibuja()
 		glTranslatef(7, 5, 10);
 
 		break;
+	}
 	case ControlJuego::HISTORIA:
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 
@@ -183,7 +215,7 @@ void ControlJuego::dibuja()
 			ETSIDI::printxy("Hemos preparado el tanque laser y en breve", -10, 7);
 			ETSIDI::printxy("recibiras las coordenadas.", -10, 6);
 			ETSIDI::printxy("Tendras que infiltrarte en la base militar", -10, 5);
-			ETSIDI::printxy("de esa localizacion.", -10, 4);
+			ETSIDI::printxy("de esta localizacion.", -10, 4);
 			ETSIDI::printxy("El Doctor Jagger te dara mas indicaciones.", -10, 2);
 			ETSIDI::printxy("Buena suerte, soldado.", -10, 1);
 			ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
@@ -209,9 +241,21 @@ void ControlJuego::dibuja()
 		}
 		else if (historia == 2)
 		{
-			dialogo();
+			dialogo("imagenes/mgs_doc1.png");
 			glTranslatef(-7, -5, -10);
-			ETSIDI::printxy("deja a mi madre en paz;", -5, 10);
+			ETSIDI::setTextColor(1, 0, 0);
+			ETSIDI::printxy("Doctor Jagger;", -10, 12);
+			ETSIDI::setTextColor(1, 1, 1);
+			ETSIDI::printxy("Te estas acercando al centro de su base y", -10, 10);
+			ETSIDI::printxy("ya saben que estas alli, asi que", -10, 9);
+			ETSIDI::printxy("probablemente esten esperandote.", -10, 8);
+			ETSIDI::printxy("Ve con cuidado. Tienen la tecnologia militar", -10, 6);
+			ETSIDI::printxy("mas avanzada que habaa visto nunca.", -10, 5);
+			ETSIDI::printxy("Acaba con esos desgraciados y vuelve", -10, 4);
+			ETSIDI::printxy("de una pieza.", -10, 3);
+			ETSIDI::printxy("Buena suerte, Python.", -10, 1);
+			ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
+			ETSIDI::printxy("Pulsa E o ESPACIO para continuar", 10, -1);
 		}
 		else if (historia == 3)
 		{
@@ -249,9 +293,11 @@ void ControlJuego::teclaAbajo(unsigned char key)
 {
 	if (estado == INICIO)
 	{
+		ETSIDI::stopMusica();
 		historia = 0;
 		if (key == 'e')
 		{
+			ETSIDI::play("sonidos/Metal Gear Solid Codec Sound.wav");
 			mundo.inicializa();
 			mundo.setColor(color);
 			estado = HISTORIA;
@@ -271,19 +317,25 @@ void ControlJuego::teclaAbajo(unsigned char key)
 			estado = PAUSA;
 		}
 		else if (key == 'n') {
+			ETSIDI::play("sonidos/Metal Gear Solid Codec Sound.wav");
 			estado = HISTORIA;
 			mundo.cargarNivel();
+		}
+		if (key == 'm')
+		{
+			ETSIDI::playMusica("sonidos/Victory_bajo.mp3", false);
+			estado = FIN;
 		}
 		mundo.teclaAbajo(key);
 	}
 	else if (estado == GAMEOVER)
 	{
-		if (key == 'c')
+		if (key == 'e' || key == ' ')
 			estado = INICIO;
 	}
 	else if (estado == FIN)
 	{
-		if (key == 'c')
+		if (key == 'e' || key == ' ')
 			estado = INICIO;
 	}
 	else if (estado == PAUSA)
@@ -306,6 +358,7 @@ void ControlJuego::teclaAbajo(unsigned char key)
 	else if (estado == HISTORIA)
 	{
 		if (key == ' ' || key == 'e') {
+			ETSIDI::playMusica("sonidos/Battlemusic.mp3", true);//musica nivel
 			estado = JUEGO;
 			historia++;
 		}
@@ -350,7 +403,7 @@ int ControlJuego::posicionOK(int nivel)
 			return 1;
 	}
 	else if (nivel == 2) {
-		Vector2D salida(36, 39), cura(1,1), acelerar(1,1);
+		Vector2D salida(85, 87.5), cura(77.5,-2.5), acelerar(77.5,7.5);
 		if (mundo.getCam().x > (salida.x - 2.5) && mundo.getCam().x < (salida.x + 2.5) && mundo.getCam().y>(salida.y - 2.5) && mundo.getCam().y < (salida.y + 2.5))
 			return 1;
 		if (mundo.getCam().x > (cura.x - 2.5) && mundo.getCam().x < (cura.x + 2.5) && mundo.getCam().y>(cura.y - 2.5) && mundo.getCam().y < (cura.y + 2.5))
@@ -359,7 +412,7 @@ int ControlJuego::posicionOK(int nivel)
 			return 3;
 	}
 	else if (nivel == 3) {
-		Vector2D salida(37.5, 127.5);
+		Vector2D salida(37.5, 130);
 		if (mundo.getCam().x > (salida.x - 2.5) && mundo.getCam().x < (salida.x + 2.5) && mundo.getCam().y>(salida.y - 2.5) && mundo.getCam().y < (salida.y + 2.5))
 		return 1;
 	}

@@ -49,7 +49,7 @@ void Mundo::mueve()
 void Mundo::inicializa()
 {
 	nivel = 0;
-
+	vida = 4;
 	cargarNivel();
 }
 
@@ -94,11 +94,12 @@ Mundo::~Mundo()
 
 bool Mundo::cargarNivel()
 {
-	vida = 6;// temporal
+	vida+=2;// temporal
 	nivel++;
 	//jugador.setPos(0, 0);//Posicion inicial, comun para todos los niveles
 	
 	jugador.setVel(0, 0);
+	jugador.setVelAng(0);
 	//Destruir cosas
 	enemigos.destruirContenido();
 	disparos.destruirContenido();
@@ -109,7 +110,7 @@ bool Mundo::cargarNivel()
 	{
 		ETSIDI::stopMusica();
 		//Nivel 1
-		ETSIDI::playMusica("sonidos/DiffBAJO.mp3", true);//musica nivel 1
+		
 		enemigos.cargarEnem(nivel);
 
 		jugador.setPos(22.5, 18);
@@ -121,7 +122,7 @@ bool Mundo::cargarNivel()
 	{
 		ETSIDI::stopMusica();
 		//Nivel 2
-		ETSIDI::playMusica("sonidos/JasonMraz93Milles.mp3", true);//musica nivel 2
+
 		enemigos.cargarEnem(nivel);
 
 		jugador.setPos(-7.5, 2.7);
@@ -133,7 +134,6 @@ bool Mundo::cargarNivel()
 
 		//Nivel 3
 		ETSIDI::stopMusica();
-		ETSIDI::playMusica("sonidos/Soviet.mp3", true);//musica nivel 3
 
 		enemigos.cargarEnem(nivel);
 

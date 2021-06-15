@@ -21,7 +21,7 @@ private:
 
 	//Contadores
 	int nivel = 0;
-	int vida = 6;
+	int vida = 4;
 	int abatidos = 0;
 
 public:
