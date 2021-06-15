@@ -1,4 +1,5 @@
 #include "ControlJuego.h"
+#include  <iostream>
 
 ControlJuego::ControlJuego()
 {
@@ -20,12 +21,15 @@ void ControlJuego::mueve()
 			//Si se quiere hacer todo en historia hay que variar esto
 
 		}
+		if (!mundo.getVida())
+			estado = GAMEOVER;
 	}
 }
 
 void ControlJuego::dibuja()
 {
 	Vector2D aux = mundo.getCam();
+	const char col = color + 49;
 	switch (estado)
 	{
 	case ControlJuego::INICIO:
@@ -49,7 +53,7 @@ void ControlJuego::dibuja()
 		glTranslatef(-3, -5, -10);
 		glTranslatef(0, 1, 1);
 
-		glTranslatef(-3, -5.5, -10);
+		glTranslatef(-5, -5.5, -10);
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/METAG___.ttf", 20);
 		ETSIDI::printxy("TACTICAL TAKEDOWN", -5, 8);
@@ -58,9 +62,11 @@ void ControlJuego::dibuja()
 		ETSIDI::printxy("PULSE LA TECLA  E  PARA EMPEZAR", -10, 6);
 		ETSIDI::printxy("PULSE LA TECLA  S  PARA SALIR", -10, 5);
 		ETSIDI::printxy("PULSE LA TECLA  C  PARA VER CONTROLES", -10, 4);
+		ETSIDI::printxy("PULSE LA TECLA  A  PARA CAMBIAR EL ASPECTO", -10, 3);
 
-		ETSIDI::printxy("IngenieBROS", 2, 0);
-		glTranslatef(3, 5.5, 10);
+
+		ETSIDI::printxy("IngenieBROS", 5, 0);
+		glTranslatef(5, 5.5, 10);
 	
 
 		break;
@@ -68,11 +74,15 @@ void ControlJuego::dibuja()
 		mundo.dibuja();
 		break;
 	case ControlJuego::GAMEOVER:
-		mundo.dibuja();
+		//mundo.dibuja();
+		dialogo();
+		glTranslatef(-3, -5, -10);
 		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::printxy("GAMEOVER: Has perdido", -5, 10);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 5);
+		glTranslatef(-3, -5, -10);
+
 		break;
 	case ControlJuego::FIN:
 		dialogo();
@@ -135,6 +145,35 @@ void ControlJuego::dibuja()
 		//Crear funcion en mundo
 		//color tanque. 0-verde,1-rojo,2-amarillo,3-azul,4-morado,5-celeste,6-naranja,7-pink
 		//ListaDisparos.cpp linea 18 revisar
+		dialogo();
+
+
+		glTranslatef(-7, -5, -10);
+
+
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::setTextColor(1, 0, 0);
+		ETSIDI::printxy("SKINS: Menu de cambio de skin", -5, 11);
+		ETSIDI::printxy("Color seleccionado:", -5, 10);
+		//----------------------------------
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 30);
+		ETSIDI::printxy(&col, -5, 10);
+		//--------------------------------------
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+
+		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::printxy("Pulsa -C- para volver al inicio", -5, 9);
+		ETSIDI::printxy("Usa -1- para cambiar a verde", -5, 7);
+		ETSIDI::printxy("Usa -2- para cambiar a rojo", -5, 6);
+		ETSIDI::printxy("Usa -3- para cambiar a amarillo", -5, 5);
+		ETSIDI::printxy("Usa -4- para cambiar a azul", -5, 4);
+		ETSIDI::printxy("Usa -5- para cambiar a morado", -5, 3);
+		ETSIDI::printxy("Usa -6- para cambiar a celeste", -5, 2);
+		ETSIDI::printxy("Usa -7- para cambiar a naranja", -5, 1);
+		ETSIDI::printxy("Usa -8- para cambiar a rosa", -5, 0);
+
+
+		glTranslatef(3, 5, 10);
 
 		break;
 	case ControlJuego::HISTORIA:
@@ -231,7 +270,8 @@ void ControlJuego::teclaAbajo(unsigned char key)
 			exit(0);
 		if (key == 'c')
 			estado = CONTROLES;
-		//Forma de llegar a color
+		if (key == 'a')
+			estado = COLOR;
 
 	}
 	else if (estado == JUEGO)
@@ -280,7 +320,12 @@ void ControlJuego::teclaAbajo(unsigned char key)
 	}
 	else if (estado == COLOR)
 	{
-		//Teclas para color y salir
+		if (key == 'c')
+			estado = INICIO;
+		else if ((key > '0') && (key < '9')) {
+			color = key - 49;
+			mundo.setColor(color);
+		}
 	}
 
 

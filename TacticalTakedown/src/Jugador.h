@@ -33,6 +33,8 @@ public:
 	void setVelAng(float iv); //Define una nueva velocidad angular
 	float getVelAng(); //Devuelve la velocidad angular actual
 
+	void setColor(int col) { color = col; indice = 7 + 8 * color; }
+
 	void teclaAbajo(unsigned char key); //Interaccion cuando una tecla se pulsa
 	void teclaArriba(unsigned char key); //Interaccion cuando una tecla se deja de pulsar
 	void teclaEspecialAbajo(unsigned char key); //Interaccion cuando una tecla especial se pulsa

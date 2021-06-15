@@ -34,6 +34,10 @@ public:
 	void teclaEspecialArriba(unsigned char key);
 	Vector2D getCam() { return camara.getPos(); }
 	int getNum() { return nivel; }
+
+	int getVida() { return vida; }
+	void setColor(int color) { jugador.setColor(color); }
+
 	int getEnem() { return enemigos.getNumero(); }
 	bool cargarNivel();
 

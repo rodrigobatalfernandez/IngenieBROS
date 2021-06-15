@@ -23,5 +23,6 @@ protected:
 	Estado estado;
 	Mundo mundo;
 	int historia = 0;
+	int color = 0;
 };
 
