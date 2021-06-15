@@ -12,19 +12,22 @@
 class Mundo
 {
 private:
+	//Objetos y Listas
 	Camara camara;
 	Jugador jugador;
 	ListaEnemigos enemigos;
 	ListaDisparos disparos, disparos_enemigos;
 	Mapa mapa;
 
+	//Contadores
 	int nivel = 0;
-	int vida = 4;
+	int vida = 6;
 	int abatidos = 0;
 
 public:
 	~Mundo();
 	void inicializa();
+
 	void mueve();
 	void dibuja();
 
@@ -32,13 +35,13 @@ public:
 	void teclaArriba(unsigned char key);
 	void teclaEspecialAbajo(unsigned char key);
 	void teclaEspecialArriba(unsigned char key);
+
 	Vector2D getCam() { return camara.getPos(); }
 	int getNum() { return nivel; }
-
 	int getVida() { return vida; }
 	void setColor(int color) { jugador.setColor(color); }
-
 	int getEnem() { return enemigos.getNumero(); }
+
 	bool cargarNivel();
 	void dibuja_corazones();
 };
