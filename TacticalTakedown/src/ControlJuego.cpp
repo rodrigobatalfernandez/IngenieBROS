@@ -170,6 +170,7 @@ void ControlJuego::dibuja()
 		ETSIDI::printxy("Usa -ESPACIO- para disparar", -5, 6);
 		ETSIDI::printxy("Usa FLECHA IZQ / DER para girar", -5, 4);
 		ETSIDI::printxy("Usa -W A S D- para desplazarte", -5, 2);
+		ETSIDI::printxy("Acaba con todos y avanza hasta la salida", -9, 0);
 
 		glTranslatef(3, 5, 10);
 		break;
@@ -179,8 +180,28 @@ void ControlJuego::dibuja()
 		//color tanque. 0-verde,1-rojo,2-amarillo,3-azul,4-morado,5-celeste,6-naranja,7-pink
 		//ListaDisparos.cpp linea 18 revisar
 		const char col = color + 49;
-		dialogo();
-		glTranslatef(-7, -5, -10);
+
+		glTranslatef(0, -1, -1);
+		gluLookAt(0, 7.5, 30, // posicion del ojo
+			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
+			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
+		glTranslatef(3, 5, 10);
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/colores.png").id);
+		glDisable(GL_LIGHTING);
+		glBegin(GL_POLYGON);
+		glColor3f(1, 1, 1);
+		glTexCoord2d(0, 1);    glVertex3f(-12, 6, 0);
+		glTexCoord2d(1, 1);    glVertex3f(6, 6, 0);
+		glTexCoord2d(1, 0);    glVertex3f(6, 8, 0);
+		glTexCoord2d(0, 0);    glVertex3f(-12, 8, 0);
+		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
+		glTranslatef(-3, -5, -10);
+		glTranslatef(0, 1, 1);
+
+		glTranslatef(-7, -3, -10);
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::printxy("SKINS: Menu de cambio de skin", -5, 11);
@@ -196,7 +217,7 @@ void ControlJuego::dibuja()
 		ETSIDI::printxy("Usa -6- para cambiar a celeste", -5, 2);
 		ETSIDI::printxy("Usa -7- para cambiar a naranja", -5, 1);
 		ETSIDI::printxy("Usa -8- para cambiar a rosa", -5, 0);
-		glTranslatef(7, 5, 10);
+		glTranslatef(7, 3, 10);
 
 		break;
 	}
@@ -250,7 +271,7 @@ void ControlJuego::dibuja()
 			ETSIDI::printxy("ya saben que estas alli, asi que", -10, 9);
 			ETSIDI::printxy("probablemente esten esperandote.", -10, 8);
 			ETSIDI::printxy("Ve con cuidado. Tienen la tecnologia militar", -10, 6);
-			ETSIDI::printxy("mas avanzada que habaa visto nunca.", -10, 5);
+			ETSIDI::printxy("mas avanzada que haya visto nunca.", -10, 5);
 			ETSIDI::printxy("Acaba con esos desgraciados y vuelve", -10, 4);
 			ETSIDI::printxy("de una pieza.", -10, 3);
 			ETSIDI::printxy("Buena suerte, Python.", -10, 1);

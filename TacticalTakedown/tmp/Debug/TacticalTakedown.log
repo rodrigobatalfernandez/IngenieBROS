@@ -1,2 +1,4 @@
-﻿  Mapa.cpp
-  TacticalTakedown.vcxproj -> C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+﻿  ControlJuego.cpp
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ControlJuego.cpp(38,54): warning C4838: la conversión de 'int' en 'const char' requiere una conversión de restricción
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ControlJuego.cpp(38,116): warning C4838: la conversión de 'int' en 'const char' requiere una conversión de restricción
+  TacticalTakedown.vcxproj -> C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
