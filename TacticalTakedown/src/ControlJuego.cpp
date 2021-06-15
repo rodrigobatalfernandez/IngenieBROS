@@ -29,20 +29,39 @@ void ControlJuego::dibuja()
 	switch (estado)
 	{
 	case ControlJuego::INICIO:
-		dialogo();
-
+		glTranslatef(0, -1, -1);
+		gluLookAt(0, 7.5, 30, // posicion del ojo
+			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
+			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
+		glTranslatef(3, 5, 10);
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/laser_tank.png").id);
+		glDisable(GL_LIGHTING);
+		glBegin(GL_POLYGON);
+		glColor3f(1, 1, 1);
+		glTexCoord2d(0, 1);    glVertex3f(-12, 2, 0);
+		glTexCoord2d(1, 1);    glVertex3f(6, 2, 0);
+		glTexCoord2d(1, 0);    glVertex3f(6, 11, 0);
+		glTexCoord2d(0, 0);    glVertex3f(-12, 11, 0);
+		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
 		glTranslatef(-3, -5, -10);
+		glTranslatef(0, 1, 1);
+
+		glTranslatef(-3, -5.5, -10);
 		ETSIDI::setTextColor(1, 1, 0);
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::setFont("fuentes/METAG___.ttf", 20);
 		ETSIDI::printxy("TACTICAL TAKEDOWN", -5, 8);
 		ETSIDI::setTextColor(1, 1, 1);
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
-		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5, 7);
-		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
-		ETSIDI::printxy("PULSE LA TECLA -C- PARA VER CONTROLES", -5, 5);
+		ETSIDI::setFont("fuentes/Tactical Espionage Action.ttf", 15);
+		ETSIDI::printxy("PULSE LA TECLA  E  PARA EMPEZAR", -10, 6);
+		ETSIDI::printxy("PULSE LA TECLA  S  PARA SALIR", -10, 5);
+		ETSIDI::printxy("PULSE LA TECLA  C  PARA VER CONTROLES", -10, 4);
 
-		ETSIDI::printxy("IngenieBROS", 2, 1);
-		glTranslatef(3, 5, 10);
+		ETSIDI::printxy("IngenieBROS", 2, 0);
+		glTranslatef(3, 5.5, 10);
+	
 
 		break;
 	case ControlJuego::JUEGO:
@@ -51,7 +70,7 @@ void ControlJuego::dibuja()
 	case ControlJuego::GAMEOVER:
 		mundo.dibuja();
 		ETSIDI::setTextColor(1, 0, 0);
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::printxy("GAMEOVER: Has perdido", -5, 10);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 5);
 		break;
@@ -59,7 +78,7 @@ void ControlJuego::dibuja()
 		dialogo();
 
 		glTranslatef(-3, -5, -10);
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::printxy("ENHORABUENA, ¡Has triunfado!", -5, 10);
 		//Mostrar Puntuación y tiempo sobrevivido
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
@@ -70,7 +89,7 @@ void ControlJuego::dibuja()
 		mundo.dibuja();
 		glTranslatef(aux.x, aux.y, 2);
 		ETSIDI::setTextColor(1, 0, 0);
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::printxy("PAUSA: Menu de pausa", -5, 10);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::printxy("Pulsa -P- para continuar", -5, 5);
@@ -79,12 +98,30 @@ void ControlJuego::dibuja()
 		glTranslatef(-aux.x, -aux.y, -2);
 		break;
 	case ControlJuego::CONTROLES:
-		dialogo();
+		glTranslatef(0, -1, -1);
+		gluLookAt(0, 7.5, 30, // posicion del ojo
+			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
+			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
+		glTranslatef(3, 5, 10);
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/wasd.png").id);
+		glDisable(GL_LIGHTING);
+		glBegin(GL_POLYGON);
+		glColor3f(1, 1, 1);
+		glTexCoord2d(0, 1);    glVertex3f(-8, 4, 0);
+		glTexCoord2d(1, 1);    glVertex3f(2, 4, 0);
+		glTexCoord2d(1, 0);    glVertex3f(2, 11, 0);
+		glTexCoord2d(0, 0);    glVertex3f(-8, 11, 0);
+		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
+		glTranslatef(-3, -5, -10);
+		glTranslatef(0, 1, 1);
 
 		glTranslatef(-7, -5, -10);
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::setTextColor(1, 0, 0);
-		ETSIDI::printxy("CONTROLES: Menu de visualizacion de los controles", -5, 10);
+		ETSIDI::printxy("CONTROLES:", -5, 10);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::printxy("Pulsa -C- para volver al inicio", -5, 9);
 		ETSIDI::printxy("Usa -ESPACIO- para disparar", -5, 6);
@@ -101,20 +138,43 @@ void ControlJuego::dibuja()
 
 		break;
 	case ControlJuego::HISTORIA:
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		ETSIDI::setTextColor(1, 0, 0);
+		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 
 		if (historia == 0)
 		{
 			dialogo();
 			glTranslatef(-7, -5, -10);
-			ETSIDI::printxy("tu madre otra vez", -5, 10);
+			ETSIDI::setTextColor(1, 0, 0);
+			ETSIDI::printxy("Coronel Sanders:", -10, 12);
+			ETSIDI::setTextColor(1, 1, 1);
+			ETSIDI::printxy("Python, no hay tiempo para explicaciones.", -10, 10);
+			ETSIDI::printxy("Tienes una mision de vital importancia.", -10, 9);
+			ETSIDI::printxy("Hemos preparado el tanque laser y en breve", -10, 7);
+			ETSIDI::printxy("recibiras las coordenadas.", -10, 6);
+			ETSIDI::printxy("Tendras que infiltrarte en la base militar", -10, 5);
+			ETSIDI::printxy("de esa localizacion.", -10, 4);
+			ETSIDI::printxy("El Doctor Jagger te dara mas indicaciones.", -10, 2);
+			ETSIDI::printxy("Buena suerte, soldado.", -10, 1);
+			ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
+			ETSIDI::printxy("Pulsa E o ESPACIO para continuar", 10, -1);
 		}
 		else if (historia == 1)
 		{
-			dialogo();
+			dialogo("imagenes/mgs_doc1.png");
 			glTranslatef(-7, -5, -10);
-			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
+			ETSIDI::setTextColor(1, 0, 0);
+			ETSIDI::printxy("Doctor Jagger", -10, 12);
+			ETSIDI::setTextColor(1, 1, 1);
+			ETSIDI::printxy("Al habla Jagger.", -10, 10);
+			ETSIDI::printxy("He movido algunos hilos y, en la base de datos", -10, 9);
+			ETSIDI::printxy("de sus instalaciones, he encontrado algunos", -10, 8);
+			ETSIDI::printxy("de los investigadores con mayor IQ del pais", -10, 7);
+			ETSIDI::printxy("(alguno fue a mi clase en el MIT).", -10, 6);
+			ETSIDI::printxy("Por lo visto, han montado todo esto para", -10, 3);
+			ETSIDI::printxy("purificar el mundo de la humanidad", -10, 2);
+			ETSIDI::printxy("provocando una Tercera Guerra Mundial.", -10, 1);
+			ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
+			ETSIDI::printxy("Pulsa E o ESPACIO para continuar", 10, -1);
 		}
 		else if (historia == 2)
 		{

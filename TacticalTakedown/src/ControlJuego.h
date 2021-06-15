@@ -9,7 +9,7 @@ public:
 
 	void mueve();
 	void dibuja();
-	void dialogo(char const* cadena = "imagenes/mgsEMPTY.png");
+	void dialogo(char const* cadena = "imagenes/mgs_Sanders.png");
 
 	void teclaAbajo(unsigned char key);
 	void teclaArriba(unsigned char key);

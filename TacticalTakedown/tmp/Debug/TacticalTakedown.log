@@ -1,10 +1,2 @@
 ﻿  ControlJuego.cpp
-  Disparo.cpp
-  ListaDisparos.cpp
-  ListaEnemigos.cpp
-C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ListaEnemigos.cpp(141,3): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ListaEnemigos.cpp(163,3): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Vector2D.cpp
-C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Vector2D.cpp(83,14): warning C4244: 'return': conversión de 'int' a 'float'; posible pérdida de datos
-  Generando código...
-  TacticalTakedown.vcxproj -> C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
+  TacticalTakedown.vcxproj -> C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe
