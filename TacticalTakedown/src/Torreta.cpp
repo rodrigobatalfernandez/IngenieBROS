@@ -12,7 +12,7 @@ void Torreta::setPos(float ix, float iy)
 Torreta::Torreta()
 {
 	COOLDOWN_DISP = 20;
-	vel_rotacion = 3;
+	vel_rotacion = 4;
 }
 
 void Torreta::mueve(float t)

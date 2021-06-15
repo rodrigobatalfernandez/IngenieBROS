@@ -106,6 +106,7 @@ void ListaEnemigos::cargarEnem(int nivel)
 	{
 		genEnem matN1[] = {
 			{67.5,-2.5,180,1},
+			{50,15,0,2},
 			{82.5,72.5,180,1},
 			{82.5,97.5,180,1},
 			{47.5,127.5,270,1},
@@ -113,6 +114,7 @@ void ListaEnemigos::cargarEnem(int nivel)
 			{42,42.5,270,1},
 			{7.5,87.5,90,2},
 			{42,80,270,3},
+			{32,92,90,3},
 
 		};
 		for (auto& i : matN1)
@@ -133,6 +135,7 @@ void ListaEnemigos::cargarEnem(int nivel)
 			{50,95,90,3},
 			{5,80,90,3},
 			{2.5,67.5,0,1},
+			{33,67.5,0,1},
 
 		};
 		for (auto& i : matN1)
@@ -159,7 +162,7 @@ void ListaEnemigos::cargarEnem(int nivel)
 			{52.5,42.5,180,2},
 			{22.5,72.5,0,3},
 			{52.5,72.5,180,3},
-
+			{37.5,112,270,1},
 
 		};
 		for (auto& i : matN1)

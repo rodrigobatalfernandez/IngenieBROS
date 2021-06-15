@@ -12,10 +12,10 @@ void ControlJuego::mueve()
 {
 	if (estado == JUEGO)
 	{
+		posicionOK(2);
 		mundo.mueve();
 		if (mundo.getEnem() == 0 && posicionOK(mundo.getNum())==1)
 		{
-
 			if (!mundo.cargarNivel()){
 				ETSIDI::playMusica("sonidos/Victory_bajo.mp3", false);
 				estado = FIN;
@@ -133,10 +133,10 @@ void ControlJuego::dibuja()
 		glTranslatef(mundo.getCam().x, mundo.getCam().y, 2);
 		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
-		ETSIDI::printxy("PAUSA: Menu de pausa", -5, 10);
-		ETSIDI::setTextColor(1, 1, 1);
-		ETSIDI::printxy("Pulsa -P- para continuar", -5, 5);
-		ETSIDI::printxy("Pulsa -I- para volver al inicio", -5, 4);
+		ETSIDI::printxy("PAUSA: Menu de pausa", -10, 10);
+		ETSIDI::setTextColor(1, 0, 1);
+		ETSIDI::printxy("Pulsa -P- para continuar", -10, 5);
+		ETSIDI::printxy("Pulsa -I- para volver al inicio", -10, 3);
 
 		glTranslatef(-mundo.getCam().x, -mundo.getCam().y, -2);
 		break;
@@ -167,10 +167,12 @@ void ControlJuego::dibuja()
 		ETSIDI::printxy("CONTROLES:", -5, 10);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::printxy("Pulsa -C- para volver al inicio", -5, 9);
-		ETSIDI::printxy("Usa -ESPACIO- para disparar", -5, 6);
-		ETSIDI::printxy("Usa FLECHA IZQ / DER para girar", -5, 4);
-		ETSIDI::printxy("Usa -W A S D- para desplazarte", -5, 2);
-		ETSIDI::printxy("Acaba con todos y avanza hasta la salida", -9, 0);
+		ETSIDI::printxy("Usa -ESPACIO- para disparar", -5, 7);
+		ETSIDI::printxy("Usa FLECHA IZQ / DER para girar", -5, 5);
+		ETSIDI::printxy("Usa -W A S D- para desplazarte", -5, 3);
+		ETSIDI::setFont("fuentes/04B_11__.ttf", 10);
+		ETSIDI::printxy("La estacion rosa cura y la azul reduce el cooldown entre diparos", -10, 1);
+		ETSIDI::printxy("Acaba con todos y avanza hasta la salida", -10, 0);
 
 		glTranslatef(3, 5, 10);
 		break;
@@ -278,11 +280,6 @@ void ControlJuego::dibuja()
 			ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
 			ETSIDI::printxy("Pulsa E o ESPACIO para continuar", 10, -1);
 		}
-		else if (historia == 3)
-		{
-			//Si esta historia es la de ganar la partida no va aqui
-			//Si esta historia es la de perder la partida no va aqui
-		}
 
 		glTranslatef(7, 5, 10);
 		break;
@@ -337,16 +334,19 @@ void ControlJuego::teclaAbajo(unsigned char key)
 		{
 			estado = PAUSA;
 		}
-		else if (key == 'n') {
-			ETSIDI::play("sonidos/Metal Gear Solid Codec Sound.wav");
-			estado = HISTORIA;
-			mundo.cargarNivel();
-		}
-		if (key == 'm')
-		{
-			ETSIDI::playMusica("sonidos/Victory_bajo.mp3", false);
-			estado = FIN;
-		}
+		//--------------Teclas de testeo de niveles------------
+		//else if (key == 'n') {
+		//	ETSIDI::play("sonidos/Metal Gear Solid Codec Sound.wav");
+		//	estado = HISTORIA;
+		//	mundo.cargarNivel();
+		//}
+		//--------------Teclas de testeo de fin------------
+		//if (key == 'm')
+		//{
+		//	ETSIDI::playMusica("sonidos/Victory_bajo.mp3", false);
+		//	estado = FIN;
+		//}
+		//-----------------------------------------------------
 		mundo.teclaAbajo(key);
 	}
 	else if (estado == GAMEOVER)
@@ -426,14 +426,17 @@ int ControlJuego::posicionOK(int nivel)
 		Vector2D salida(85, 87.5), cura(77.5,-2.5), recarga(77.5,7.5);
 		if (mundo.getCam().x > (salida.x - 2.5) && mundo.getCam().x < (salida.x + 2.5) && mundo.getCam().y>(salida.y - 2.5) && mundo.getCam().y < (salida.y + 2.5))
 			return 1;
-		if (mundo.getCam().x > (cura.x - 2.5) && mundo.getCam().x < (cura.x + 2.5) && mundo.getCam().y>(cura.y - 2.5) && mundo.getCam().y < (cura.y + 2.5))
+		if (mundo.getCam().x > (cura.x - 2.5) && mundo.getCam().x < (cura.x + 2.5) && mundo.getCam().y>(cura.y - 2.5) && mundo.getCam().y < (cura.y + 2.5) && mundo.getCura()==false)
 		{
 			mundo.sumaVida();
-			cura.x = -300;
-			cura.y = -300;
+			mundo.setCura(true);
+			ETSIDI::play("sonidos/taladro.wav");
 		}
-		if (mundo.getCam().x > (recarga.x - 2.5) && mundo.getCam().x < (recarga.x + 2.5) && mundo.getCam().y>(recarga.y - 2.5) && mundo.getCam().y < (recarga.y + 2.5))
+		if (mundo.getCam().x > (recarga.x - 2.5) && mundo.getCam().x < (recarga.x + 2.5) && mundo.getCam().y>(recarga.y - 2.5) && mundo.getCam().y < (recarga.y + 2.5) && mundo.getRec() == false){
 			mundo.recarga();
+			mundo.setRec(true);
+			ETSIDI::play("sonidos/taladro.wav");
+		}
 	}
 	else if (nivel == 3) {
 		Vector2D salida(37.5, 130);

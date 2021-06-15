@@ -8,6 +8,8 @@
 #include "Interaccion.h"
 #include "ListaEnemigos.h"
 
+#define VIDAS_INI 5
+#define VIDAS_NIVEL 1
 
 class Mundo
 {
@@ -20,9 +22,13 @@ private:
 	Mapa mapa;
 
 	//Contadores
-	int nivel = 0;
-	int vida = 4;
-	int abatidos = 0;
+	int nivel=0;
+	int vida=VIDAS_INI;
+	int abatidos=0;
+
+	//Para la reparación
+	bool curado = false;
+	bool recargado = false;
 
 public:
 	~Mundo();
@@ -43,7 +49,12 @@ public:
 	void setColor(int color) { jugador.setColor(color); }
 	int getEnem() { return enemigos.getNumero(); }
 	void sumaVida() { vida += 2; }
+	bool getCura() { return curado; }
+	void setCura(bool cura) { curado = cura; }
 	void recarga() { jugador.Cooldown(1); }
+	bool getRec() { return recargado; }
+	void setRec(bool rec) { recargado = rec; }
+
 
 	bool cargarNivel();
 	void dibuja_corazones();

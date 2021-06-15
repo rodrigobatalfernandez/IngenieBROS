@@ -62,7 +62,7 @@ Pared* Mapa::operator[](int i)
 void Mapa::copia_nivel(int nivel) {
 	if (nivel == 1) {
 		FIL = 0; COL = 0;
-		int** matrix1 = leerMatrices("Mapa1.txt");
+		int** matrix1 = leerMatrices("mapas/Mapa1.txt");
 
 		//Copia la matriz1 a la matriz principal mapa
 		
@@ -80,7 +80,7 @@ void Mapa::copia_nivel(int nivel) {
 	}
 	else if (nivel == 2) {
 		FIL = 0; COL = 0;
-		int** matrix2 = leerMatrices("Mapa2.txt");
+		int** matrix2 = leerMatrices("mapas/Mapa2.txt");
 
 		//Copia la matriz1 a la matriz principal mapa
 		for (int f = 0; f < FIL; f++)
@@ -95,7 +95,7 @@ void Mapa::copia_nivel(int nivel) {
 	}
 	else if (nivel == 3) {
 		FIL = 0; COL = 0;
-		int** matrix3 = leerMatrices("Mapa3.txt");
+		int** matrix3 = leerMatrices("mapas/Mapa3.txt");
 
 		//Copia la matriz1 a la matriz principal mapa
 		for (int f = 0; f < FIL; f++)

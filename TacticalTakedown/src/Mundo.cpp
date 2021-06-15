@@ -49,7 +49,10 @@ void Mundo::mueve()
 void Mundo::inicializa()
 {
 	nivel = 0;
-	vida = 4;
+	vida = VIDAS_INI;
+	abatidos = 0;
+	curado = false;
+	recargado = false;
 	cargarNivel();
 }
 
@@ -94,7 +97,7 @@ Mundo::~Mundo()
 
 bool Mundo::cargarNivel()
 {
-	vida+=2;// temporal
+	vida+=VIDAS_NIVEL;// temporal
 	nivel++;
 	//jugador.setPos(0, 0);//Posicion inicial, comun para todos los niveles
 	
