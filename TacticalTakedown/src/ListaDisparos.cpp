@@ -65,14 +65,3 @@ Disparo* ListaDisparos::operator[](int i)
 		i = 0;
 	return lista[i];
 }
-
-Disparo* ListaDisparos::colision(Pared p) {
-	for (int i = 0; i < numero; i++)
-	{
-		if (Interaccion::colision(*(lista[i]), p)) {
-			lista[i]->sonido_disparo_impacto();
-			return lista[i];
-		}
-	}
-	return 0;
-}

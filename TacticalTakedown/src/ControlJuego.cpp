@@ -18,8 +18,6 @@ void ControlJuego::mueve()
 			estado = HISTORIA;
 			if (!mundo.cargarNivel())
 				estado = FIN;
-			//Si se quiere hacer todo en historia hay que variar esto
-
 		}
 		if (!mundo.getVida())
 			estado = GAMEOVER;
@@ -28,8 +26,8 @@ void ControlJuego::mueve()
 
 void ControlJuego::dibuja()
 {
-	Vector2D aux = mundo.getCam();
 	const char col = color + 49;
+	const char abatidos[] = { (mundo.getAbatidos() / 10 + 48), (mundo.getAbatidos() - (mundo.getAbatidos() / 10) * 10 + 48) };
 	switch (estado)
 	{
 	case ControlJuego::INICIO:
@@ -66,7 +64,7 @@ void ControlJuego::dibuja()
 		ETSIDI::printxy("PULSE LA TECLA  A  PARA CAMBIAR EL ASPECTO", -10, 3);
 
 
-		ETSIDI::printxy("IngenieBROS", 5, 0);
+		ETSIDI::printxy("IngenieBROS", 8, 0);
 		glTranslatef(5, 5.5, 10);
 	
 
@@ -75,14 +73,15 @@ void ControlJuego::dibuja()
 		mundo.dibuja();
 		break;
 	case ControlJuego::GAMEOVER:
-		//mundo.dibuja();
 		dialogo();
 		glTranslatef(-3, -5, -10);
 		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::printxy("GAMEOVER: Has perdido", -5, 10);
-		ETSIDI::printxy("Pulsa -C- para continuar", -5, 5);
-		glTranslatef(-3, -5, -10);
+		ETSIDI::printxy("Enemigos abatidos;", -5, 9);
+		ETSIDI::printxy(abatidos, 11, 9);
+		ETSIDI::printxy("Pulsa  C  para continuar", -5, 5);
+		glTranslatef(3, 5, 10);
 
 		break;
 	case ControlJuego::FIN:
@@ -91,14 +90,17 @@ void ControlJuego::dibuja()
 		glTranslatef(-3, -5, -10);
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::printxy("ENHORABUENA, ¡Has triunfado!", -5, 10);
+		ETSIDI::printxy("Enemigos abatidos;", -5, 9);
+		ETSIDI::printxy(abatidos, 11, 9);
+
 		//Mostrar Puntuación y tiempo sobrevivido
-		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
+		ETSIDI::printxy("Pulsa -C- para continuar", -5, 7);
 		glTranslatef(3, 5, 10);
 
 		break;
 	case ControlJuego::PAUSA:
 		mundo.dibuja();
-		glTranslatef(aux.x, aux.y, 2);
+		glTranslatef(mundo.getCam().x, mundo.getCam().y, 2);
 		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::printxy("PAUSA: Menu de pausa", -5, 10);
@@ -106,7 +108,7 @@ void ControlJuego::dibuja()
 		ETSIDI::printxy("Pulsa -P- para continuar", -5, 5);
 		ETSIDI::printxy("Pulsa -I- para volver al inicio", -5, 4);
 
-		glTranslatef(-aux.x, -aux.y, -2);
+		glTranslatef(-mundo.getCam().x, -mundo.getCam().y, -2);
 		break;
 	case ControlJuego::CONTROLES:
 		glTranslatef(0, -1, -1);
@@ -147,11 +149,7 @@ void ControlJuego::dibuja()
 		//color tanque. 0-verde,1-rojo,2-amarillo,3-azul,4-morado,5-celeste,6-naranja,7-pink
 		//ListaDisparos.cpp linea 18 revisar
 		dialogo();
-
-
 		glTranslatef(-7, -5, -10);
-
-
 		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::printxy("SKINS: Menu de cambio de skin", -5, 11);
@@ -167,9 +165,7 @@ void ControlJuego::dibuja()
 		ETSIDI::printxy("Usa -6- para cambiar a celeste", -5, 2);
 		ETSIDI::printxy("Usa -7- para cambiar a naranja", -5, 1);
 		ETSIDI::printxy("Usa -8- para cambiar a rosa", -5, 0);
-
-
-		glTranslatef(3, 5, 10);
+		glTranslatef(7, 5, 10);
 
 		break;
 	case ControlJuego::HISTORIA:
@@ -219,9 +215,6 @@ void ControlJuego::dibuja()
 		}
 		else if (historia == 3)
 		{
-			dialogo();
-			glTranslatef(-7, -5, -10);
-			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
 			//Si esta historia es la de ganar la partida no va aqui
 			//Si esta historia es la de perder la partida no va aqui
 		}
@@ -260,6 +253,7 @@ void ControlJuego::teclaAbajo(unsigned char key)
 		if (key == 'e')
 		{
 			mundo.inicializa();
+			mundo.setColor(color);
 			estado = HISTORIA;
 		}
 		if (key == 's')
@@ -320,11 +314,8 @@ void ControlJuego::teclaAbajo(unsigned char key)
 			estado = INICIO;
 		else if ((key > '0') && (key < '9')) {
 			color = key - 49;
-			mundo.setColor(color);
 		}
 	}
-
-
 }
 
 void ControlJuego::teclaArriba(unsigned char key)
@@ -351,9 +342,7 @@ int ControlJuego::posicionOK(int nivel)
 	//Devuelve 1 si esta en la posicion para salir del nivel
 	//Devuelve 2 si esta en la posicion para curarse
 	//Devuelve 3 si esta en la posicion para acelerar
-
 	if (nivel == 1) {
-		//Mejora: Poner centro del cuadrado de salida y meter margenes
 		Vector2D salida(-10, 107.5);
 		if(mundo.getCam().x > (salida.x-2.5) && mundo.getCam().x < (salida.x+2.5) && mundo.getCam().y> (salida.y-2.5) && mundo.getCam().y < (salida.y+2.5))
 			return 1;
@@ -370,9 +359,6 @@ int ControlJuego::posicionOK(int nivel)
 	else if (nivel == 3) {
 		Vector2D salida(-10, 107.5);
 		if (mundo.getCam().x > (salida.x - 2.5) && mundo.getCam().x < (salida.x + 2.5) && mundo.getCam().y>(salida.y - 2.5) && mundo.getCam().y < (salida.y + 2.5))
-
-		//Salidas chulas
-
 		return 1;
 	}
 	return 0;

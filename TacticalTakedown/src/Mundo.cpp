@@ -65,7 +65,6 @@ void Mundo::teclaAbajo(unsigned char key)
 		break;
 	case (' '):
 		Disparo* d = new Disparo();
-		//d->Tex();
 		d->setPos(jugador.getPos().x, jugador.getPos().y);
 		d->setVel(20 * cos(jugador.getOri() * (PI / 180)), 20 * sin(jugador.getOri() * (PI / 180)));
 		disparos.agregar(d);
@@ -151,49 +150,37 @@ bool Mundo::cargarNivel()
 }
 
 void Mundo::dibuja_corazones() {
-	using namespace std;
-	int vida_m = vida;
-	int vida_v = 0;
-	int resto = 0;
+	int vida_v = vida / 2;
+	int resto = vida % 2;
 	int pos = -17;
-	int y = 12;
-	vida_v = vida_m / 2;
-	resto = vida_m % 2;
-	Vector2D aux = getCam();
-	glTranslatef(aux.x, aux.y, 2);
+	const int y = 12;
 
+	glTranslatef(getCam().x, getCam().y, 2);
 	for (int i = 0; i < vida_v; i++) //imprime corazones enteros
 	{
 		glTranslatef(pos, y, 10);
 		ETSIDI::SpriteSequence animacion("imagenes/he.png", 3, 1, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, 0);
 		animacion.draw();
-		//glRotatef(-orientacion, 0, 0, 1);
 		glTranslatef(-pos, -y, -10);
 		pos += 2;
 	}
 	if (resto == 1) //imprime corazones a la mitad solo 1
 	{
 		glTranslatef(pos, y, 10);
-		//glRotatef(90, 0, 0, 1);
 		ETSIDI::SpriteSequence animacion("imagenes/he.png", 3, 1, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, 1);
 		animacion.draw();
-		//glRotatef(-orientacion, 0, 0, 1);
 		glTranslatef(-pos, -y, -10);
 		pos += 2;
 	}
 	for (int i = 0; i < (CORAZONES - vida_v - resto); i++) { //imprime corazones vacios
 
 		glTranslatef(pos, y, 10);
-		//glRotatef(90, 0, 0, 1);
 		ETSIDI::SpriteSequence animacion("imagenes/he.png", 3, 1, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, 2);
 		animacion.draw();
-		//glRotatef(-orientacion, 0, 0, 1);
 		glTranslatef(-pos, -y, -10);
 		pos += 2;
 
 	}
-	//	glRotatef(-90, 1, 1, 1);
-	glTranslatef(-aux.x, -aux.y, -2);
-	cout << resto << "  " << vida << endl;
+	glTranslatef(-getCam().x, -getCam().y, -2);
 
 }

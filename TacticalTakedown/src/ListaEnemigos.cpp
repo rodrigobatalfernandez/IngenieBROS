@@ -18,7 +18,9 @@ ListaEnemigos::ListaEnemigos()
 		lista[i] = nullptr;
 }
 
-ListaEnemigos::~ListaEnemigos(){}
+ListaEnemigos::~ListaEnemigos(){
+	destruirContenido();
+}
 
 bool ListaEnemigos::agregar(Enemigo* e)
 {
@@ -107,19 +109,19 @@ void ListaEnemigos::cargarEnem(int nivel)
 			//{-7.5,42.7,0,1},
 			//{-7.5,72.7,0,1},
 			//{-7.5,102.7,0,1},
-			//{82.5,12.7,180,1},
+			{82.5,12.7,180,1},
 			//{82.5,42.7,180,1},
 			//{82.5,72.7,180,1},
 			//{82.5,102.7,180,1},
 			//{17.5,107.5,270,2},
 			//{57.5,107.5,270,2},
-			{22.5, 14,90,3},
+			//{22.5, 14,90,3},
 			//{52.5, 14,90,3},
 
 		};
-		for (int i = 0; i < (sizeof(matN1)/sizeof(genEnem)); i++)
+		for (auto& i : matN1 )
 		{
-			crearEnemigo(matN1[i].x, matN1[i].y, matN1[i].ori, matN1[i].tipo);
+			crearEnemigo(i.x, i.y, i.ori, i.tipo);
 		}
 	}
 	else if (nivel == 2) {
@@ -139,9 +141,9 @@ void ListaEnemigos::cargarEnem(int nivel)
 			{52.5, 14,90,3},
 
 		};
-		for (int i = 0; i < (sizeof(matN1) / sizeof(genEnem)); i++)
+		for (auto& i : matN1)
 		{
-			crearEnemigo(matN1[i].x, matN1[i].y, matN1[i].ori, matN1[i].tipo);
+			crearEnemigo(i.x, i.y, i.ori, i.tipo);
 		}
 	}
 	else if (nivel == 3) {
@@ -161,9 +163,9 @@ void ListaEnemigos::cargarEnem(int nivel)
 			{52.5, 14,90,3},
 
 		};
-		for (int i = 0; i < (sizeof(matN1) / sizeof(genEnem)); i++)
+		for (auto& i : matN1)
 		{
-			crearEnemigo(matN1[i].x, matN1[i].y, matN1[i].ori, matN1[i].tipo);
+			crearEnemigo(i.x, i.y, i.ori, i.tipo);
 		}
 	}
 }

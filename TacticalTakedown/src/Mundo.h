@@ -39,6 +39,7 @@ public:
 	Vector2D getCam() { return camara.getPos(); }
 	int getNum() { return nivel; }
 	int getVida() { return vida; }
+	int getAbatidos() { return abatidos; }
 	void setColor(int color) { jugador.setColor(color); }
 	int getEnem() { return enemigos.getNumero(); }
 

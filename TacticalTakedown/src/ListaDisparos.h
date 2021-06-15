@@ -1,10 +1,7 @@
 #pragma once
 
 #define MAX_DISPAROS 100
-//#include "Interaccion.h"
 #include "Disparo.h"
-#include "Pared.h"
-//#include "ListaParedes.h"
 
 class ListaDisparos
 {
@@ -14,7 +11,7 @@ private:
 
 public:
 	ListaDisparos();
-	//virtual ~ListaDisparos();
+	virtual ~ListaDisparos(){ destruirContenido(); }
 	int getNumero() { return numero; }
 	Disparo* operator [](int i);
 
@@ -25,6 +22,4 @@ public:
 
 	void mueve(float t);
 	void dibuja(bool textura=0);
-
-	Disparo* colision(Pared p);
 };

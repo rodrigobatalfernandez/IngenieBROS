@@ -14,7 +14,6 @@ private:
 	float vel_rotacion; //Parametro que define a la velocidad a la que va a variar la velociada angular
 	float velangular; //Velocidad de rotacion
 
-	//ColorRGB color; //Definicion del color
 	float radio; //Definición del radio de la hitbox
 	int indice;	//Nº de sprite en la secuencia de animación
 	int color = 7; //Variable color tanque. 0-verde,1-rojo,2-amarillo,3-azul,4-morado,5-celeste,6-naranja,7-pink

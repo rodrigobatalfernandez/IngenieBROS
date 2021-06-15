@@ -116,7 +116,7 @@ void Interaccion::colision(Jugador& j, ListaEnemigos& enemigos, int& vida) {
 	for (int i = enemigos.getNumero() - 1; i >= 0; i--) {
 		if (Interaccion::colision(j, *enemigos[i]))
 			//enemigos.eliminar(enemigos[i]);
-			vida--;
+			vida-=6;
 	}
 }
 

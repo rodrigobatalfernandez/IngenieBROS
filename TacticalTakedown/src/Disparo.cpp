@@ -7,7 +7,6 @@
 
 Disparo::Disparo() {
 	radio = 0.25f;
-	//textura = false;
 	indice = 0;
 	rebote = 0;
 	orientacion = 0;
@@ -15,8 +14,6 @@ Disparo::Disparo() {
 }
 
 void Disparo::setPos(float ix, float iy) {
-	//posicion.x = origen.x = ix;
-	//posicion.y = origen.y = iy;
 	posicion.x = ix;
 	posicion.y = iy;
 	rebote = 2;
@@ -52,7 +49,6 @@ void Disparo::dibuja(bool textura) {
 
 void Disparo::mueve(float t) {
 	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
-	//origen = posicion - velocidad * 5*t;
 	velocidad = velocidad + aceleracion * t;
 }
 void Disparo::getOri() {

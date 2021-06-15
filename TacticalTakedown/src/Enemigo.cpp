@@ -26,7 +26,6 @@ Enemigo::Enemigo(float xi, float yi, float ori)
 
 void Enemigo::dibuja()
 {
-	//glColor3ub(color.r, color.g, color.b);
 	glTranslatef(posicion.x, posicion.y, 0);
 	glRotatef(orientacion, 0, 0, 1);
 	if (velocidad.modulo() > 0) {
@@ -44,8 +43,7 @@ void Enemigo::dibuja()
 
 void Enemigo::mueve(float t)
 {
-	posicion = posicion + velocidad * t;// + aceleracion * (0.5f * t * t);
-	//velocidad = velocidad; //+ aceleracion * t;
+	posicion = posicion + velocidad * t;
 
 	orientacion += velangular * t;
 	if (orientacion > 360)
@@ -109,18 +107,11 @@ float Enemigo::getCoolMov() {
 }
 
 float Enemigo::difAngular(Vector2D& Objetivo) {
-	//float ori_deseada = 180 / PI * (Objetivo - posicion).argumento();
 	float dif_ori = (180 / PI * (Objetivo - posicion).argumento()) - orientacion;
 
 	dif_ori = dif_ori > 180 ? (dif_ori - 360) : dif_ori; //por si se pasa el asunto de el márgen de +-180º
 	dif_ori = dif_ori < -180 ? (dif_ori + 360) : dif_ori;
 
-	/*if (dif_ori > 180) {//Ojito, que no se pase de vueltas el asunto
-		dif_ori -= 360;
-	}
-	else if (dif_ori < -180) {
-		dif_ori += 360;
-	}*/
 
 	return dif_ori;
 }

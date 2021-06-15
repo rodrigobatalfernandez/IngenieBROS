@@ -12,14 +12,12 @@ private: //Para incluir los bordes en lista paredes necesitan ser punteros (Pare
 	Pared* lista[MAX_PAREDES];
 	int numero;
 	Pared pared[MAX_PAREDES];//borde_arriba, borde_abajo, borde_izq, borde_dcha;
-	//int FIL=30, COL=21;
 	int FIL = 0, COL = 0;
-	//int** mapa = NULL; //matriz principal mapa
 	int mapa[100][100];
 
 public:
 	Mapa();
-	//virtual ~Mapa();
+	virtual ~Mapa() { destruirContenido(); }
 	int getNumero() { return numero; }
 
 	bool agregar(Pared* e);
