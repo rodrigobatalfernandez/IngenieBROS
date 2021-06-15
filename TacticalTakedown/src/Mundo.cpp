@@ -3,6 +3,8 @@
 #include <iostream>
 
 #define PI 3.141592
+#define ESCALA 3
+#define CORAZONES 3
 
 void Mundo::dibuja() 
 {
@@ -11,6 +13,8 @@ void Mundo::dibuja()
 	camara.dibuja();
 	mapa.dibuja();
 	//mapa.dibujaBordes();
+	dibuja_corazones();
+
 
 	jugador.dibuja();
 	enemigos.dibuja();
@@ -107,8 +111,9 @@ bool Mundo::cargarNivel()
 
 	if (nivel == 1)
 	{
+		ETSIDI::stopMusica();
 		//Nivel 1
-
+		ETSIDI::playMusica("sonidos/DiffBAJO.mp3", true);//musica nivel 1
 		enemigos.cargarEnem(nivel);
 
 		jugador.setPos(22.5, 18);
@@ -118,8 +123,9 @@ bool Mundo::cargarNivel()
 	}
 	if (nivel == 2)
 	{
+		ETSIDI::stopMusica();
 		//Nivel 2
-
+		ETSIDI::playMusica("sonidos/JasonMraz93Milles.mp3", true);//musica nivel 2
 		enemigos.cargarEnem(nivel);
 
 		jugador.setPos(-7.5, 2.7);
@@ -128,7 +134,10 @@ bool Mundo::cargarNivel()
 	}
 	if (nivel == 3)
 	{
+
 		//Nivel 3
+		ETSIDI::stopMusica();
+		ETSIDI::playMusica("sonidos/Soviet.mp3", true);//musica nivel 3
 
 		enemigos.cargarEnem(nivel);
 
@@ -141,6 +150,50 @@ bool Mundo::cargarNivel()
 	return false;
 }
 
-void Mundo::musica() {//funcion musica, es necesaria pararlo
-	ETSIDI::playMusica("sonidos/DiffBAJO.mp3", true);
+void Mundo::dibuja_corazones() {
+	using namespace std;
+	int vida_m = vida;
+	int vida_v = 0;
+	int resto = 0;
+	int pos = -17;
+	int y = 12;
+	vida_v = vida_m / 2;
+	resto = vida_m % 2;
+	Vector2D aux = getCam();
+	glTranslatef(aux.x, aux.y, 2);
+
+	for (int i = 0; i < vida_v; i++) //imprime corazones enteros
+	{
+		glTranslatef(pos, y, 10);
+		ETSIDI::SpriteSequence animacion("imagenes/he.png", 3, 1, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, 0);
+		animacion.draw();
+		//glRotatef(-orientacion, 0, 0, 1);
+		glTranslatef(-pos, -y, -10);
+		pos += 2;
+	}
+	if (resto == 1) //imprime corazones a la mitad solo 1
+	{
+		glTranslatef(pos, y, 10);
+		//glRotatef(90, 0, 0, 1);
+		ETSIDI::SpriteSequence animacion("imagenes/he.png", 3, 1, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, 1);
+		animacion.draw();
+		//glRotatef(-orientacion, 0, 0, 1);
+		glTranslatef(-pos, -y, -10);
+		pos += 2;
+	}
+	for (int i = 0; i < (CORAZONES - vida_v - resto); i++) { //imprime corazones vacios
+
+		glTranslatef(pos, y, 10);
+		//glRotatef(90, 0, 0, 1);
+		ETSIDI::SpriteSequence animacion("imagenes/he.png", 3, 1, 50, true, 0, 0, 1 * ESCALA, 1 * ESCALA, 2);
+		animacion.draw();
+		//glRotatef(-orientacion, 0, 0, 1);
+		glTranslatef(-pos, -y, -10);
+		pos += 2;
+
+	}
+	//	glRotatef(-90, 1, 1, 1);
+	glTranslatef(-aux.x, -aux.y, -2);
+	cout << resto << "  " << vida << endl;
+
 }

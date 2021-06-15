@@ -40,6 +40,5 @@ public:
 
 	int getEnem() { return enemigos.getNumero(); }
 	bool cargarNivel();
-
-	void musica();
+	void dibuja_corazones();
 };

@@ -33,6 +33,7 @@ void ControlJuego::dibuja()
 	switch (estado)
 	{
 	case ControlJuego::INICIO:
+		ETSIDI::stopMusica();
 		glTranslatef(0, -1, -1);
 		gluLookAt(0, 7.5, 30, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
