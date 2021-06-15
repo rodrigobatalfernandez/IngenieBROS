@@ -18,7 +18,7 @@ protected:
 
 	float radio; //Definición del radio de la hitbox
 
-	float cooldown_disparo, cooldown_movimiento;
+	float cooldown_disparo, cooldown_movimiento, COOLDOWN_DISP;
 
 	int indice;//indice sprite
 	int color; //igual que en jugador
@@ -27,7 +27,7 @@ public:
 	virtual void dibuja(); //Funcion de dibujo
 	virtual void mueve(float t); //Cinematica
 
-	void setPos(float ix, float iy);  //Define una nueva posicion
+	virtual void setPos(float ix, float iy);  //Define una nueva posicion
 	Vector2D getPos();  //Devuelve la posicion
 	void setVel(float ivx, float ivy); //Define una nueva velocidad
 	Vector2D getVel(); //Devuelve la velocidad

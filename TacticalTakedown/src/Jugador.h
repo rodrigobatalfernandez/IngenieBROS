@@ -1,6 +1,6 @@
 #pragma once
 #include "Vector2D.h"
-//#include "ColorRGB.h"
+#include "ListaDisparos.h"
 
 class Jugador{
 	friend class Interaccion;
@@ -13,6 +13,8 @@ private:
 	float vel_avance; //Parametro que define el modulo de la velocidad a la que avanza
 	float vel_rotacion; //Parametro que define a la velocidad a la que va a variar la velociada angular
 	float velangular; //Velocidad de rotacion
+	int cooldown; //variable de control
+	int COOLDOWN_DISP = 30;// Valor limite
 
 	float radio; //Definición del radio de la hitbox
 	int indice;	//Nº de sprite en la secuencia de animación
@@ -21,11 +23,13 @@ public:
 	Jugador(); //Constructor
 	void dibuja(); //Dibuja el personaje
 	void mueve(float t); //Define la cinematica del personaje
+	void dispara(ListaDisparos& disparos);
 
 	void setPos(float ix, float iy);  //Define una nueva posicion
 	Vector2D getPos(); //Devuelve la posicion
 	void setVel(float ivx, float ivy); //Define una nueva velocidad
 	Vector2D getVel();  //Devuelve la velocidad
+	void Cooldown(bool baja);
 
 	void setOri(float iv); //Define una nueva orientacion
 	float getOri(); //Devuelve la orientacion actual

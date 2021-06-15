@@ -4,12 +4,12 @@
 class Torreta :
     public Enemigo
 {
+private:
+    Vector2D pos_fija;
 public:
-    //Torreta();
+    void setPos(float ix, float iy);
+    Torreta();
     void mueve(float t);
     void dibuja(); //Funcion de dibujo
-
-
-    //void persiguePunto(Vector2D Objetivo);//Redefinicion de esta clase dado que no se mueve
 };
 

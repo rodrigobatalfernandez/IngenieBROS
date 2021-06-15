@@ -1,14 +1,11 @@
 #pragma once
-#include "Disparo.h"
-#include "Jugador.h"
 #include "Pared.h"
-#include "ListaDisparos.h"
 
 #define MAX_PAREDES 10000
 
 
 class Mapa {
-private: //Para incluir los bordes en lista paredes necesitan ser punteros (Pared*)
+private:
 	Pared* lista[MAX_PAREDES];
 	int numero;
 	Pared pared[MAX_PAREDES];//borde_arriba, borde_abajo, borde_izq, borde_dcha;
@@ -25,7 +22,7 @@ public:
 	void destruirContenido();
 	Pared* operator [](int i);
 
-	void dibuja(); //falta , ListaDisparos& disparos
+	void dibuja();
 	void copia_nivel(int nivel);
 	void textura(int fil, int col, float altura, char const* cadena1);
 	void cargarBordes(int nivel);

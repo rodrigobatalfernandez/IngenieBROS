@@ -12,7 +12,6 @@ void Mundo::dibuja()
 
 	camara.dibuja();
 	mapa.dibuja();
-	//mapa.dibujaBordes();
 	dibuja_corazones();
 
 
@@ -64,10 +63,8 @@ void Mundo::teclaAbajo(unsigned char key)
 
 		break;
 	case (' '):
-		Disparo* d = new Disparo();
-		d->setPos(jugador.getPos().x, jugador.getPos().y);
-		d->setVel(20 * cos(jugador.getOri() * (PI / 180)), 20 * sin(jugador.getOri() * (PI / 180)));
-		disparos.agregar(d);
+
+		jugador.dispara(disparos);
 		break;
 	}
 }

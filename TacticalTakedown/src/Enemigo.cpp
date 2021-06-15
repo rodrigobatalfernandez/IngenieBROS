@@ -2,7 +2,6 @@
 #include <math.h>
 
 #define PI 3.141592f
-#define COOLDOWN_DISP 60
 #define COOLDOWN_MOV 40
 #define ESCALA 3
 
@@ -17,11 +16,11 @@ Enemigo::Enemigo(float xi, float yi, float ori)
 	vel_avance = 8;
 	radio = 1.5f;
 	indice = 0;
-	cooldown_disparo = 0;
+	cooldown_disparo = 0;// variable de control
 	cooldown_movimiento = 0;
 	color = 1;
 	indice = 7 + 8 * color;
-
+	COOLDOWN_DISP = 50; // Valor limite
 }
 
 void Enemigo::dibuja()
@@ -111,29 +110,22 @@ float Enemigo::difAngular(Vector2D& Objetivo) {
 
 	dif_ori = dif_ori > 180 ? (dif_ori - 360) : dif_ori; //por si se pasa el asunto de el márgen de +-180º
 	dif_ori = dif_ori < -180 ? (dif_ori + 360) : dif_ori;
-
-
 	return dif_ori;
 }
 
 void Enemigo::miraPunto(Vector2D& Objetivo)
 {
-	//float dif_ori = difAngular(Objetivo);
-
 	velangular = vel_rotacion * difAngular(Objetivo);
 }
 
 void Enemigo::persiguePunto(Vector2D& Objetivo)
 {
-	//float dif_ori = difAngular(Objetivo);
 	velangular = vel_rotacion * difAngular(Objetivo);
 
 	setVel(vel_avance * (float)cos(orientacion * (PI / 180)), vel_avance * (float)sin(orientacion * (PI / 180)));
 }
 
 void Enemigo::dispara(Vector2D& Objetivo, ListaDisparos& disparos) {
-	//float dif_ori = difAngular(Objetivo);
-
 	cooldown_disparo--;
 	if (abs(difAngular(Objetivo)) < 20 && cooldown_disparo <= 0) {
 		Disparo* d = new Disparo();

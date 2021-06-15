@@ -1,10 +1,8 @@
 #include "Mapa.h"
 #include "freeglut.h"
 #include "ETSIDI.h"
-#include"Interaccion.h"
 
-//#define FIL 30 //filas del mapa
-//#define COL 21 //columnas del mapa
+
 #define ESCALA 5 //escala de texturas
 #define  MAX 100
 
@@ -12,11 +10,6 @@
 #include "fstream"
 #include "string"
 #pragma warning(disable:4996)
-
-using namespace std;
-
-//variables globales
-//int mapa[FIL][COL]; //matriz principal mapa
 
 Mapa::Mapa() {
 	numero = 0;
@@ -75,8 +68,6 @@ void Mapa::copia_nivel(int nivel) {
 			for (int c = 0; c < COL; c++)
 			{
 				mapa[f][c] = matrix1[FIL - f - 1][c]; //FIL-f-1 porque si no salen las filas traspuestas
-				//mapa = matrix1;
-				//cout << mapa[f][c] << " ";
 			}
 			//cout << endl;
 		}
@@ -273,11 +264,9 @@ void Mapa::cargarBordes(int nivel) {
 	copia_nivel(nivel);
 	for (int fil = 0; fil < FIL; fil++)
 	{
-		//cout << "Mapa leido: " << fil <<endl;
 		for (int col = 0; col < COL; col++)
 		{
 			int num = mapa[fil][col];
-			//cout << mapa[fil][col] << " ";
 			if ((num == 1) || num == 2 || num == 3 || num == 4 || num == 28 || num == 29 || num == 36 || num == 37) { //texturas con colisiones
 
 				//se crean cuatro paredes invisibles alrededor de cada textura para las interacciones
@@ -392,28 +381,6 @@ int** Mapa::leerMatrices(const char* fileName) {
 		}
 	}
 	std::fclose(entrada);//cerramos fichero
-	//Copia la matriz a su traspuesta
-	//int** matrizaux = matriz;
 	FIL++; COL++;
-	//cout << "Matriz Principal: " << endl;
-	//for (int f = 0; f < FIL; f++)
-	//{
-	//	for (int c = 0; c < COL; c++)
-	//	{
-	//		//mapa[f][c] = matrix1[FIL - f - 1][c]; //FIL-f-1 porque si no salen las filas traspuestas
-	//		matriz[f][c] = matrizaux[FIL - f -1][c];
-	//		cout << matriz[f][c] << " ";
-	//	}
-	//	cout << endl;
-	//}
-	//cout << "Matriz Auxiliar: "<<endl;
-	//for (int f = 0; f < FIL; f++)
-	//{
-	//	for (int c = 0; c < COL; c++)
-	//	{
-	//		cout << matrizaux[f][c] << " ";
-	//	}
-	//	cout << endl;
-	//}
 	return matriz;
 }

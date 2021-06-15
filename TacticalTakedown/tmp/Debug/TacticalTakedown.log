@@ -1,2 +1,4 @@
-﻿  Pared.cpp
+﻿  ControlJuego.cpp
+C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ControlJuego.cpp(30,54): warning C4838: la conversión de 'int' en 'const char' requiere una conversión de restricción
+C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ControlJuego.cpp(30,116): warning C4838: la conversión de 'int' en 'const char' requiere una conversión de restricción
   TacticalTakedown.vcxproj -> C:\Users\guill\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

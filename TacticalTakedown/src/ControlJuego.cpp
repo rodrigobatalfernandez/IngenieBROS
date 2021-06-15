@@ -19,7 +19,7 @@ void ControlJuego::mueve()
 			if (!mundo.cargarNivel())
 				estado = FIN;
 		}
-		if (!mundo.getVida())
+		if (mundo.getVida()<=0)
 			estado = GAMEOVER;
 	}
 }
@@ -270,8 +270,10 @@ void ControlJuego::teclaAbajo(unsigned char key)
 		{
 			estado = PAUSA;
 		}
-		else if (key == 'n')
+		else if (key == 'n') {
+			estado = HISTORIA;
 			mundo.cargarNivel();
+		}
 		mundo.teclaAbajo(key);
 	}
 	else if (estado == GAMEOVER)
@@ -357,7 +359,7 @@ int ControlJuego::posicionOK(int nivel)
 			return 3;
 	}
 	else if (nivel == 3) {
-		Vector2D salida(-10, 107.5);
+		Vector2D salida(37.5, 127.5);
 		if (mundo.getCam().x > (salida.x - 2.5) && mundo.getCam().x < (salida.x + 2.5) && mundo.getCam().y>(salida.y - 2.5) && mundo.getCam().y < (salida.y + 2.5))
 		return 1;
 	}
