@@ -152,16 +152,11 @@ void ControlJuego::dibuja()
 		glTranslatef(-7, -5, -10);
 
 
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::setFont("fuentes/04B_11__.ttf", 16);
 		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::printxy("SKINS: Menu de cambio de skin", -5, 11);
-		ETSIDI::printxy("Color seleccionado:", -5, 10);
-		//----------------------------------
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 30);
-		ETSIDI::printxy(&col, -5, 10);
-		//--------------------------------------
-		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-
+		ETSIDI::printxy("Color seleccionado;", -5, 10);
+		ETSIDI::printxy(&col, 11, 10);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::printxy("Pulsa -C- para volver al inicio", -5, 9);
 		ETSIDI::printxy("Usa -1- para cambiar a verde", -5, 7);
@@ -185,7 +180,7 @@ void ControlJuego::dibuja()
 			dialogo();
 			glTranslatef(-7, -5, -10);
 			ETSIDI::setTextColor(1, 0, 0);
-			ETSIDI::printxy("Coronel Sanders:", -10, 12);
+			ETSIDI::printxy("Coronel Sanders;", -10, 12);
 			ETSIDI::setTextColor(1, 1, 1);
 			ETSIDI::printxy("Python, no hay tiempo para explicaciones.", -10, 10);
 			ETSIDI::printxy("Tienes una mision de vital importancia.", -10, 9);
@@ -203,7 +198,7 @@ void ControlJuego::dibuja()
 			dialogo("imagenes/mgs_doc1.png");
 			glTranslatef(-7, -5, -10);
 			ETSIDI::setTextColor(1, 0, 0);
-			ETSIDI::printxy("Doctor Jagger", -10, 12);
+			ETSIDI::printxy("Doctor Jagger;", -10, 12);
 			ETSIDI::setTextColor(1, 1, 1);
 			ETSIDI::printxy("Al habla Jagger.", -10, 10);
 			ETSIDI::printxy("He movido algunos hilos y, en la base de datos", -10, 9);
@@ -220,7 +215,7 @@ void ControlJuego::dibuja()
 		{
 			dialogo();
 			glTranslatef(-7, -5, -10);
-			ETSIDI::printxy("deja a mi madre en paz", -5, 10);
+			ETSIDI::printxy("deja a mi madre en paz;", -5, 10);
 		}
 		else if (historia == 3)
 		{
@@ -359,19 +354,22 @@ int ControlJuego::posicionOK(int nivel)
 
 	if (nivel == 1) {
 		//Mejora: Poner centro del cuadrado de salida y meter margenes
-		Vector2D salidaLimX(-10, -7), salidaLimY(105, 110);
-		if(mundo.getCam().x > salidaLimX.x && mundo.getCam().x < salidaLimX.y && mundo.getCam().y> salidaLimY.x && mundo.getCam().y < salidaLimY.y)
+		Vector2D salida(-10, 107.5);
+		if(mundo.getCam().x > (salida.x-2.5) && mundo.getCam().x < (salida.x+2.5) && mundo.getCam().y> (salida.y-2.5) && mundo.getCam().y < (salida.y+2.5))
 			return 1;
 	}
 	else if (nivel == 2) {
-		Vector2D salidaLimX(36, 39), salidaLimY(120, 129);
-
-		//Incluir posiciones chulas
-
-		return 1;
+		Vector2D salida(36, 39), cura(1,1), acelerar(1,1);
+		if (mundo.getCam().x > (salida.x - 2.5) && mundo.getCam().x < (salida.x + 2.5) && mundo.getCam().y>(salida.y - 2.5) && mundo.getCam().y < (salida.y + 2.5))
+			return 1;
+		if (mundo.getCam().x > (cura.x - 2.5) && mundo.getCam().x < (cura.x + 2.5) && mundo.getCam().y>(cura.y - 2.5) && mundo.getCam().y < (cura.y + 2.5))
+			return 2;
+		if (mundo.getCam().x > (acelerar.x - 2.5) && mundo.getCam().x < (acelerar.x + 2.5) && mundo.getCam().y>(acelerar.y - 2.5) && mundo.getCam().y < (acelerar.y + 2.5))
+			return 3;
 	}
 	else if (nivel == 3) {
-		Vector2D salidaLimX(36, 39), salidaLimY(120, 129);
+		Vector2D salida(-10, 107.5);
+		if (mundo.getCam().x > (salida.x - 2.5) && mundo.getCam().x < (salida.x + 2.5) && mundo.getCam().y>(salida.y - 2.5) && mundo.getCam().y < (salida.y + 2.5))
 
 		//Salidas chulas
 
