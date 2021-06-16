@@ -1,4 +1,9 @@
-﻿  ControlJuego.cpp
-C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ControlJuego.cpp(38,54): warning C4838: la conversión de 'int' en 'const char' requiere una conversión de restricción
-C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\ControlJuego.cpp(38,116): warning C4838: la conversión de 'int' en 'const char' requiere una conversión de restricción
+﻿  Mundo.cpp
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mundo.cpp(131,27): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mundo.cpp(161,16): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mundo.cpp(164,16): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mundo.cpp(169,16): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mundo.cpp(172,16): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mundo.cpp(177,16): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\src\Mundo.cpp(180,16): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
   TacticalTakedown.vcxproj -> C:\Users\migue\Documents\GitHub\IngenieBROS\TacticalTakedown\bin\TacticalTakedown.exe

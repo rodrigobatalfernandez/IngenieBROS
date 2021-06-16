@@ -12,9 +12,8 @@ void ControlJuego::mueve()
 {
 	if (estado == JUEGO)
 	{
-		posicionOK(2);
 		mundo.mueve();
-		if (mundo.getEnem() == 0 && posicionOK(mundo.getNum())==1)
+		if (posicionOK(mundo.getNum())==1 && mundo.getEnem() == 0)
 		{
 			if (!mundo.cargarNivel()){
 				ETSIDI::playMusica("sonidos/Victory_bajo.mp3", false);
@@ -335,17 +334,17 @@ void ControlJuego::teclaAbajo(unsigned char key)
 			estado = PAUSA;
 		}
 		//--------------Teclas de testeo de niveles------------
-		//else if (key == 'n') {
-		//	ETSIDI::play("sonidos/Metal Gear Solid Codec Sound.wav");
-		//	estado = HISTORIA;
-		//	mundo.cargarNivel();
-		//}
+		else if (key == 'n') {
+			ETSIDI::play("sonidos/Metal Gear Solid Codec Sound.wav");
+			estado = HISTORIA;
+			mundo.cargarNivel();
+		}
 		//--------------Teclas de testeo de fin------------
-		//if (key == 'm')
-		//{
-		//	ETSIDI::playMusica("sonidos/Victory_bajo.mp3", false);
-		//	estado = FIN;
-		//}
+		if (key == 'm')
+		{
+			ETSIDI::playMusica("sonidos/Victory_bajo.mp3", false);
+			estado = FIN;
+		}
 		//-----------------------------------------------------
 		mundo.teclaAbajo(key);
 	}
